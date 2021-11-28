@@ -3,16 +3,18 @@ import Body from './components/Body/Body';
 import Footer from './components/Footer/Footer';
 import ChatPanel from './components/Chat/ChatPanel';
 import Notification from './components/Notification/Notification';
+import ChatButton from './components/ChatButton/ChatButton';
 
 function App() {
   return (
     <>
-      <div>
+      <div>        
         <Header />    
         <ChatPanel/> 
+        <ChatButton/>
         <Notification/>
         <Body />
-        <Footer />
+        <Footer />        
       </div>
     </>
   );

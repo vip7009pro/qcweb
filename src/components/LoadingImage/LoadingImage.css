@@ -1,0 +1,10 @@
+#loading_image {
+    position: fixed;
+    top: 50vh;
+    left:50%;
+    height: 5000vh; /* to make it responsive */
+    width: 100vw; /* to make it responsive */
+    overflow: hidden; /*to remove scrollbars */
+    z-index: 99999; /*to make it appear on topmost part of the page */
+    display: none; /*to make it visible only on fadeIn() function */
+}	

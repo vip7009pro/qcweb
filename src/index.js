@@ -6,7 +6,6 @@ import App from './App';
 ReactDOM.render(
   <React.StrictMode>
     <>
-    <h1> Tieu de trang web2 OK</h1>
     <App />
     </>
   </React.StrictMode>,
