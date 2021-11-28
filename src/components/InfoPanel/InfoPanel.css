@@ -1,0 +1,27 @@
+#hide_show_button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#team1_att {
+    color: blue;
+
+}
+
+#team2_att {
+    color: yellow;
+    
+}
+
+#teamHC_att {
+    color: #F3822E;
+    
+}
+
+#total_att {
+    color: #63F614;
+}
+
+#online_person {
+    color: white;    
+}

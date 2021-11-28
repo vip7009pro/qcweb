@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://14.160.33.94:100/nhansu#total_att_panel -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./QC System_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./QC System_files/style.css">
+    <link rel="stylesheet" href="./QC System_files/dataTables.bootstrap4.min.css">
+
+
+
+    <script src="./QC System_files/jquery.min.js.download"> </script>
+    <script src="./QC System_files/popper.min.js.download"> </script>
+    <script src="./QC System_files/socket.io.js.download"> </script>
+    <script src="./QC System_files/scriptlogin.js.download"></script>
+    <script src="./QC System_files/dataprocess.js.download"> </script>
+    <script src="./QC System_files/bootstrap.min.js.download"> </script>
+    <script src="./QC System_files/jquery.dataTables.min.js.download"> </script>
+    <script src="./QC System_files/dataTables.bootstrap4.min.js.download"> </script>
+    <script src="./QC System_files/tableRender.js.download"> </script>
+    <script src="./QC System_files/menu.js.download"> </script>
+
+    <title>QC System </title>
+
+
+</head>
+
+<body class="container">
+
+    <header>
+        <div id="header_content">
+            <div class="container p-3 my-3" id="basic_info">
+                <marquee direction="left" class="text-white ">
+                    <h3>Hệ thống quản lý nhân sự QC - Kiểm Tra </h3>
+                </marquee>
+
+                <button id="logout_bt" class="btn btn-primary"> Logout</button>
+            </div>
+
+
+
+            <div>
+                <button id="hide_show_button" class="btn btn-primary">-</button>
+                <div class="container p-3 my-3 bg-dark text-white " id="empl_info">
+                    <div id="dong1">
+                        <div id="cot1">
+                            <h5>
+                            </h5>
+                            <h5>Thông tin nhân viên:</h5>
+                            <ul>                               
+                                <li> Họ và tên: NGUYỄN VĂN HÙNG3</li>
+                                <li> Mã nhân sự: CMS1179</li>
+                                <li> Mã ERP: NHU1903</li>
+                                <li> Ngày tháng năm sinh: 1993-10-18</li>
+                                <li> Quê quán: Phụ Thọ - Đông Xuân - Sóc Sơn - Hà Nội</li>
+                                <li> Địa chỉ: Thôn Phú Thọ-Đông Xuân-Sóc Sơn-Hà Nội</li>
+                                <li> Bộ phận chính: QC</li>
+                                <li> Bộ phận phụ: PD</li>
+                                <li> Vị trí làm việc: PD</li>
+                                <li> Nhóm điểm danh: 1</li>
+                                <li> Chức vụ: Dept Staff</li>
+                            </ul>
+
+                        </div>
+                        <div id="cot2">
+                            <h5>
+                                <div id="att_refresh" align="center">
+                                    <h5>Thông tin điểm danh</h5>
+                                    <ul align="left" style=" background-color: rgba(255, 255, 255,0.2);">
+                                        <li style="color: blue;"> Điểm danh team 1: 10/108
+                                        </li>
+                                        <li style="color: yellow;"> Điểm danh team 2: 11/97
+                                        </li>
+                                        <li style="color: #F3822E;"> Điểm danh team HC: 8/48
+                                        </li>
+                                        <li style="color: #63F614;"><b> Tổng điểm danh: 29/253 </b></li>
+                                        <li style="color: white;"> Người Online: HƯƠNG, DUY, HÙNG3, HẰNG, THƯ, THU,
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="check_chua_pd"> </div>
+
+                            </h5>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <br>
+                    <marquee direction="left">Chúc anh chị em ngày mới tốt lành !</marquee>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+        <button id="hide_show_button2">
+            <img src="./QC System_files/messenger.png" width="50px" height="50px">
+        </button>
+        <div id="chat_panel" style="display: none;">
+            <fieldset">
+                <legend>
+                    <h3 style="color: rgb(44 36 251);;">Chat tổng</h3>
+                </legend>
+                <b>
+                    <p id="chat_name" style="color:green;">
+                        NGUYỄN VĂN HÙNG3
+                    </p>
+                </b>
+
+                <br>
+                <div id="chat_content"></div>
+
+                <input id="chat_message" placeholder="Viết tin nhắn vào đây.">
+                <button class="btn-success" id="chat_sendMessage">SEND</button>
+
+            </fieldset">
+        </div>
+        <div id="notification_bar" style="display: none;">
+            <h6><b>Thông báo</b></h6>
+            <div id="notifi_content"></div>
+        </div>
+
+
+
+        <div class="container" id="web-body">
+
+            <div id="loading_image" align="center" style="display: none;">
+                <img src="./QC System_files/loading.gif">
+            </div>
+
+
+
+
+            <div class="container" id="content">
+                <h2>Chọn hạng mục</h2>
+                <!-- Nav tabs -->
+                <!-- <button  id="nav_show_btn" class = "btn-primary">Menu</button> -->
+                <div id="menu_div">
+                    <button id="nav_show_btn">
+                        <img src="./QC System_files/menu_button.png" width="35px" height="35px">
+                    </button>
+
+                    <ul class="topnav nav nav-tabs" id="myTopnav" style="display: block;">
+                        <li class="nav-item active">
+                            <a style="color:white;" class="nav-link" href="http://14.160.33.94:100/nhansu#home"><b>Đăng
+                                    ký nghỉ</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white;" class="nav-link"
+                                href="http://14.160.33.94:100/nhansu#overtime"><b>Đăng ký tăng ca</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white;" class="nav-link" href="http://14.160.33.94:100/nhansu#menu1"
+                                id="off_history"><b>Lịch sử nghỉ</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white;" class="nav-link" href="http://14.160.33.94:100/nhansu#tradiemdanh"
+                                id="diemdanh_history"><b>Lịch sử điểm
+                                    danh</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white;" class="nav-link" href="http://14.160.33.94:100/nhansu#approve"
+                                id="check_approve"><b>Phê duyệt nghỉ</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white;" class="nav-link" href="http://14.160.33.94:100/nhansu#diemdanh"
+                                id="attendance"><b>Điểm danh nhóm</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white;" class="nav-link"
+                                href="http://14.160.33.94:100/nhansu#total_att_panel" id="attendance_total"><b>Điểm danh
+                                    tổng</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white;" class="nav-link" href="http://14.160.33.94:100/nhansu#hr_modify"
+                                id="setteam"><b>Điều chuyển team</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white;" class="nav-link" href="http://14.160.33.94:100/nhansu#huongdansd"
+                                id="manual"><b>Hướng dẫn sử dụng</b></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane active"><br>
+                        <h3>Đăng ký xin nghỉ</h3>
+                        <p>Nhập thông tin vào form để đăng ký nghỉ</p>
+
+                        <form id="form_dk_nghi" method="post">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1"><b>Chọn ca</b></label>
+                                <select class="form-control" id="ca_nghi" name="ca_nghi">
+                                    <option>Ca ngày</option>
+                                    <option>Ca đêm</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date"><b>Nghỉ từ ngày <p id="time_1">(08:00)</p></b></label> <br>
+                                <input type="date" id="nghi_from_date" name="ngaybatdau">
+                                <br>
+                                <label for="date"><b>Nghỉ tới ngày<p id="time_2">(17:00)</p> </b></label> <br>
+                                <input type="date" id="nghi_to_date" name="ngayketthuc">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1"><b>Chọn kiểu nghỉ</b></label>
+                                <select class="form-control" id="reason" name="reason_name">
+                                    <option>Nghỉ phép</option>
+                                    <option>Nửa phép</option>
+                                    <option>Việc riêng</option>
+                                    <option>Nghỉ ốm</option>
+                                    <option>Chế độ</option>
+                                    <option>Không lý do</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="text"><b>Lý do cụ thể:</b></label>
+                                <input type="text" class="form-control" placeholder="Lý do sự việc nghỉ cụ thể"
+                                    id="nghi_remark" name="remark_content">
+                            </div>
+                            <button type="button" class="btn btn-primary" id="smt_button">Đăng ký</button>
+                        </form>
+                    </div>
+                    <div id="overtime" class="container tab-pane fade"><br>
+                        <h3>Tăng ca</h3>
+                        <p>Đăng ký tăng ca trong ngày tại đây</p>
+                        <form id="form_dk_tangca" method="post">
+                            <div class="form-group">
+                                <label for="tangcayesno"><b>Bạn có tăng ca hay không ?</b></label>
+                                <select class="form-control" id="tangcayesno" name="tangcayesno">
+                                    <option>Có tăng ca</option>
+                                    <option>Không tăng ca</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="text"><b>Thời gian bắt đầu:</b> <i>(Ví dụ 17h00p thì nhập : 1700)
+                                    </i></label>
+                                <input type="text" class="form-control" placeholder="Giờ bắt đầu tăng ca"
+                                    id="over_start" name="over_start">
+                            </div>
+                            <div class="form-group">
+                                <label for="text"><b>Thời gian kết thúc:</b> <i>(Ví dụ 20h00p thì nhập : 2000)
+                                    </i></label>
+                                <input type="text" class="form-control" placeholder="Giờ kết thúc tăng ca"
+                                    id="over_finish" name="over_finish">
+                            </div>
+
+                        </form>
+                        <button class="btn btn-primary" id="overtime_submit">Đăng ký hôm nay</button>
+                        <button class="btn btn-success" id="overtime_submit_confirm">Confirm hôm qua</button>
+                    </div>
+                    <div id="menu1" class="container tab-pane fade"><br>
+                        <h3>Tra lịch sử nghỉ của bản thân</h3>
+                        <p>Tra cứu lịch sử nghỉ của bản thân tại đây</p>
+                        <div class="container">
+                            <button type="button" id="changeview_offhistory" class="btn btn-info"> Mở rộng/ Thu hẹp
+                            </button>
+                            <div class="rendered_table" id="off_data">
+                                Lich su nghi
+                            </div>
+                        </div>
+                    </div>
+                    <div id="hr_modify" class="container tab-pane fade"><br>
+                        <h3>Điều chuyển nhân sự qua lại giữa các team</h3>
+                        <p>Leader mới có thể thực hiện điều chuyển</p>
+                        <div class="container">
+                            <button type="button" id="changeview_hr_modify" class="btn btn-info"> Mở rộng/ Thu hẹp
+                            </button>
+                            <div class="rendered_table" id="hr_modify_list">
+                                Danh sách nhân lực tại bộ phận
+                            </div>
+                        </div>
+                    </div>
+                    <div id="diemdanh" class="container tab-pane fade"><br>
+                        <div class="container">
+
+                            <form id="form_diem_danh" method="post">
+                                <div class="form-group">
+                                    <label for="team_name"><b>Chọn team để điểm danh</b></label>
+                                    <select class="form-control" id="team_name" name="team_name">
+                                        <option>Tất cả</option>
+                                        <option>TEAM 1 + Hành chính</option>
+                                        <option>TEAM 2+ Hành chính</option>
+                                        <option>TEAM 1</option>
+                                        <option>TEAM 2</option>
+                                        <option>Hành chính</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <button type="button" class="btn btn-primary" id="nhom_att_button">Tra cứu team</button>
+                            <button type="button" id="changeview_empl" class="btn btn-info"> Mở rộng/ Thu hẹp </button>
+                            <div class="rendered_table" id="empl_list">
+                                Danh sách nhân lực tại bộ phận
+                            </div>
+                        </div>
+                    </div>
+                    <div id="approve" class="container tab-pane fade"><br>
+                        <h3>Leader phê duyệt nghỉ</h3>
+                        <p>Chỉ leader truy cập được nội dung này</p>
+                        <form action="http://14.160.33.94:100/process_data.php" method="post">
+                            <div class="form-group">
+                                <label for="date"><b>Từ ngày </b></label> <br>
+                                <input type="date" id="tra_from_date" name="ngaybatdau">
+                                <br>
+                                <label for="date"><b>Tới ngày </b></label><br>
+                                <input type="date" id="tra_to_date" name="ngayketthuc">
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-primary" id="trapheduyet">Tra cứu nghỉ</button>
+                        <button type="button" id="changeview_duyet" class="btn btn-info"> Mở rộng/ Thu hẹp </button>
+                        <div class="rendered_table" id="off_approve">
+                            Lich su nghi
+                        </div>
+                    </div>
+                    <div id="tradiemdanh" class="container tab-pane fade"><br>
+                        <h3>Tra cứu lịch sử đi làm</h3>
+                        <p>Tra lịch sử điểm danh tại đây</p>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="date"><b>Từ ngày </b></label> <br>
+                                <input type="date" id="dd_from_date" name="start_date">
+                                <br>
+                                <label for="date"><b>Tới ngày </b></label><br>
+                                <input type="date" id="dd_to_date" name="end_date">
+                            </div>
+                            <button type="button" class="btn btn-primary" id="getdiemdanh">Tra điểm danh</button>
+                        </form>
+
+                        <button type="button" id="changeview_diemdanh" class="btn btn-info"> Mở rộng/ Thu hẹp </button>
+                        <div class="rendered_table" id="attendance_history">
+                            Lich su diem danh
+                        </div>
+                    </div>
+                    <div id="huongdansd" class="container tab-pane fade"><br>
+                        <h3>Hướng dẫn sử dụng hệ thống của chúng ta</h3> <br>
+                        <p>Đọc kỹ hướng dẫn sử dụng trước khi dùng</p><br>
+                        <b> Hướng dẫn sử dụng hệ thống </b><br>
+                        <b>0. Định nghĩa về ca. </b><br>
+                        Định nghĩa về CA. <br>
+                        Những bộ phận hành chính, và bộ phận có nhân lực đổi ca ngày đêm, sẽ được chia thành 3 team:
+                        Team 1, Team 2 và Team Hành Chính. Team 1, Team 2 sẽ liên tục đổi ca cho nhau ngày sang đêm, và
+                        đêm sang ngày.
+
+                        Ví dụ tuần này <br>
+                        Ca ngày gồm : Team 1 + Hành chính. <br>
+                        Ca đêm gồm : Team 2 <br>
+                        Nhưng sang tuần sau:<br>
+                        Ca ngày gồm : Team 2 + Hành chính. <br>
+                        Ca đêm gồm : Team 1 <br>
+                        - Chuyển ca:
+                        Là việc chuyển người từ Team 1 sang Team 2 hoặc sang Team Hành chính và ngược lại. <br>
+
+
+                        <b>1. Đăng ký xin nghỉ. </b><br>
+                        - Quy tắc: Chọn ca nghỉ (Ca ngày hoặc Ca đêm)<br>
+                        Nếu nghỉ ca ngày: Nếu chọn ngày nào thì sẽ tính nghỉ ngày đó. <br>
+                        Ví dụ trên form nhập <br>
+                        Nghỉ từ 8h ngày 10/08/2021<br>
+                        Nghỉ tới 17h ngày 15/08/2021<br>
+
+                        Ngày được tính nghỉ là ngày 10 tới ngày 15<br>
+                        Nếu nghỉ ca đêm: <br>
+                        Ví dụ trên form nhập <br>
+                        Nghỉ từ 20h ngày 10/08/2021<br>
+                        Nghỉ tới 05h ngày 15/08/2021<br>
+                        thì ngày được tính nghỉ sẽ là ngày 10 tới ngày 14<br>
+                        =&gt; Xin nghỉ có hiệu lực khi được phê duyệt. Sau khi đăng ký xin nghỉ, hãy liên hệ leader để
+                        được phê duyệt.<br>
+
+                        <b>2. Đăng ký tăng ca.</b><br>
+                        Hàng ngày nếu tăng ca phải vào đăng ký tăng ca. Báo cáo tăng ca gửi nhân sự sẽ dựa vào thông tin
+                        đăng ký của nhân viên. Vậy, k đăng ký tăng ca thì báo cáo tăng ca gửi nhân sự sẽ k có tên.<br>
+                        - Chú ý nhập thời gian đúng định dạng yêu cầu.<br>
+
+                        - Mặc định điểm danh xong Trạng thái tăng ca sẽ là chưa đky tăng ca và sẽ hiện ra 4 nút ở ô
+                        DANG_KY_TANG_CA (như hình) <br>
+                        - Điểm danh rồi mới đăng ký tăng ca được. <br>
+                        - Có thể reset trạng thái tăng ca, nếu muốn thay đổi (thời gian RESET giới hạn : 7h tới 15h30
+                        hàng ngày). Sau 15h30 ko thay đổi được trạng thái tăng ca nữa nhé. <br>
+                        =&gt; Đúng chủ trương tăng ca tự nguyện.<br>
+                        <b>3. Lịch sử nghỉ.</b><br>
+                        - Tra lại các lần xin nghỉ của người dùng. (người đăng nhập). Các thông tin về lần nghỉ và tình
+                        trạng phê duyệt.<br>
+                        <b>4. Lịch sử điểm danh</b><br>
+                        - Tra lại lịch sử điểm danh của bản thân trong khoảng thời gian đã chọn. (Bảng công)<br>
+                        <b>5. Phê duyệt nghỉ (Chỉ dành cho leader)</b><br>
+                        - Leader vào phê duyệt các yêu cầu xin nghỉ của công nhân, nhân viên.<br>
+                        - Có 3 trạng thái phê duyệt.<br>
+                        + Mới đầu khi công nhân, nhân viên đăng ký xin nghỉ, sẽ xuất hiện 2 nút PHÊT DUYỆT và TỪ
+                        CHỐI.<br>
+                        Sau khi PHÊ DUYỆT hoặc TỪ CHỐI, sẽ sinh ra 1 nút HỦY.<br>
+                        Leader có thể hủy phê duyệt, tuy nhiên sẽ k thể phê duyệt lại được nữa, mà fai làm form đăng ký
+                        xin nghỉ lại.<br>
+                        Lúc đó đơn xin nghỉ sẽ có trạng thái ĐÃ HỦY<br>
+                        <b>6. Điểm danh nhóm (Chỉ dành cho leader nhóm đó)</b><br>
+                        Các leader hàng ngày vào điểm danh thành viên trong nhóm của mình.<br>
+                        Cách điểm danh nhóm:
+                        Đăng nhập =&gt; Chọn tab điểm danh nhóm =&gt; Xác định Team đang làm việc vào ca nào
+                        Có tất cả 19 nhóm điểm danh: <br>
+                        <i>Nhóm 1.QC, PD, DATA, ISO, MISSCLEAN, SYSTEM</i><br>
+                        <i>Nhóm 3.IQC1</i><br>
+                        <i>Nhóm 5.PQC1</i><br>
+                        <i>Nhóm 6.PQC3</i><br>
+                        <i>Nhóm 7.PQC_LQCA</i><br>
+                        <i>Nhóm 8.PQC_LQCB</i><br>
+                        <i>Nhóm 9.PQC_LQC2</i><br>
+                        <i>Nhóm 10.PQC_LQC3</i><br>
+                        <i>Nhóm 11.OQC1</i><br>
+                        <i>Nhóm 12.OQC3</i><br>
+                        <i>Nhóm 13.KTXA1</i><br>
+                        <i>Nhóm 14.KT3U1</i><br>
+                        <i>Nhóm 15.CS</i><br>
+                        <i>Nhóm 16.DTC1</i><br>
+                        <i>Nhóm 22.KTXA2</i><br>
+                        <i>Nhóm 23.KTXB1</i><br>
+                        <i>Nhóm 24.KTXB2</i><br>
+                        <i>Nhóm 25.KT3RS1</i><br>
+                        <i>Nhóm 26.KT3RS2</i><br>
+                        1 người, 1 ngày sẽ có 3 trạng thái. <br>
+                        <b>LÀM, NGHỈ, CHƯA ĐIỂM DANH.</b><br>
+                        - Người có đăng ký xin nghỉ vào ngày điểm danh, sẽ ko thể đánh "LÀM", bắt buộc phải hủy đơn đăng
+                        ký nghỉ vào ngày đó mới có thể điểm danh. <br>
+                        <i>Danh sách chỉ hiển thị những người đang đi làm bình thường, ko tính đã nghỉ việc và nghỉ
+                            sinh. Nếu có người nghỉ sinh đi làm trở lại, hoặc có người đang đi làm nghỉ sinh, báo cho
+                            leader để thay đổi trạng thái làm việc của những người đó.</i> <br>
+                        Hàng ngày hoàn thành điểm danh trước 8h05 vào ca ngày, và trước 20h05 vào ca đêm.<br>
+                        <i><b style="color:blue;"> Nếu điểm danh nhầm có thể bấm RESET để điểm danh lại, thời gian RESET
+                                cho phép là 07h00-&gt; 08h10 và 19h00-&gt;20h10 hàng ngày</b></i><br>
+                        <b>7. Điểm danh nhóm (Chỉ dành cho leader)</b><br>
+                        Tra cứu tình hình điểm danh theo phòng ban hoặc toàn bộ QC + Kiểm tra. <br>
+                        <i><b style="color:#FF5C04;"> Chú ý, khi có nhân viên mới, có người nghỉ việc hoặc nghỉ sinh,
+                                hoặc nghỉ sinh đi làm trở lại, phải lên báo leader để cập nhật và đăng ký vào hệ thống
+                            </b></i>
+                    </div>
+                    <div id="total_att_panel" class="container tab-pane fade"><br>
+                        <form id="total_att_form" method="post">
+
+                            <div class="form-group">
+                                <label for="team_name"><b>Chọn team</b></label>
+                                <select class="form-control" id="team_name_total" name="team_name_total">
+                                    <option>Tất cả</option>
+                                    <option>TEAM 1 + Hành chính</option>
+                                    <option>TEAM 2+ Hành chính</option>
+                                    <option>TEAM 1</option>
+                                    <option>TEAM 2</option>
+                                    <option>Hành chính</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="main_deparment_name"><b>Chọn bộ phận chính </b></label>
+                                <select class="form-control" id="main_deparment_name" name="main_deparment_name">
+                                    <option>Toàn bộ</option>
+                                    <option>QC</option>
+                                    <option>INSPECTION</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="deparment_name"><b>Chọn bộ phận phụ </b></label>
+                                <select class="form-control" id="deparment_name" name="deparment_name">
+                                    <option>Toàn bộ</option>
+                                    <option>QC</option>
+                                    <option>PD</option>
+                                    <option>IQC</option>
+                                    <option>PQC1</option>
+                                    <option>PQC3</option>
+                                    <option>KT1</option>
+                                    <option>KT3</option>
+                                    <option>OQC</option>
+                                    <option>CS</option>
+                                    <option>ĐỘ TIN CẬY</option>
+                                    <option>ISO</option>
+                                    <option>DATA</option>
+                                    <option>MISS CLEAN</option>
+
+                                </select>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="date"><b>Từ ngày </b></label> <br>
+                                <input type="date" id="from_date_total" name="from_date_total">
+                                <br>
+                                <label for="date"><b>Tới ngày </b></label> <br>
+                                <input type="date" id="to_date_total" name="to_date_total">
+                            </div>
+
+                            <!--		  
+<div class="form-group">
+<label for="text"><b>Lý do cụ thể:</b></label>
+<input type="text" class="form-control" placeholder="Lý do sự việc nghỉ cụ thể" id="remark" name="remark_content">
+</div>  			  
+-->
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="nghisinhcheckbox">
+                                <label class="form-check-label" for="checkbox"><b>Tính cả nghỉ sinh</b></label>
+                            </div>
+                            <br>
+
+                        </form>
+                        <button type="button" class="btn btn-primary" id="total_att_button">Tra cứu</button>
+
+                        <button type="button" id="changeview_diemdanh_total" class="btn btn-info"> Mở rộng/ Thu hẹp
+                        </button>
+
+                        <div class="rendered_table" id="total_att_table"></div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="table"></div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container" id="footer">
+            <!-- views/partials/footer.ejs -->
+            <div class="jumbotron">
+                <h1>Chào bạn đến với phòng QC</h1>
+                <p>Chào bạn đến với thế giới của loài người :V</p>
+            </div>
+            <div id="check_chua_pd"> </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+</body>
+
+</html>
