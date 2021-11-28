@@ -4,7 +4,7 @@ import '../Footer/Footer.css'
 export default function Footer() {
     return (
         <div>
-            
+            <h1> Footer day roi</h1>
         </div>
     )
 }
