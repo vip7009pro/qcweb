@@ -5,11 +5,11 @@ export default function ChatPanel() {
         <div id="chat_panel">
             <fieldset>
                 <legend>
-                    <h3>Chat tổng toàn bộ phận</h3>
+                    <h3>Chat tổng toàn bộ phận QC</h3>
                 </legend>
                 <b>
                     <p id="chat_name">
-                        NGUYỄN VĂN HÙNG3
+                        NGUYỄN VĂN HÙNG33
                     </p>
                 </b>               
                 <div id="chat_content"></div>
