@@ -1,5 +1,5 @@
 import React from 'react'
-import '../bootstrap.min.css'
+import '../Banner/Banner.css'
 export default function Banner(props) {
     return (        
         <div className="container p-3 my-3" id="basic_info">
@@ -8,6 +8,5 @@ export default function Banner(props) {
             </marquee>
             <button id="logout_bt" className="btn btn-primary"> Logout</button>
         </div>
-
     )
 }

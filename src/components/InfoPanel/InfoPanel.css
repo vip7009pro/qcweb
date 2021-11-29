@@ -1,27 +1,65 @@
+#empl_info {
+    background-image: linear-gradient(0deg, #16df63,#0c49f1);
+    background-size: cover;			
+    border-radius: 5px;
+}
+div#empl_info {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
 #hide_show_button {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 #team1_att {
     color: blue;
 
 }
-
 #team2_att {
     color: yellow;
     
 }
-
 #teamHC_att {
     color: #F3822E;
     
 }
-
 #total_att {
     color: #63F614;
 }
-
 #online_person {
     color: white;    
+}
+
+
+@media  screen and (min-width: 200px) {
+    #cot1 {
+        width: 100%;               
+    }
+    #cot2 {
+        width: 100%;               
+    }
+
+}
+
+@media  screen and (min-width: 500px) {
+    #cot1 {
+        width: 100%;               
+        }
+    
+    #cot2 {
+        width: 100%;               
+    }
+
+}
+
+@media  screen and (min-width: 1024px) {
+    #cot1 {
+        width: 60%;
+        float: left;
+    }
+ 
+    #cot2 {
+        width: 40%;
+        float: right;
+    }
+
 }

@@ -1,15 +1,7 @@
 
-#basic_info {
-    background-image: linear-gradient(0deg, #0a7abb,#0cd4d4);
-    background-size: cover;			 
-    border-radius:2px;
-}
 
-#empl_info {
-    background-image: linear-gradient(0deg, #16df63,#0c49f1);
-    background-size: cover;			
-    border-radius: 5px;
-}
+
+
 
 .nav-item{
     background-image: linear-gradient(0deg, #1db318,#1dd8e6);
@@ -52,12 +44,7 @@
         padding-left: 5px;
     }
 
-    #cot1 {
-        width: 100%;               
-    }
-    #cot2 {
-        width: 100%;               
-    }
+  
     #myTopnav {
         
         display: none;
@@ -91,11 +78,7 @@
 
     
  
-    #hide_show_button {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
+   
    
     fieldset {
         margin-left: 10px;
@@ -106,9 +89,7 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
      }
 
-     div#empl_info {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-     }
+    
      div#basic_info {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
      }
@@ -144,13 +125,7 @@
         padding-left: 5px;
     }
 
-    #cot1 {
-    width: 100%;               
-    }
-
-    #cot2 {
-        width: 100%;               
-    }
+   
     #myTopnav {        
         display: none;
     }
@@ -171,11 +146,6 @@
 
 
 
-#hide_show_button {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 
 fieldset {
     margin-left: 10px;
@@ -187,9 +157,7 @@ div#chat_panel {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
  }
 
- div#empl_info {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
- }
+
  div#basic_info {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
  }
@@ -225,15 +193,7 @@ div#chat_panel {
         padding-left: 5px;
     }
 
-    #cot1 {
-        width: 60%;
-        float: left;
-    }
- 
-    #cot2 {
-        width: 40%;
-        float: right;
-    }
+    
 
     #myTopnav {
      display: none;    
@@ -294,9 +254,7 @@ div#chat_panel {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
      }
 
-     div#empl_info {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-     }
+   
      div#basic_info {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
      }
@@ -314,11 +272,7 @@ div#chat_panel {
  
 
  
-     #hide_show_button {
-         margin-top: 10px;
-         margin-bottom: 10px;
-     }
- 
+  
    
  
      fieldset {

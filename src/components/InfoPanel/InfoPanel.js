@@ -1,4 +1,3 @@
-import '../bootstrap.min.css'
 import React from 'react'
 import '../InfoPanel/InfoPanel.css'
 
