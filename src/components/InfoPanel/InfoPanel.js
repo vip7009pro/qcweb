@@ -4,11 +4,10 @@ import '../InfoPanel/InfoPanel.css'
 export default function InfoPanel() {
     return (
         <div id="info_panel">
-            <button id="hide_show_button" class="btn btn-primary">-</button>
-            <div class="container p-3 my-3 bg-dark text-white " id="empl_info">
+            <button id="hide_show_button" className="btn btn-primary">-</button>
+            <div className="container p-3 my-3 bg-dark text-white " id="empl_info">
                 <div id="dong1">
-                    <div id="cot1">
-                        <h5>
+                    <div id="cot1">                        
                             <h5>Thông tin nhân viên:</h5>
                             <ul>
                                 <li> Họ và tên: NGUYỄN VĂN HÙNG3</li>
@@ -22,8 +21,7 @@ export default function InfoPanel() {
                                 <li> Vị trí làm việc: PD</li>
                                 <li> Nhóm điểm danh: 1</li>
                                 <li> Chức vụ: Dept Staff</li>
-                            </ul>
-                        </h5>
+                            </ul>                       
                     </div>
                     <div id="cot2">
                         <h5>
