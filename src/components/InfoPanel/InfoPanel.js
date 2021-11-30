@@ -27,7 +27,7 @@ export default function InfoPanel() {
                     </div>
                     <div id="cot2">
                         <h5>
-                            <div id="att_refresh" align="center">
+                            <div id="att_refresh" align="left">
                                 <h5>Thông tin điểm danh</h5>
                                 <ul align="left">
                                     <li id="team1_att"> Điểm danh team 1: 10/108
