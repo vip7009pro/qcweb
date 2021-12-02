@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="./QC System_files/style.css">
     <link rel="stylesheet" href="./QC System_files/dataTables.bootstrap4.min.css">
 
-
-
     <script src="./QC System_files/jquery.min.js.download"> </script>
     <script src="./QC System_files/popper.min.js.download"> </script>
     <script src="./QC System_files/socket.io.js.download"> </script>
@@ -465,8 +463,6 @@
                                 </select>
                             </div>
 
-
-
                             <div class="form-group">
                                 <label for="main_deparment_name"><b>Chọn bộ phận chính </b></label>
                                 <select class="form-control" id="main_deparment_name" name="main_deparment_name">
@@ -475,7 +471,6 @@
                                     <option>INSPECTION</option>
                                 </select>
                             </div>
-
 
                             <div class="form-group">
                                 <label for="deparment_name"><b>Chọn bộ phận phụ </b></label>
@@ -494,7 +489,6 @@
                                     <option>ISO</option>
                                     <option>DATA</option>
                                     <option>MISS CLEAN</option>
-
                                 </select>
                             </div>
 
@@ -508,24 +502,14 @@
                                 <input type="date" id="to_date_total" name="to_date_total">
                             </div>
 
-                            <!--		  
-<div class="form-group">
-<label for="text"><b>Lý do cụ thể:</b></label>
-<input type="text" class="form-control" placeholder="Lý do sự việc nghỉ cụ thể" id="remark" name="remark_content">
-</div>  			  
--->
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="nghisinhcheckbox">
                                 <label class="form-check-label" for="checkbox"><b>Tính cả nghỉ sinh</b></label>
                             </div>
                             <br>
-
                         </form>
                         <button type="button" class="btn btn-primary" id="total_att_button">Tra cứu</button>
-
-                        <button type="button" id="changeview_diemdanh_total" class="btn btn-info"> Mở rộng/ Thu hẹp
-                        </button>
-
+                        <button type="button" id="changeview_diemdanh_total" class="btn btn-info">Mở rộng/ Thu hẹp</button>
                         <div class="rendered_table" id="total_att_table"></div>
 
                     </div>

@@ -7,9 +7,9 @@ import Body from '../Body/Body'
 export default function Main() {
     return (
         <div>
-            <ChatButton/>
+            {/* <ChatButton/>
             <ChatPanel/>
-            <Notification/>
+            <Notification/> */}
             <Body/>
         </div>
     )

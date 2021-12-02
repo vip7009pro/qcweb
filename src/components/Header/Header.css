@@ -1,6 +1,6 @@
 .container {
     min-width: 200px;
     width: 100%;
-    padding-right: 0px;
-    padding-left: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
 }

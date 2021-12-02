@@ -5,7 +5,7 @@ import '../Content/Content.css'
 export default function Content() {
     return (
         <div id="content">
-            <NavMenu/>
+            {/* <NavMenu/> */}
             <Tabs/>
         </div>
     )
