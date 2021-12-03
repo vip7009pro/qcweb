@@ -16,7 +16,7 @@ function Rd()
 {
     return (
         <div>
-            <h1>OK MA</h1>
+            <h1>OK MA 2</h1>
         </div>
     )
 }

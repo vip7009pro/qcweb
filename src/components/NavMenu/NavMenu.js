@@ -9,41 +9,41 @@ export default function NavMenu() {
 
             <ul className="topnav nav nav-tabs" id="myTopnav" style={{display: "block"}}>
                 <li className="nav-item active">
-                    <a style={{ color: "white" }} className="nav-link" href="http://14.160.33.94:100/nhansu#home"><b>Đăng
+                    <a style={{ color: "white" }} className="nav-link" href="#home"><b>Đăng
                         ký nghỉ</b></a>
                 </li>
                 <li className="nav-item">
                     <a style={{ color: "white" }} className="nav-link"
-                        href="http://14.160.33.94:100/nhansu#overtime"><b>Đăng ký tăng ca</b></a>
+                        href="#overtime"><b>Đăng ký tăng ca</b></a>
                 </li>
                 <li className="nav-item">
-                    <a style={{ color: "white" }} className="nav-link" href="http://14.160.33.94:100/nhansu#menu1"
+                    <a style={{ color: "white" }} className="nav-link" href="#menu1"
                         id="off_history"><b>Lịch sử nghỉ</b></a>
                 </li>
                 <li className="nav-item">
-                    <a style={{ color: "white" }} className="nav-link" href="http://14.160.33.94:100/nhansu#tradiemdanh"
+                    <a style={{ color: "white" }} className="nav-link" href="#tradiemdanh"
                         id="diemdanh_history"><b>Lịch sử điểm
                             danh</b></a>
                 </li>
                 <li className="nav-item">
-                    <a style={{ color: "white" }} className="nav-link" href="http://14.160.33.94:100/nhansu#approve"
+                    <a style={{ color: "white" }} className="nav-link" href="#approve"
                         id="check_approve"><b>Phê duyệt nghỉ</b></a>
                 </li>
                 <li className="nav-item">
-                    <a style={{ color: "white" }} className="nav-link" href="http://14.160.33.94:100/nhansu#diemdanh"
+                    <a style={{ color: "white" }} className="nav-link" href="#diemdanh"
                         id="attendance"><b>Điểm danh nhóm</b></a>
                 </li>
                 <li className="nav-item">
                     <a style={{ color: "white" }} className="nav-link"
-                        href="http://14.160.33.94:100/nhansu#total_att_panel" id="attendance_total"><b>Điểm danh
+                        href="#total_att_panel" id="attendance_total"><b>Điểm danh
                             tổng</b></a>
                 </li>
                 <li className="nav-item">
-                    <a style={{ color: "white" }} className="nav-link" href="http://14.160.33.94:100/nhansu#hr_modify"
+                    <a style={{ color: "white" }} className="nav-link" href="#hr_modify"
                         id="setteam"><b>Điều chuyển team</b></a>
                 </li>
                 <li className="nav-item">
-                    <a style={{ color: "white" }} className="nav-link" href="http://14.160.33.94:100/nhansu#huongdansd"
+                    <a style={{ color: "white" }} className="nav-link" href="#huongdansd"
                         id="manual"><b>Hướng dẫn sử dụng</b></a>
                 </li>
             </ul>
