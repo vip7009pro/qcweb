@@ -1,16 +1,12 @@
 import React from 'react'
-import Tabs from '../Tabs/Tabs'
 import '../Content/Content.css'
-import Draggable from 'react-draggable'
+
+import NavMenu from '../NavMenu/NavMenu'
 
 export default function Content() {
     return (
         <div id="content">
-            <Draggable>
-                <div id = "drag">                    
-                     <Tabs TabName="1"/> 
-                </div>               
-            </Draggable>
+            <NavMenu/>
         </div>
     )
 }

@@ -9,46 +9,51 @@ import FormHuongDanSuDung from './FormHuongDanSuDung/FormHuongDanSuDung'
 import FormLichSuDiLam from './FormLichSuDiLam/FormLichSuDiLam'
 import FormLichSuNghi from './FormLichSuNghi/FormLichSuNghi'
 import FormSetTeam from './FormSetTeam/FormSetTeam'
-import NavMenu from '../NavMenu/NavMenu'
 
 
-function Rd()
-{
-    return (
-        <div>
-            <h1>OK MA 2</h1>
-        </div>
-    )
-}
 export default function Tabs(props) {
-    const [formNo,setFormNo] = useState(props.TabName);
-
+    let formNo = props.TabName;
+    console.log(props.TabName);
     switch (formNo) {
         case '1':
-            return (<div id="dkn" className="container">  <Rd/> <NavMenu/> <FormDangKyNghi /> </div>);
+            return (<div id="dkn" className="container"><FormDangKyNghi /> </div>);
+            console.log("Tab dc chon:1");
             break;
         case '2':
-            return (<div id="dkn" className="container">  <NavMenu/> <FormDangKyTangCa /> </div>);
+            return (<div id="dkn" className="container"><FormDangKyTangCa /> </div>);
+            console.log("Tab dc chon:2");
             break;
         case '3':
-            return (<div id="dkn" className="container">  <NavMenu/> <FormLichSuNghi /> </div>);
+            return (<div id="dkn" className="container"><FormLichSuNghi /> </div>);
+            console.log("Tab dc chon:3");
             break;
         case '4':
-            return (<div id="dkn" className="container">  <NavMenu/> <FormLichSuDiLam /> </div>);
+            return (<div id="dkn" className="container"><FormLichSuDiLam /> </div>);
+            console.log("Tab dc chon:5");
             break;
         case '5':
-            return (<div id="dkn" className="container">  <NavMenu/> <FormDiemDanhNhom /> </div>);
+            return (<div id="dkn" className="container"><FormDiemDanhNhom /> </div>);
+            console.log("Tab dc chon:6");
             break;
         case '6':
-            return (<div id="dkn" className="container">  <NavMenu/> <FormDiemDanhTong /> </div>);
+            return (<div id="dkn" className="container"><FormDiemDanhNhom /> </div>);
+            console.log("Tab dc chon:6");
             break;
         case '7':
-            return (<div id="dkn" className="container">  <NavMenu/> <FormSetTeam /> </div>);
+            return (<div id="dkn" className="container"><FormDiemDanhTong /> </div>);
+            console.log("Tab dc chon:7");
             break;
         case '8':
-            return (<div id="dkn" className="container">  <NavMenu/> <FormHuongDanSuDung /> </div>);
+            return (<div id="dkn" className="container"><FormSetTeam /> </div>);
+            console.log("Tab dc chon:8");
+            break;
+        case '9':
+            return (<div id="dkn" className="container"><FormHuongDanSuDung /> </div>);
+            console.log("Tab dc chon:9");
             break;
         default:
+            return (<div id="dkn" className="container">Tham số truyền vào đéo đúng </div>);
+            console.log("Tab dc chon:10");
             break;
-    }    
+    }
 }
