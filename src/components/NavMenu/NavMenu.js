@@ -24,7 +24,6 @@ export default function NavMenu() {
         let newtabarray = [...tabNo, clicktab];
         console.log(newtabarray);
         setTabNo(newtabarray);
-
     }
 
     const changeDisplay = () => {
@@ -33,8 +32,7 @@ export default function NavMenu() {
         }
         else {
             setDpl("block");
-        }
-        console.log(dpl);
+        }        
     }
 
     return (

@@ -1,5 +1,6 @@
 import React from 'react'
-import '..//FormDiemDanhNhom/FormDiemDanhNhom.css'
+import '../FormDiemDanhNhom/FormDiemDanhNhom.css'
+
 export default function FormDiemDanhNhom() {
     return (
         <div id="diemdanh"><br />
