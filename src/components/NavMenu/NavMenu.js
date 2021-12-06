@@ -4,35 +4,47 @@ import Tabs from '../Tabs/Tabs'
 import { useState } from 'react'
 import Draggable from 'react-draggable';
 
-function returnDraggableDiv(tab_no) {   
+function returnDraggableDiv(tab_no) {
 
-    const listForm = tab_no.map(formobj => 
+    const listForm = tab_no.map(formobj =>
         <Tabs TabName={tab_no[formobj]} />
-    )    
-    return listForm; 
+    )
+    return listForm;
 }
 
 export default function NavMenu() {
 
     const [tabNo, setTabNo] = useState(["1"]);
+    const [dpl, setDpl] = useState("block");
+
     console.log(tabNo[0]);
     console.log(typeof (tabNo[0]));
 
-    const updateArray =(clicktab)=>{
-        let newtabarray = [...tabNo,clicktab];
+    const updateArray = (clicktab) => {
+        let newtabarray = [...tabNo, clicktab];
         console.log(newtabarray);
-        setTabNo(newtabarray);       
+        setTabNo(newtabarray);
 
+    }
+
+    const changeDisplay = () => {
+        if (dpl === "block") {
+            setDpl("none");
+        }
+        else {
+            setDpl("block");
+        }
+        console.log(dpl);
     }
 
     return (
         <>
             <div id="menu_div">
-                <button id="nav_show_btn">
+                <button id="nav_show_btn" onClick={changeDisplay}>
                     <img src="menu_button.png" width="35px" height="35px"></img>
                 </button>
 
-                <ul className="topnav nav nav-tabs" id="myTopnav" style={{ display: "block" }}>
+                <ul className="topnav nav nav-tabs" id="myTopnav" style={{ display: dpl }} >
                     <li onClick={() => { updateArray("1"); }} className="nav-item active">
                         <a style={{ color: "white" }} className="nav-link" href="#home"><b>Đăng
                             ký nghỉ</b></a>
@@ -73,9 +85,7 @@ export default function NavMenu() {
                     </li>
                 </ul>
             </div>
-            <h1>{tabNo}</h1>
-            {console.log(tabNo)}
-            {returnDraggableDiv(tabNo)}
+            <Tabs TabName={tabNo[tabNo.length - 1]} />
         </>
 
     )
