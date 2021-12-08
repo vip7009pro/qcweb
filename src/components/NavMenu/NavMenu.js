@@ -16,7 +16,6 @@ export default function NavMenu() {
 
     const [tabNo, setTabNo] = useState(["1"]);
     const [dpl, setDpl] = useState("block");
-
     console.log(tabNo[0]);
     console.log(typeof (tabNo[0]));
 
@@ -44,7 +43,7 @@ export default function NavMenu() {
 
                 <ul className="topnav nav nav-tabs" id="myTopnav" style={{ display: dpl }} >
                     <li onClick={() => { updateArray("1"); }} className="nav-item active">
-                        <a style={{ color: "white" }} className="nav-link" href="#home"><b>Đăng
+                        <a style={{ color: "white" }} className="nav-link"><b>Đăng
                             ký nghỉ</b></a>
                     </li>
                     <li onClick={() => { updateArray("2"); }} className="nav-item">
@@ -52,33 +51,33 @@ export default function NavMenu() {
                             href="#overtime"><b>Đăng ký tăng ca</b></a>
                     </li>
                     <li onClick={() => { updateArray("3"); }} className="nav-item">
-                        <a style={{ color: "white" }} className="nav-link" href="#menu1"
+                        <a style={{ color: "white" }} className="nav-link" 
                             id="off_history"><b>Lịch sử nghỉ</b></a>
                     </li>
                     <li onClick={() => { updateArray("4"); }} className="nav-item">
-                        <a style={{ color: "white" }} className="nav-link" href="#tradiemdanh"
+                        <a style={{ color: "white" }} className="nav-link" 
                             id="diemdanh_history"><b>Lịch sử điểm
                                 danh</b></a>
                     </li>
                     <li onClick={() => { updateArray("5"); }} className="nav-item">
-                        <a style={{ color: "white" }} className="nav-link" href="#approve"
+                        <a style={{ color: "white" }} className="nav-link" 
                             id="check_approve"><b>Phê duyệt nghỉ</b></a>
                     </li>
                     <li onClick={() => { updateArray("6"); }} className="nav-item">
-                        <a style={{ color: "white" }} className="nav-link" href="#diemdanh"
+                        <a style={{ color: "white" }} className="nav-link" 
                             id="attendance"><b>Điểm danh nhóm</b></a>
                     </li>
                     <li onClick={() => { updateArray("7"); }} className="nav-item">
                         <a style={{ color: "white" }} className="nav-link"
-                            href="#total_att_panel" id="attendance_total"><b>Điểm danh
+                             id="attendance_total"><b>Điểm danh
                                 tổng</b></a>
                     </li>
                     <li onClick={() => { updateArray("8"); }} className="nav-item">
-                        <a style={{ color: "white" }} className="nav-link" href="#hr_modify"
+                        <a style={{ color: "white" }} className="nav-link" 
                             id="setteam"><b>Điều chuyển team</b></a>
                     </li>
                     <li onClick={() => { updateArray("9"); }} className="nav-item">
-                        <a style={{ color: "white" }} className="nav-link" href="#huongdansd"
+                        <a style={{ color: "white" }} className="nav-link" 
                             id="manual"><b>Hướng dẫn sử dụng</b></a>
                     </li>
                 </ul>

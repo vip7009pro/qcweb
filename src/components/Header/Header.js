@@ -8,6 +8,5 @@ export default function Header(props) {
             <Banner />
             <InfoPanel />
         </div>
-
     )
 }

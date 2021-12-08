@@ -8,6 +8,7 @@ import FormDiemDanhTong from './FormDiemDanhTong/FormDiemDanhTong'
 import FormHuongDanSuDung from './FormHuongDanSuDung/FormHuongDanSuDung'
 import FormLichSuDiLam from './FormLichSuDiLam/FormLichSuDiLam'
 import FormLichSuNghi from './FormLichSuNghi/FormLichSuNghi'
+import FormPheDuyetNghi from './FormPheDuyetNghi/FormPheDuyetNghi'
 import FormSetTeam from './FormSetTeam/FormSetTeam'
 
 
@@ -29,11 +30,11 @@ export default function Tabs(props) {
             break;
         case '4':
             return (<div id="dkn" className="container"><FormLichSuDiLam /> </div>);
-            console.log("Tab dc chon:5");
+            console.log("Tab dc chon:4");
             break;
         case '5':
-            return (<div id="dkn" className="container"><FormDiemDanhNhom /> </div>);
-            console.log("Tab dc chon:6");
+            return (<div id="dkn" className="container"><FormPheDuyetNghi /> </div>);
+            console.log("Tab dc chon:5");
             break;
         case '6':
             return (<div id="dkn" className="container"><FormDiemDanhNhom /> </div>);

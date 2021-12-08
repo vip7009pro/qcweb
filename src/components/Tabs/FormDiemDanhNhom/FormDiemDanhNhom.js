@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import '../FormDiemDanhNhom/FormDiemDanhNhom.css'
+import { login } from '../../../Api/Api'
 
-export default function FormDiemDanhNhom() {
+export default function FormDiemDanhNhom() {    
+    login();
     return (
         <div id="diemdanh"><br />
             <h3>Điểm danh cho nhóm của mình</h3>

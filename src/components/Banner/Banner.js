@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Banner/Banner.css'
 export default function Banner(props) {
+    
     return (        
         <div className="container p-3 my-3" id="basic_info">
             <marquee direction="left" className="text-white ">
