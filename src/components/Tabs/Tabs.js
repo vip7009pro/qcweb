@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+
 import '../Tabs/Tabs.css'
 import FormDangKyNghi from './FormDangKyNghi/FormDangKyNghi'
 import FormDangKyTangCa from './FormDangKyTangCa/FormDangKyTangCa'
@@ -13,6 +14,8 @@ import FormSetTeam from './FormSetTeam/FormSetTeam'
 
 
 export default function Tabs(props) {
+   
+   
     let formNo = props.TabName;
     console.log(props.TabName);
     switch (formNo) {

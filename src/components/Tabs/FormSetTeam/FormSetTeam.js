@@ -1,6 +1,14 @@
 import React from 'react'
+import { useState,use } from 'react';
 import '../FormSetTeam/FormSetTeam.css'
 export default function FormSetTeam() {
+    useEffect(
+        ()=>{
+            alert('hung');
+        },[]
+    )
+
+
     return (
         <div id="hr_modify"><br />
             <h3>Điều chuyển nhân sự qua lại giữa các team</h3>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "universal-cookie/es6";
+import swal from "sweetalert";
 const cookies = new Cookies();
 
 function setCookie(cname, cvalue, exdays) {
@@ -25,12 +26,12 @@ export  function login()
         console.log("Tokent content = "  + Jresult.token_content);
         if (Jresult.tk_status == 'ok') {           
             console.log(Jresult.token_content);
+            swal("Chúc mừng bạn, đăng nhập thành công !");
             cookies.set('token',Jresult.token_content,{path:"/"});
         }
         else {
-            alert("Tên đăng nhập hoặc mật khẩu sai");
+            swal("Tên đăng nhập hoặc mật khẩu sai");
         }
-
     })
     .catch((error)=>{
         console.log(error);
@@ -40,4 +41,21 @@ export  function login()
 export  function logout()
 {
     cookies.set('token','reset',{path:"/"});
+}
+
+export function testsentcookie()
+{
+ 
+    axios.post('http://14.160.33.94:100/api',{
+        command: "hhhhhhh",
+        user: "NHU1903",
+        pass: "dauxanhrauma"
+    })
+    .then((response)=>{
+        console.log("ketqua");
+        console.log(response.data);        
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
 }
