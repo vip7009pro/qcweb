@@ -1,7 +1,9 @@
 import React from 'react'
 import '../FormPheDuyetNghi/FormPheDuyetNghi.css'
+import swal from 'sweetalert';
 
-export default function FormPheDuyetNghi() {
+export default function FormPheDuyetNghi() {   
+    swal("Thông báo", "OKE MÀ", "success");
     return (
         <div id="approve" className="container"><br />
             <h3>Leader phê duyệt nghỉ</h3>

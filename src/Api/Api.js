@@ -2,21 +2,13 @@ import axios from "axios";
 import Cookies from "universal-cookie/es6";
 import swal from "sweetalert";
 const cookies = new Cookies();
-
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-
-export  function login()
+axios.defaults.withCredentials = true; 
+export  function login(user,pass)
 {
     axios.post('http://14.160.33.94:100/api',{
         command: "login",
-        user: "NHU1903",
-        pass: "dauxanhrauma"
+        user: user,
+        pass: pass
     })
     .then((response)=>{
         console.log("ketqua");
@@ -26,8 +18,13 @@ export  function login()
         console.log("Tokent content = "  + Jresult.token_content);
         if (Jresult.tk_status == 'ok') {           
             console.log(Jresult.token_content);
-            swal("Chúc mừng bạn, đăng nhập thành công !");
+            swal("Thông báo","Chúc mừng bạn, đăng nhập thành công !","success");
+            //alert("Đăng nhập thành công");
             cookies.set('token',Jresult.token_content,{path:"/"});
+            setTimeout(() => {
+                window.location.href = "/";
+              }, 1000);
+            
         }
         else {
             swal("Tên đăng nhập hoặc mật khẩu sai");
@@ -37,25 +34,32 @@ export  function login()
         console.log(error);
     })
 }
-
 export  function logout()
 {
     cookies.set('token','reset',{path:"/"});
+    swal("Thông báo", "Đăng xuất thành công !","success");
+    setTimeout(() => {
+        window.location.href = "/";
+      }, 2000);
 }
 
-export function testsentcookie()
-{
- 
-    axios.post('http://14.160.33.94:100/api',{
-        command: "hhhhhhh",
-        user: "NHU1903",
-        pass: "dauxanhrauma"
-    })
-    .then((response)=>{
-        console.log("ketqua");
-        console.log(response.data);        
-    })
-    .catch((error)=>{
-        console.log(error);
-    })
+
+export async function checkLogin()
+{    
+    let data = await axios.post('http://14.160.33.94:100/api',{
+                command: "hhhhhhh"        
+    });   
+    return data;    
+}
+
+
+export  function checkLogin2()
+{    
+    try{
+        const resp = axios.post('http://14.160.33.94:100/api',{command: "hhhhhhh" });           
+        return resp.data;
+    }
+    catch(err){
+        console.log(err);
+    }
 }
