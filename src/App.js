@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main'
 import './components/bootstrap.min.css'
-import { checkLogin, checkLogin2, sendRequest } from './Api/Api';
+import { checkLogin } from './Api/Api';
 import LoginPage from './components/LoginPage/LoginPage';
 function App() {  
   const [loginState, setloginState] = useState(0);
@@ -23,9 +23,7 @@ function App() {
       .catch(err=>{
         console.log(err+ ' ');
       })
-
   },[])
-
   console.log("Login State = " + loginState);
   if (loginState == 0) {
     return (
@@ -40,8 +38,6 @@ function App() {
         <Footer />
       </div>
     </>
-  );
-
- 
+  ); 
 }
 export default App;

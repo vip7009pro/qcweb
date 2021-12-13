@@ -15,9 +15,7 @@ function returnDraggableDiv(tab_no) {
 export default function NavMenu() {
 
     const [tabNo, setTabNo] = useState(["1"]);
-    const [dpl, setDpl] = useState("block");
-    console.log(tabNo[0]);
-    console.log(typeof (tabNo[0]));
+    const [dpl, setDpl] = useState("block");    
 
     const updateArray = (clicktab) => {
         let newtabarray = [...tabNo, clicktab];

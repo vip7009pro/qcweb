@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { login } from '../../Api/Api';
-import '../LoginPage/LoginPage.css'
+import  '../LoginPage/LoginPage.css'
 
 export default function LoginPage() {
     const [user,setUser] = useState('');
@@ -12,20 +12,20 @@ export default function LoginPage() {
       }
     return (
         <div id="login_page">
-            <form id="form-login">
-                <h1 className="form-heading">ĐĂNG NHẬP HỆ THỐNG</h1>
-                <div className="form-group">
+            <form id="form_login">
+                <h1 className="form_heading">ĐĂNG NHẬP HỆ THỐNG</h1>
+                <div className="form_group">
                     <i className="far fa-user" />
-                    <input id="login_id" type="text" className="form-input" placeholder="Tên đăng nhập" onChange={e => setUser(e.target.value)}/>
+                    <input id="login_id" type="text" className="form_input" placeholder="Tên đăng nhập" onChange={e => setUser(e.target.value)}/>
                 </div>
-                <div className="form-group">
+                <div className="form_group">
                     <i className="fas fa-key" />
-                    <input id="login_pw" type="password" className="form-input" placeholder="Mật khẩu" onChange={e => setPass(e.target.value)}/>
+                    <input id="login_pw" type="password" className="form_input" placeholder="Mật khẩu" onChange={e => setPass(e.target.value)}/>
                     <div id="eye">
                         <i className="far fa-eye" />
                     </div>
                 </div>
-                <button className="form-submit" id="login_bt" onClick={handleSubmit}>Đăng nhập</button>
+                <button className="form_submit" id="login_bt" onClick={handleSubmit}>Đăng nhập</button>
             </form>
         </div>
 

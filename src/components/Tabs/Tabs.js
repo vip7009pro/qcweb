@@ -16,8 +16,7 @@ import FormSetTeam from './FormSetTeam/FormSetTeam'
 export default function Tabs(props) {
    
    
-    let formNo = props.TabName;
-    console.log(props.TabName);
+    let formNo = props.TabName;    
     switch (formNo) {
         case '1':
             return (<div id="dkn" className="container"><FormDangKyNghi /> </div>);

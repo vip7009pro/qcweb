@@ -11,3 +11,9 @@
     background-size: cover;			 
     border-radius:2px;
 }
+
+#watch {    
+    font-size: 30px;
+    color: rgb(216, 238, 16);
+    margin: 100px;
+}
