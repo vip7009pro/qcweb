@@ -142,3 +142,11 @@ export async function setteam() {
     });
     return data;
 }
+export async function setteamBT(EMPL_NO1, teamvalue) {
+    let data = await axios.post('http://14.160.33.94:100/api', {
+        command: 'setteambt',
+        EMPL_NO: EMPL_NO1,
+        teamvalue: teamvalue
+    });
+    return data;
+}

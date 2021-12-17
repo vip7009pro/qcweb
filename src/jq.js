@@ -1,14 +1,16 @@
 import $ from 'jquery';
 import swal from 'sweetalert';
-import { setdiemdanh, settangca } from './Api/Api';
+import { setdiemdanh, settangca, setteamBT } from './Api/Api';
+
 import 'datatables.net'
+
+
 function isValid(date, h1, m1, h2, m2) {
     return true;
     var h = date.getHours();
     var m = date.getMinutes();
     return (h1 < h || h1 == h && m1 <= m) && (h < h2 || h == h2 && m <= m2);
 }
-
 export function JQF() {
     resetTC();
     resetBT();
@@ -19,8 +21,11 @@ export function JQF() {
     tangcadem0508();
     tangcangay1620();
     tangcangay1718();
-    ktc();   
-    changViewTable(); 
+    ktc();
+    changViewTable();
+    setTeam1();
+    setTeam2();
+    setTeamHC();
 }
 export function resetTC() {
     $(document).on('click', '.RESET_TC_button', function () {
@@ -290,33 +295,169 @@ export function addDataTabe(tableid) {
     else {
         let table = $('#' + tableid).DataTable({
             paging: false
-        });        
+        });
     }
 }
-export function changViewTable()
-{
-    $(document).on('click',"#changeview_empl",function () {
+export function changViewTable() {
+    $(document).on('click', "#changeview_empl", function () {
         //alert("Change view");
         $("#empl_tb").toggleClass("table-responsive");
     });
-    $(document).on('click',"#changeview_duyet",function () {    
+    $(document).on('click', "#changeview_duyet", function () {
         //alert("Change view");
-        $("#approve_table").toggleClass("table-responsive");        
+        $("#approve_table").toggleClass("table-responsive");
     });
-    $(document).on('click',"#changeview_offhistory",function () {     
+    $(document).on('click', "#changeview_offhistory", function () {
         //alert("Change view");
         $("#off_his_table").toggleClass("table-responsive");
     });
-    $(document).on('click',"#changeview_diemdanh",function () {    
+    $(document).on('click', "#changeview_diemdanh", function () {
         //alert("Change view");
         $("#mydiemdanh_tb").toggleClass("table-responsive");
     });
-    $(document).on('click',"#changeview_diemdanh_total",function () {    
+    $(document).on('click', "#changeview_diemdanh_total", function () {
         //alert("Change view");
         $("#empl_tb_total").toggleClass("table-responsive");
     });
-    $(document).on('click',"#changeview_hr_modify",function () {    
+    $(document).on('click', "#changeview_hr_modify", function () {
         //alert("Change view");
         $("#hr_modify_table").toggleClass("table-responsive");
     });
+}
+export function setTeam1() {
+    $(document).on('click', '.SET_TEAM1_button', function () {
+        var $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
+        let $workshiftname = $row.find("td:nth-child(4)");
+        let $tds2 = $row.find("td:nth-child(5)");
+        swal("Thực sự muốn chuyển team?", {
+            buttons: {
+                cancel: "Không",
+                ok: {
+                    text: "Có", value: "ok"
+                }
+            }
+        })
+            .then(value => {
+                switch (value) {
+                    case 'ok':
+                        swal("Thông báo", "Chuyển thành công", "success");
+                        $.each($tds, function () {
+                            var EMPL_NO1 = $(this).text();
+                            //alert(EMPL_NO1);
+                            setteamBT(EMPL_NO1, '1')
+                                .then(response => {
+                                    var Jresult = response.data;
+                                    if (Jresult.tk_status == 'ng') {
+                                        swal("Thông báo", "Phiên đăng nhập hết hạn, đăng nhập lại nhé", "info");
+                                        window.location.href = "/";
+                                    }
+                                    else {
+                                        //alert(result);				
+                                        $workshiftname.html("<b align='center'> TEAM 1 </b>");
+                                        $tds2.html("<button type='button' class='SET_TEAM2_button btn btn-danger'> SET_TEAM__2 </button><button type='button' class='SET_TEAM_HC_button btn btn-success'> SET_TEAMHC </button>");
+                                    }
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            })
+    });
+}
+export function setTeam2() {
+    $(document).on('click', '.SET_TEAM2_button', function () {
+        var $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
+        let $workshiftname = $row.find("td:nth-child(4)");
+        let $tds2 = $row.find("td:nth-child(5)");
+        swal("Thực sự muốn chuyển team?", {
+            buttons: {
+                cancel: "Không",
+                ok: {
+                    text: "Có", value: "ok"
+                }
+            }
+        })
+            .then(value => {
+                switch (value) {
+                    case 'ok':
+                        swal("Thông báo", "Chuyển thành công", "success");
+                        $.each($tds, function () {
+                            var EMPL_NO1 = $(this).text();
+                            //alert(EMPL_NO1);
+                            setteamBT(EMPL_NO1, '2')
+                                .then(response => {
+                                    var Jresult = response.data;
+                                    if (Jresult.tk_status == 'ng') {
+                                        swal("Thông báo", "Phiên đăng nhập hết hạn, đăng nhập lại nhé", "info");
+                                        window.location.href = "/";
+                                    }
+                                    else {
+                                        //alert(result);				
+                                        $workshiftname.html("<b align='center'> TEAM 2 </b>");
+                                        $tds2.html("<button type='button' class='SET_TEAM1_button btn btn-primary'> SET_TEAM__1 </button><button type='button' class='SET_TEAM_HC_button btn btn-success'> SET_TEAMHC </button>");
+                                    }
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            })
+    });
+}
+export function setTeamHC() {
+    $(document).on('click', '.SET_TEAM_HC_button', function () {
+        var $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
+        let $workshiftname = $row.find("td:nth-child(4)");
+        let $tds2 = $row.find("td:nth-child(5)");
+        swal("Thực sự muốn chuyển team?", {
+            buttons: {
+                cancel: "Không",
+                ok: {
+                    text: "Có", value: "ok"
+                }
+            }
+        })
+            .then(value => {
+                switch (value) {
+                    case 'ok':
+                        swal("Thông báo", "Chuyển thành công", "success");
+                        $.each($tds, function () {
+                            var EMPL_NO1 = $(this).text();
+                            //alert(EMPL_NO1);
+                            setteamBT(EMPL_NO1, '0')
+                                .then(response => {
+                                    var Jresult = response.data;
+                                    if (Jresult.tk_status == 'ng') {
+                                        swal("Thông báo", "Phiên đăng nhập hết hạn, đăng nhập lại nhé", "info");
+                                        window.location.href = "/";
+                                    }
+                                    else {
+                                        //alert(result);				
+                                        $workshiftname.html("<b align='center'>Hành Chính</b>");
+                                        $tds2.html("<button type='button' class='SET_TEAM1_button btn btn-primary'> SET_TEAM__1 </button><button type='button' class='SET_TEAM2_button btn btn-danger'> SET_TEAM__2 </button>");
+                                                }
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            })
+    });
+}
+export function socketJQ()
+{    
+    var myDiv = document.getElementById("chat_content");
+    myDiv.scrollTop = myDiv.scrollHeight;   
 }
