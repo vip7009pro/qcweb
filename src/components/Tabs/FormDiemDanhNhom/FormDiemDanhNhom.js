@@ -4,6 +4,7 @@ import { diemdanhnhom, login } from '../../../Api/Api'
 import { addDataTabe, JQF } from '../../../jq';
 import DiemDanhNhomTable from '../../Table/DiemDanhNhomTable/DiemDanhNhomTable';
 import { getHTMLTABLE2_diemdanhnhom } from '../../../Api/tableRender';
+import swal from 'sweetalert';
 export default function FormDiemDanhNhom() {
     const [teamname, setTeamName] = useState("Tất cả");
     const [table, setTable] = useState([]);
@@ -14,6 +15,10 @@ export default function FormDiemDanhNhom() {
                 console.log(data.data);  
                 if (data.data == "NO_DATA") {                    
                     setTable([]);
+                }
+                else if(data.data == "NO_LEADER")
+                {
+                    swal("Thông báo","Bạn không phải leader, mời phắn","error");
                 }
                 else {
                     /* var header_array = Object.keys(data.data[0]).map((element) => {
@@ -29,6 +34,8 @@ export default function FormDiemDanhNhom() {
                     });
                     setTbHeader(header_array);
                     setTable(data.data); */
+
+                    swal("Thông báo","Có " + data.data.length + " người nha","success");
                     setTable(getHTMLTABLE2_diemdanhnhom(data.data,'empl_tb')); 
                     addDataTabe('empl_tb');
                 }

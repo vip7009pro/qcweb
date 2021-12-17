@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import swal from 'sweetalert';
 import { logout } from '../../Api/Api'
 import '../Banner/Banner.css'

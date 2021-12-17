@@ -19,7 +19,8 @@ export function JQF() {
     tangcadem0508();
     tangcangay1620();
     tangcangay1718();
-    ktc();    
+    ktc();   
+    changViewTable(); 
 }
 export function resetTC() {
     $(document).on('click', '.RESET_TC_button', function () {
@@ -291,4 +292,31 @@ export function addDataTabe(tableid) {
             paging: false
         });        
     }
+}
+export function changViewTable()
+{
+    $(document).on('click',"#changeview_empl",function () {
+        //alert("Change view");
+        $("#empl_tb").toggleClass("table-responsive");
+    });
+    $(document).on('click',"#changeview_duyet",function () {    
+        //alert("Change view");
+        $("#approve_table").toggleClass("table-responsive");        
+    });
+    $(document).on('click',"#changeview_offhistory",function () {     
+        //alert("Change view");
+        $("#off_his_table").toggleClass("table-responsive");
+    });
+    $(document).on('click',"#changeview_diemdanh",function () {    
+        //alert("Change view");
+        $("#mydiemdanh_tb").toggleClass("table-responsive");
+    });
+    $(document).on('click',"#changeview_diemdanh_total",function () {    
+        //alert("Change view");
+        $("#empl_tb_total").toggleClass("table-responsive");
+    });
+    $(document).on('click',"#changeview_hr_modify",function () {    
+        //alert("Change view");
+        $("#hr_modify_table").toggleClass("table-responsive");
+    });
 }

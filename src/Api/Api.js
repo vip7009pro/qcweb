@@ -122,3 +122,23 @@ export async function pheduyetnghi(){
     });
     return data;
 }
+
+export async function diemdanhtong(frm_date,t_date,nghisinhvalue,subdeptname,maindeptname,team_name_total1) {
+    let data = await axios.post('http://14.160.33.94:100/api', {
+        command: 'diemdanh_total',
+        from_date_total: frm_date,
+        to_date_total: t_date,
+        nghisinhvalue: nghisinhvalue,
+        SUBDEPTNAME: subdeptname,
+        team_name_total: team_name_total1,
+        MAINDEPTNAME: maindeptname
+    });
+    return data;
+}
+
+export async function setteam() {
+    let data = await axios.post('http://14.160.33.94:100/api', {
+        command: 'setteamtab'       
+    });
+    return data;
+}
