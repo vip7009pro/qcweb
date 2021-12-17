@@ -30,7 +30,7 @@ export default function FormPheDuyetNghi() {
         handleSubmit();
     },[])
     return (
-        <div id="approve" className="container"><br />
+        <div id="approve" className="container formdiv"><br />
             <h3>Leader phê duyệt nghỉ</h3>
             <p>Chỉ leader truy cập được nội dung này</p>            
             <button type="button" className="btn btn-primary" id="trapheduyet" onClick={handleSubmit}>Tra cứu nghỉ</button>

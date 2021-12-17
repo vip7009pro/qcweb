@@ -51,7 +51,7 @@ export default function FormDiemDanhTong() {
     },[]);
 
     return (
-        <div id="total_att_panel" className="container"><br />
+        <div id="total_att_panel" className="container fromdiv"><br />
             <form id="total_att_form" method="post">
                 <div className="form-group">
                     <label htmlFor="team_name"><b>Chọn team</b></label>

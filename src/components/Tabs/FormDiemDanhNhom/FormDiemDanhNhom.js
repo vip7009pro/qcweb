@@ -9,7 +9,7 @@ export default function FormDiemDanhNhom() {
     const [teamname, setTeamName] = useState("Tất cả");
     const [table, setTable] = useState([]);
     const [tbHeader, setTbHeader] = useState([]);    
-    useEffect(() => {
+    const handleSubmit = ()=>{
         diemdanhnhom(teamname)
             .then(data => {
                 console.log(data.data);  
@@ -43,10 +43,14 @@ export default function FormDiemDanhNhom() {
             .catch(error => {
                 console.log("Loi: " + error + " ");
             });
-            JQF();       
+            JQF();  
+    }
+    useEffect(() => {
+        handleSubmit();
+             
     }, [teamname]);
     return (
-        <div id="diemdanh">
+        <div id="diemdanh" className="formdiv">
             <h3>Điểm danh cho nhóm của mình</h3>
             <form id="form_diem_danh" method="post">
                 <div className="form-group">
@@ -61,7 +65,7 @@ export default function FormDiemDanhNhom() {
                     </select>
                 </div>
             </form>
-            <button type="button" className="btn btn-primary" id="nhom_att_button">Tra cứu team</button>
+            <button type="button" className="btn btn-primary" id="nhom_att_button" onClick={handleSubmit}>Tra cứu team</button>
             <button type="button" id="changeview_empl" className="btn btn-info"> Mở rộng/ Thu hẹp </button>
              <div className="rendered_table" id="empl_list"> <span dangerouslySetInnerHTML={{__html: table}}></span> </div> 
            {/*  <DiemDanhNhomTable columns={tbHeader} data={table} /> */}

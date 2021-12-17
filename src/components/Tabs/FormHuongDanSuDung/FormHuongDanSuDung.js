@@ -2,7 +2,7 @@ import React from 'react'
 import '../FormHuongDanSuDung/FormHuongDanSuDung.css'
 export default function FormHuongDanSuDung() {
     return (
-        <div id="huongdansd"><br />
+        <div id="huongdansd"  className="formdiv"><br />
             <h3>Hướng dẫn sử dụng hệ thống của chúng ta</h3> <br />
             <p>Đọc kỹ hướng dẫn sử dụng trước khi dùng</p><br />
             <b> Hướng dẫn sử dụng hệ thống </b><br />

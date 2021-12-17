@@ -31,7 +31,7 @@ export default function FormLichSuDiLam() {
     }, []);
 
     return (
-        <div id="tradiemdanh"><br />
+        <div id="tradiemdanh"  className="formdiv"><br />
             <h3>Tra lịch sử đi làm của bản thân</h3>
             <form method="post">
                 <div className="form-group">
