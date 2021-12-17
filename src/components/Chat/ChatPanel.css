@@ -8,13 +8,11 @@
     max-width: 500px;
     white-space: normal; 
 }
-
 #chat_content p {
     margin: 5px;
     font-size: 15px;
     white-space: normal;    
 }
-
 #chat_username, #chat_content, #chat_message, #chat_sendMessage {
     margin-bottom: 5px;
     font-style: bold;
@@ -22,7 +20,6 @@
 #chat_sendMessage {
     margin-left: 10px;
 }
-
 #chat_message {
     width: 95%;
     height: 50px;
@@ -30,9 +27,6 @@
     margin-left: 10px;
     margin-right: 20px;
 }
-
-
-
 #chat_panel {
     background-image: linear-gradient(0deg, #1ee5ff,#c0e243);
     background-size: cover;			
@@ -45,10 +39,7 @@
     z-index: 9999;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
 }
-
 fieldset {
     margin-left: 10px;
     margin-right: 10px;
 }
-
-

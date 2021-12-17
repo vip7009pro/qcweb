@@ -1,11 +1,25 @@
 import $ from 'jquery';
 import swal from 'sweetalert';
-import { setdiemdanh } from './Api/Api';
+import { setdiemdanh, settangca } from './Api/Api';
+import 'datatables.net'
 function isValid(date, h1, m1, h2, m2) {
     return true;
     var h = date.getHours();
     var m = date.getMinutes();
     return (h1 < h || h1 == h && m1 <= m) && (h < h2 || h == h2 && m <= m2);
+}
+
+export function JQF() {
+    resetTC();
+    resetBT();
+    diemdanhON();
+    diemdanhOFF();
+    tangcangay1720();
+    tangcadem0206();
+    tangcadem0508();
+    tangcangay1620();
+    tangcangay1718();
+    ktc();    
 }
 export function resetTC() {
     $(document).on('click', '.RESET_TC_button', function () {
@@ -79,8 +93,7 @@ export function diemdanhON() {
 }
 export function diemdanhOFF() {
     $(document).on('click', '.OFF_button', function () {
-        let $row = $(this).closest("tr")
-            , $tds = $row.find("td:nth-child(2)");
+        let $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
         let $tds2 = $row.find("td:nth-child(4)");
         $.each($tds, function () {
             var EMPL_NO1 = $(this).text();
@@ -102,12 +115,180 @@ export function diemdanhOFF() {
     });
 }
 export function tangcangay1720() {
+    $(document).on('click', '.TC_NGAY_button', function () {
+        var $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
+        let $tds2 = $row.find("td:nth-child(5)");
+        $.each($tds, function () {
+            var EMPL_NO1 = $(this).text();
+            settangca('1', EMPL_NO1, '1700', '2000')
+                .then(response => {
+                    var Jresult = response.data;
+                    if (Jresult.tk_status == 'ng') {
+                        swal("Thông báo", "Phiên đăng nhập hết hạn, đăng nhập lại nhé", "info");
+                        window.location.href = "/";
+                    }
+                    else {
+                        if (Jresult.tk_status == 'OK') {
+                            $tds2.html("<b><p style='color:#d6f789;'>TC</p> </b> <button type='button' class='RESET_TC_button btn btn-warning'> RESET </button>");
+                        }
+                        else {
+                            swal("Thông báo", "Lỗi rồi !", "info");
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        });
+    });
 }
 export function tangcangay1718() {
+    $(document).on('click', '.TC_NGAY2_button', function () {
+        var $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
+        let $tds2 = $row.find("td:nth-child(5)");
+        $.each($tds, function () {
+            var EMPL_NO1 = $(this).text();
+            settangca('1', EMPL_NO1, '1700', '1800')
+                .then(response => {
+                    var Jresult = response.data;
+                    if (Jresult.tk_status == 'ng') {
+                        swal("Thông báo", "Phiên đăng nhập hết hạn, đăng nhập lại nhé", "info");
+                        window.location.href = "/";
+                    }
+                    else {
+                        if (Jresult.tk_status == 'OK') {
+                            $tds2.html("<b><p style='color:#d6f789;'>TC</p> </b> <button type='button' class='RESET_TC_button btn btn-warning'> RESET </button>");
+                        }
+                        else {
+                            swal("Thông báo", "Lỗi rồi !", "info");
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        });
+    });
 }
 export function tangcangay1620() {
+    $(document).on('click', '.TC_16_button', function () {
+        var $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
+        let $tds2 = $row.find("td:nth-child(5)");
+        $.each($tds, function () {
+            var EMPL_NO1 = $(this).text();
+            settangca('1', EMPL_NO1, '1600', '2000')
+                .then(response => {
+                    var Jresult = response.data;
+                    if (Jresult.tk_status == 'ng') {
+                        swal("Thông báo", "Phiên đăng nhập hết hạn, đăng nhập lại nhé", "info");
+                        window.location.href = "/";
+                    }
+                    else {
+                        if (Jresult.tk_status == 'OK') {
+                            $tds2.html("<b><p style='color:#d6f789;'>TC</p> </b> <button type='button' class='RESET_TC_button btn btn-warning'> RESET </button>");
+                        }
+                        else {
+                            swal("Thông báo", "Lỗi rồi !", "info");
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        });
+    });
 }
-export function tangcadem() {
+export function tangcadem0508() {
+    $(document).on('click', '.TC_DEM_button', function () {
+        var $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
+        let $tds2 = $row.find("td:nth-child(5)");
+        $.each($tds, function () {
+            var EMPL_NO1 = $(this).text();
+            settangca('1', EMPL_NO1, '0500', '0800')
+                .then(response => {
+                    var Jresult = response.data;
+                    if (Jresult.tk_status == 'ng') {
+                        swal("Thông báo", "Phiên đăng nhập hết hạn, đăng nhập lại nhé", "info");
+                        window.location.href = "/";
+                    }
+                    else {
+                        if (Jresult.tk_status == 'OK') {
+                            $tds2.html("<b><p style='color:#d6f789;'>TC</p> </b> <button type='button' class='RESET_TC_button btn btn-warning'> RESET </button>");
+                        }
+                        else {
+                            swal("Thông báo", "Lỗi rồi !", "info");
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        });
+    });
 }
 export function tangcadem0206() {
+    $(document).on('click', '.TC0206_button', function () {
+        var $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
+        let $tds2 = $row.find("td:nth-child(5)");
+        $.each($tds, function () {
+            var EMPL_NO1 = $(this).text();
+            settangca('1', EMPL_NO1, '0200', '0600')
+                .then(response => {
+                    var Jresult = response.data;
+                    if (Jresult.tk_status == 'ng') {
+                        swal("Thông báo", "Phiên đăng nhập hết hạn, đăng nhập lại nhé", "info");
+                        window.location.href = "/";
+                    }
+                    else {
+                        if (Jresult.tk_status == 'OK') {
+                            $tds2.html("<b><p style='color:#d6f789;'>TC</p> </b> <button type='button' class='RESET_TC_button btn btn-warning'> RESET </button>");
+                        }
+                        else {
+                            swal("Thông báo", "Lỗi rồi !", "info");
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        });
+    });
+}
+export function ktc() {
+    $(document).on('click', '.K_TC_button', function () {
+        var $row = $(this).closest("tr"), $tds = $row.find("td:nth-child(2)");
+        let $tds2 = $row.find("td:nth-child(5)");
+        $.each($tds, function () {
+            var EMPL_NO1 = $(this).text();
+            settangca('0', EMPL_NO1, '', '')
+                .then(response => {
+                    var Jresult = response.data;
+                    if (Jresult.tk_status == 'ng') {
+                        swal("Thông báo", "Phiên đăng nhập hết hạn, đăng nhập lại nhé", "info");
+                        window.location.href = "/";
+                    }
+                    else {
+                        if (Jresult.tk_status == 'OK') {
+                            $tds2.html("<b><p style='color:#d6f789;'>Không tăng ca</p> </b> <button type='button' class='RESET_TC_button btn btn-warning'> RESET </button>");
+                        }
+                        else {
+                            swal("Thông báo", "Lỗi rồi !", "info");
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        });
+    });
+}
+export function addDataTabe(tableid) {
+    if ($.fn.dataTable.isDataTable('#' + tableid)) {
+        console.log("Đã là table rồi, k cần thêm nữa");
+    }
+    else {
+        let table = $('#' + tableid).DataTable({
+            paging: false
+        });        
+    }
 }

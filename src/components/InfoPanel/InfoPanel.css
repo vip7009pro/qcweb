@@ -1,7 +1,33 @@
+@keyframes animationName {
+    0%   { opacity:0; }
+    50%  { opacity:1; }
+    100% { opacity:0; }
+  }
+  @-o-keyframes animationName{
+    0%   { opacity:0; }
+    50%  { opacity:1; }
+    100% { opacity:0; }
+  }
+  @-moz-keyframes animationName{
+    0%   { opacity:0; }
+    50%  { opacity:1; }
+    100% { opacity:0; }
+  }
+  @-webkit-keyframes animationName{
+    0%   { opacity:0; }
+    50%  { opacity:1; }
+    100% { opacity:0; }
+  }
+
+
 #empl_info {
     background-image: linear-gradient(0deg, #16df63,#0c49f1);
     background-size: cover;			
     border-radius: 5px;
+    /*-webkit-animation: animationName 2s;
+     -moz-animation: animationName 2s infinite;
+    -o-animation: animationName 2s infinite;
+     animation: animationName 2s infinite; */
 }
 div#empl_info {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -29,6 +55,9 @@ div#empl_info {
     background-color: rgba(255,255,255,0.1);
     border-radius: 5;
 }
+#smr {      
+    font-weight: bold;
+}
 
 @media  screen and (min-width: 200px) {
     #cot1 {
@@ -37,29 +66,22 @@ div#empl_info {
     #cot2 {
         width: 100%;               
     }
-
 }
-
 @media  screen and (min-width: 500px) {
     #cot1 {
         width: 100%;               
         }
-    
     #cot2 {
         width: 100%;               
     }
-
 }
-
 @media  screen and (min-width: 1024px) {
     #cot1 {
         width: 60%;
         float: left;
     }
- 
     #cot2 {
         width: 40%;
         float: right;
     }
-
 }

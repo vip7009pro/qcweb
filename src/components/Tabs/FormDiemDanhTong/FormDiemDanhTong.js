@@ -1,9 +1,7 @@
 import React from 'react'
-import { logout } from '../../../Api/Api'
 import '../FormDiemDanhTong/FormDiemDanhTong.css'
 
-export default function FormDiemDanhTong() {
-    logout();
+export default function FormDiemDanhTong() {   
     return (
         <div id="total_att_panel" className="container"><br />
             <form id="total_att_form" method="post">

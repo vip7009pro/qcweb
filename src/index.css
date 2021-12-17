@@ -1,3 +1,62 @@
 .rendered_table {
     max-width: 1400px;
 }
+.container {
+    width: 100%;   
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 02px;
+    padding-left: 02px;
+}
+@media  screen and (min-width: 200px)
+{
+    .container {
+        width: 100%;   
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 640px;
+    }
+    * {
+        font-size: 9px;
+    }
+}
+@media  screen and (min-width: 768px)
+{
+    .container {
+        width: 100%;   
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 900px;
+    }      
+    * {
+        font-size: 15px;
+    }  
+}
+@media  screen and (min-width: 992px)
+{
+    .container {
+        width: 100%;   
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1200px;
+    }  
+    * {
+        font-size: 15px;
+    }
+}
+@media  screen and (min-width: 1200px)
+{
+    .container {
+        width: 100%;   
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1500px;
+    }  
+    * {
+        font-size: 15px;
+    }    
+}
+.table-responsive {    
+    overflow-x: auto;
+    overflow-y: hidden;   
+  }

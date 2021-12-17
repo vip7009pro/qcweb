@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import '../FormDiemDanhNhom/FormDiemDanhNhom.css'
 import { diemdanhnhom, login } from '../../../Api/Api'
-import { diemdanhOFF, diemdanhON, resetBT, resetTC } from '../../../jq';
+import { addDataTabe, JQF } from '../../../jq';
 import DiemDanhNhomTable from '../../Table/DiemDanhNhomTable/DiemDanhNhomTable';
 import { getHTMLTABLE2_diemdanhnhom } from '../../../Api/tableRender';
 export default function FormDiemDanhNhom() {
@@ -29,18 +29,14 @@ export default function FormDiemDanhNhom() {
                     });
                     setTbHeader(header_array);
                     setTable(data.data); */
-
-                    setTable(getHTMLTABLE2_diemdanhnhom(data.data));                    
-                    
+                    setTable(getHTMLTABLE2_diemdanhnhom(data.data,'empl_tb')); 
+                    addDataTabe('empl_tb');
                 }
             })
             .catch(error => {
                 console.log("Loi: " + error + " ");
             });
-        resetTC();
-        resetBT();
-        diemdanhON();
-        diemdanhOFF();
+            JQF();       
     }, [teamname]);
     return (
         <div id="diemdanh">
