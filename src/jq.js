@@ -595,3 +595,9 @@ export function notificationFadeIn() {
 export function notificationFadeOut() {
     $("#notification_bar").fadeOut(2550);
 }
+
+export function scrollToDIV(divID)
+{
+    $('#'+ divID).scrollTop(0);
+    //$("#"+divID).animate({scrollTop: $("#"+divID).offset().top});
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import swal from 'sweetalert';
 import { dangkynghi } from '../../../Api/Api';
+import { scrollToDIV } from '../../../jq';
 import '../FormDangKyNghi/FormDangKyNghi.css'
 export function returnDateFormat(today) {
     let year = today.getFullYear();
@@ -37,6 +38,8 @@ export default function FormDangKyNghi() {
                 console.log("Loi: " + error + " ");
             });
     }
+    
+    scrollToDIV('tabdiv');
     return (
         <div id="formdangkynghi"  className="formdiv">
             <h3>Đăng ký nghỉ</h3>
@@ -71,7 +74,8 @@ export default function FormDangKyNghi() {
                     <input type="text" className="form-control" placeholder="Lý do sự việc nghỉ cụ thể" id="nghi_remark" name="remark_content" onChange={(e) => { setRemark(e.target.value) }}></input>
                 </div>
                 <button type="button" className="btn btn-primary" id="smt_button" onClick={handleSubmit}>Đăng ký</button>
-            </form>
+            </form>    
+                   
         </div>
     )
 }
