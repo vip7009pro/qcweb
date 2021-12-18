@@ -3,7 +3,7 @@ import { useState } from 'react'
 import swal from 'sweetalert';
 import { setteam } from '../../../Api/Api';
 import { getHTMLTABLE2_dieuchuyenteam } from '../../../Api/tableRender';
-import { addDataTabe, JQF } from '../../../jq';
+import { addDataTabe, JQF, toggleTableView } from '../../../jq';
 import '../FormSetTeam/FormSetTeam.css'
 export default function FormSetTeam() {
     const [table, setTable] = useState([]);
@@ -39,7 +39,7 @@ export default function FormSetTeam() {
             <p>Leader mới có thể thực hiện điều chuyển</p>
             <div className="container">
                 <button type="button" id="refresh_setTeam" className="btn btn-primary" onClick={handleSubmit}>Refresh</button>
-                <button type="button" id="changeview_hr_modify" className="btn btn-info"> Mở rộng/ Thu hẹp
+                <button type="button" id="changeview_hr_modify" className="toggleTableBT btn btn-info" onClick={toggleTableView}> Mở rộng/ Thu hẹp
                 </button>
                 <div className="rendered_table" id="hr_modify_list">
                     Danh sách nhân lực tại bộ phận

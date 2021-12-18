@@ -3,7 +3,7 @@ import '../FormPheDuyetNghi/FormPheDuyetNghi.css'
 import swal from 'sweetalert';
 import { pheduyetnghi } from '../../../Api/Api';
 import { getHTMLTABLE2_pheduyet } from '../../../Api/tableRender';
-import { addDataTabe } from '../../../jq';
+import { addDataTabe, JQF, toggleTableView } from '../../../jq';
 
 export default function FormPheDuyetNghi() {   
     const [table, setTable] = useState([]);    
@@ -28,13 +28,14 @@ export default function FormPheDuyetNghi() {
     }
     useEffect(()=>{
         handleSubmit();
+        JQF();        
     },[])
     return (
         <div id="approve" className="container formdiv"><br />
             <h3>Leader phê duyệt nghỉ</h3>
             <p>Chỉ leader truy cập được nội dung này</p>            
             <button type="button" className="btn btn-primary" id="trapheduyet" onClick={handleSubmit}>Tra cứu nghỉ</button>
-            <button type="button" id="changeview_duyet" className="btn btn-info"> Mở rộng/ Thu hẹp </button>
+            <button type="button" id="changeview_duyet" className="toggleTableBT btn btn-info" onClick={toggleTableView}> Mở rộng/ Thu hẹp </button>
             <div className="rendered_table" id="off_approve">
                 Phê duyệt nghỉ:
                 <span dangerouslySetInnerHTML={{ __html: table }}></span>

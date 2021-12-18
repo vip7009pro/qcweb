@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useContext, useState, useEffect, useMemo } from 'react'
 import '../FormDiemDanhNhom/FormDiemDanhNhom.css'
 import { diemdanhnhom, login } from '../../../Api/Api'
-import { addDataTabe, JQF } from '../../../jq';
+import { addDataTabe, diemdanhOFF, diemdanhON, JQF, toggleTableView } from '../../../jq';
 import DiemDanhNhomTable from '../../Table/DiemDanhNhomTable/DiemDanhNhomTable';
 import { getHTMLTABLE2_diemdanhnhom } from '../../../Api/tableRender';
 import swal from 'sweetalert';
+import { SocketContext } from '../../../Api/Context';
 export default function FormDiemDanhNhom() {
+    const SocketRefContext = useContext(SocketContext); 
     const [teamname, setTeamName] = useState("Tất cả");
     const [table, setTable] = useState([]);
     const [tbHeader, setTbHeader] = useState([]);    
@@ -43,10 +45,13 @@ export default function FormDiemDanhNhom() {
             .catch(error => {
                 console.log("Loi: " + error + " ");
             });
-            JQF();  
+            
     }
     useEffect(() => {
         handleSubmit();
+        JQF();  
+        diemdanhON(SocketRefContext);
+        diemdanhOFF(SocketRefContext);
              
     }, [teamname]);
     return (
@@ -66,7 +71,7 @@ export default function FormDiemDanhNhom() {
                 </div>
             </form>
             <button type="button" className="btn btn-primary" id="nhom_att_button" onClick={handleSubmit}>Tra cứu team</button>
-            <button type="button" id="changeview_empl" className="btn btn-info"> Mở rộng/ Thu hẹp </button>
+            <button type="button" id="changeview_empl" className="toggleTableBT btn btn-info" onClick={toggleTableView}> Mở rộng/ Thu hẹp </button>
              <div className="rendered_table" id="empl_list"> <span dangerouslySetInnerHTML={{__html: table}}></span> </div> 
            {/*  <DiemDanhNhomTable columns={tbHeader} data={table} /> */}
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import '../InfoPanel/InfoPanel.css'
-import { UserContext } from '../../Context'
+import { UserContext } from '../../Api/Context'
 import { diemdanhsummary, refresh_diemdanh } from '../../Api/Api';
 import swal from 'sweetalert';
 import { getHTMLTABLE2_SummaryTB } from '../../Api/tableRender';

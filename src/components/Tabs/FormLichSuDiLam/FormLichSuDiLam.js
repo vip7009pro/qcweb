@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { on_history } from '../../../Api/Api';
 import { getHTMLTABLE2_mydiemdanh } from '../../../Api/tableRender';
-import { addDataTabe } from '../../../jq';
+import { addDataTabe, JQF, toggleTableView } from '../../../jq';
 import { returnDateFormat } from '../FormDangKyNghi/FormDangKyNghi';
 import '../FormLichSuDiLam/FormLichSuDiLam.css'
 
@@ -28,6 +28,7 @@ export default function FormLichSuDiLam() {
     }
     useEffect(() => {
         handleSubmit();
+        JQF();
     }, []);
 
     return (
@@ -42,7 +43,7 @@ export default function FormLichSuDiLam() {
                     <input type="date" id="dd_to_date" name="end_date" value={enddate} onChange={(e) => { setEndDate(e.target.value) }}></input>
                 </div>
                 <button type="button" className="btn btn-primary" id="getdiemdanh" onClick={handleSubmit}>Tra điểm danh</button>
-                <button type="button" id="changeview_diemdanh" className="btn btn-info"> Mở rộng/ Thu hẹp </button>
+                <button type="button" id="changeview_diemdanh" className="toggleTableBT btn btn-info" onClick={toggleTableView}> Mở rộng/ Thu hẹp </button>
             </form>            
             <div className="rendered_table" id="attendance_history">
                 Lịch sử điểm danh:

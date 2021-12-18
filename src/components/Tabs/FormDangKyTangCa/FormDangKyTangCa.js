@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { settangca, settangcaform } from '../../../Api/Api';
 import '../FormDangKyTangCa/FormDangKyTangCa.css'
-import { UserContext } from '../../../Context';
+import { UserContext } from '../../../Api/Context';
 import swal from 'sweetalert';
 export default function FormDangKyTangCa() {
     const [userdata, setUserData] = useContext(UserContext);

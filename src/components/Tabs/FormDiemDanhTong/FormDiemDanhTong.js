@@ -5,7 +5,7 @@ import { returnDateFormat } from '../FormDangKyNghi/FormDangKyNghi';
 import { diemdanhtong } from '../../../Api/Api';
 import { getHTMLTABLE2_diemdanhtong } from '../../../Api/tableRender';
 import swal from 'sweetalert';
-import { addDataTabe } from '../../../jq';
+import { addDataTabe, JQF, toggleTableView } from '../../../jq';
 
 export default function FormDiemDanhTong() {  
     const [teamname, setTeamname] = useState('Tất cả');
@@ -48,6 +48,7 @@ export default function FormDiemDanhTong() {
     
     useEffect(()=>{
         handleSubmit();
+        JQF();
     },[]);
 
     return (
@@ -105,7 +106,7 @@ export default function FormDiemDanhTong() {
                 <br />
             </form>
             <button type="button" className="btn btn-primary" id="total_att_button" onClick={handleSubmit}>Tra cứu</button>
-            <button type="button" id="changeview_diemdanh_total" className="btn btn-info">Mở rộng/ Thu hẹp</button>
+            <button type="button" id="changeview_diemdanh_total" className="toggleTableBT btn btn-info" onClick={toggleTableView}>Mở rộng/ Thu hẹp</button>
             <div className="rendered_table" id="total_att_table">
                 <span dangerouslySetInnerHTML={{ __html: table }}></span>
             </div>         

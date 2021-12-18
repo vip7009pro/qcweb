@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { SocketContext, UserContext } from '../../Context'
+import { SocketContext, UserContext } from '../../Api/Context'
 import { socketJQ } from '../../jq';
 import '../Chat/ChatPanel.css'
 
