@@ -307,14 +307,17 @@ export function ktc() {
         });
     });
 }
-export function addDataTabe(tableid) {
+export function addDataTabe(tableid, order) {
     if ($.fn.dataTable.isDataTable('#' + tableid)) {
         console.log("Đã là table rồi, k cần thêm nữa");
     }
     else {
         let table = $('#' + tableid).DataTable({
-            paging: false
-        });
+            paging: false,
+            "order": [[ 1, order ]]
+        },
+        
+        );
     }
 }
 export function toggleTableView() {
@@ -598,4 +601,18 @@ export function notificationFadeOut() {
 export function scrollToDIV(divID) {
     $('#' + divID).scrollTop(0);
     //$("#"+divID).animate({scrollTop: $("#"+divID).offset().top});
+}
+
+export function readingTable(tableID)
+{
+    var table  = document.getElementById(tableID);
+    for(const row of table.rows)
+    {
+        for (const cell of row.cells)
+        {
+            cell.innerHTML='hung'
+            //console.log(cell.innerText);
+        }
+    }
+    
 }

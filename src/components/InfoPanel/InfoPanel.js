@@ -57,7 +57,7 @@ export default function InfoPanel() {
                     //console.log(Jresult.data);
                     var res = getHTMLTABLE2_SummaryTB(JSON.parse(Jresult.data), 'summarytb');
                     setSummaryTB(res);
-                    addDataTabe('summarytb');
+                    addDataTabe('summarytb','asc');
                 }
             })
             .catch(error => {

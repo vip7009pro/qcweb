@@ -16,7 +16,7 @@ export function getHTMLTABLE22(data, table_id)
         }
         tr.push('</tr>');            
     }
-    var table_data = "<table id='" + table_id + "' class='table table-dark table-striped table table-bordered table-sm ' cellspaceing='0' width='100%'><thead><tr>" + header_string + "</tr></thead> <tbody>"+tr.join('') + " <tbody><table>";
+    var table_data = "<table id='" + table_id + "' class='table table-responsive table-dark table-striped table table-bordered table-sm ' cellspaceing='0' width='100%'><thead><tr>" + header_string + "</tr></thead> <tbody>"+tr.join('') + " <tbody><table>";
     //console.log(table_data);
     return table_data;
 }

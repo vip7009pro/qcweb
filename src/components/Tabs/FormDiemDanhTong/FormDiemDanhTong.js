@@ -38,7 +38,7 @@ export default function FormDiemDanhTong() {
                 else {
                     swal("Thông báo","Có " + JSON.parse(data.data).length + " người nha","success");
                     setTable(getHTMLTABLE2_diemdanhtong(JSON.parse(data.data),'empl_tb_total'));
-                    addDataTabe('empl_tb_total');                    
+                    addDataTabe('empl_tb_total','asc');                    
                 }
             })
             .catch(error => {

@@ -158,3 +158,16 @@ export async function setpheduyet(OFF_ID, pheduyetvalue) {
     });
     return data;
 }
+
+export async function get_pqc1_output_data() {
+    let data = await axios.post('http://14.160.33.94:100/api', {
+        command: 'pqc1_output_data'        
+    });
+    return data;
+}
+export async function get_pqc2_output_data() {
+    let data = await axios.post('http://14.160.33.94:100/api', {
+        command: 'pqc1_output_data'        
+    });
+    return data;
+}

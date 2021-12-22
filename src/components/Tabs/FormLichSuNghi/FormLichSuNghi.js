@@ -15,7 +15,7 @@ export default function FormLichSuNghi() {
                 }
                 else {
                     setTable(getHTMLTABLE2_lichsunghi(JSON.parse(data.data),'off_his_table'));
-                    addDataTabe('off_his_table');
+                    addDataTabe('off_his_table','desc');
                 }
             })
             .catch(error => {

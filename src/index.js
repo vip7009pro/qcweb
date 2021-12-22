@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Employee from './Employee';
 import './index.css';
-import QC from './QC';
+import QCApp from './QCApp';
 
 ReactDOM.render(  
     <>    
-    <App/>    
+    <QCApp/>    
     </>,  
   document.getElementById('root')
 );
