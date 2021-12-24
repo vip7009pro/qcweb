@@ -1,18 +1,31 @@
+import moment from "moment";
+
 export function getHTMLTABLE22(data, table_id)
 {
     //console.log(Object.keys(data[0]));
     var header_array = Object.keys(data[0]).map((element)=>{
     return "<th>" + element + "</th>";
     });
-    var header_string = header_array.join(' ');
+    var header_string = '<th>STT</th>' + header_array.join(' ');
     //console.log(header_string);
     var tr=[];
     for (var i = 0; i < data.length; i++) {
         tr.push('<tr>');
+        tr.push('<td>' + (i+1) + '</td>');
         for(var element in data[i]) 
         {
-            //console.log(element);               
-            tr.push("<td>" + data[i][element] + "</td>")
+
+            if(data[i][element]==null)
+            {
+                tr.push("<td></td>");
+            }   
+            else if(moment(data[i][element],moment.ISO_8601,true).isValid()) {
+                tr.push("<td>" + data[i][element].slice(0,10)  + ' ' + data[i][element].slice(11,19) + "</td>")
+            }
+            else{
+                tr.push("<td>" + data[i][element]  +"</td>")
+            }          
+           
         }
         tr.push('</tr>');            
     }

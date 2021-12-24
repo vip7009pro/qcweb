@@ -39,7 +39,7 @@ export default function FormDiemDanhNhom() {
 
                     swal("Thông báo","Có " + data.data.length + " người nha","success");
                     setTable(getHTMLTABLE2_diemdanhnhom(data.data,'empl_tb')); 
-                    addDataTabe('empl_tb','asc');
+                    addDataTabe('empl_tb',0,'asc');
                 }
             })
             .catch(error => {

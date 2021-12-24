@@ -1,6 +1,4 @@
-.rendered_table {
-    max-width: 1400px;
-}
+
 .container {
     width: 100%;   
     margin-right: auto;
@@ -61,9 +59,19 @@
     overflow-y: hidden;   
   }
 .formdiv { 
-    border: 2px solid green;
-    padding: 10px;  
-    margin-top: 10px;  
+    margin: auto;
+    background-image: linear-gradient(0deg, #1fce76,#7ec032);
+    padding: 5px;      
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 10px;
+    background-size: cover;			 
+    border-radius:5px;    
+}
+
+td {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+.dataTables_wrapper {
+    width: 100%;
 }

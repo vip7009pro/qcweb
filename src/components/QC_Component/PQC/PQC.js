@@ -5,7 +5,7 @@ import PQC2 from './PQC2/PQC2'
 export default function PQC() {
     
     return (
-       <>              
+       <>                     
        <PQC2/>        
        </>
     )

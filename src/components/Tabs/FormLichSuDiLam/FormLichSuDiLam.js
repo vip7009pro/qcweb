@@ -19,7 +19,7 @@ export default function FormLichSuDiLam() {
             }
             else {
                 setTable(getHTMLTABLE2_mydiemdanh(JSON.parse(data.data),'mydiemdanh_tb'));
-                addDataTabe('mydiemdanh_tb','desc');
+                addDataTabe('mydiemdanh_tb',2,'desc');
             }
         })
         .catch(error => {

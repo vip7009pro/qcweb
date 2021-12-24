@@ -5,7 +5,11 @@
     border-radius:2px;
 }
 #watch {    
-    font-size: 25px;
-    color: rgb(216, 238, 16);
-    margin: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(123, 255, 0);    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+#logout_bt {
+    float: right;
 }

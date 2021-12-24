@@ -14,7 +14,7 @@ function Employee() {
   const socketReft = useRef();
   useEffect(() => {
     checkLogin().then(data => {
-      console.log(data);
+      //console.log(data);
       if (data.data.tk_status == 'ng') {
         setloginState(0);
         setUserData(data.data.data);

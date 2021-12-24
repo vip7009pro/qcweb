@@ -19,7 +19,7 @@ export default function FormPheDuyetNghi() {
             }
             else {
                 setTable(getHTMLTABLE2_pheduyet(JSON.parse(data.data),'approve_table'));
-                addDataTabe('approve_table','desc');
+                addDataTabe('approve_table',0,'desc');
             }
         })
         .catch(error => {

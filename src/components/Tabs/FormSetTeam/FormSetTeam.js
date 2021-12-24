@@ -22,7 +22,7 @@ export default function FormSetTeam() {
                 else {
                     var res = getHTMLTABLE2_dieuchuyenteam(data, 'hr_modify_table');
                     setTable(res);
-                    addDataTabe('hr_modify_table','asc');
+                    addDataTabe('hr_modify_table',0,'asc');
                 }
             })
             .catch(error => {

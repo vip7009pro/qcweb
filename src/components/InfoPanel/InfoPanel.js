@@ -57,17 +57,18 @@ export default function InfoPanel() {
                     //console.log(Jresult.data);
                     var res = getHTMLTABLE2_SummaryTB(JSON.parse(Jresult.data), 'summarytb');
                     setSummaryTB(res);
-                    addDataTabe('summarytb','asc');
+                    addDataTabe('summarytb',1,'desc');
                 }
             })
             .catch(error => {
                 console.log("Loi: " + error + " ");
             });
     }
-    att_refresh();
-    summary();
+     
     console.log("render info panel");
     useEffect(() => {
+        att_refresh();
+        summary(); 
         setInterval(att_refresh, 10000);
         setInterval(summary, 10000);
     }, []);

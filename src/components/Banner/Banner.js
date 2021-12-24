@@ -24,7 +24,7 @@ export default function Banner(props) {
                 <h3>Hệ thống quản lý nhân sự QC - Kiểm Tra </h3>
             </marquee>
             <button id="logout_bt" className="btn btn-primary" onClick={log_out}> Logout</button>
-            <div><span id="watch">Ngày giờ hiện tại : {currentTime}</span></div>
+            <div><span id="watch">Giờ: {currentTime}</span></div>
         </div>
     )
 }

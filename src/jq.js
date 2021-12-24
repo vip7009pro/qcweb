@@ -307,14 +307,14 @@ export function ktc() {
         });
     });
 }
-export function addDataTabe(tableid, order) {
+export function addDataTabe(tableid, colnum, order) {
     if ($.fn.dataTable.isDataTable('#' + tableid)) {
         console.log("Đã là table rồi, k cần thêm nữa");
     }
     else {
         let table = $('#' + tableid).DataTable({
             paging: false,
-            "order": [[ 1, order ]]
+            "order": [[ colnum, order ]]
         },
         
         );
@@ -579,6 +579,7 @@ export function socketJQ() {
     var myDiv = document.getElementById("chat_content");
     myDiv.scrollTop = myDiv.scrollHeight;
 }
+
 export function toggleChatPannel() {
     let kk = 0;
     $(document).on('click', '#hide_show_button2', function () {
@@ -603,16 +604,77 @@ export function scrollToDIV(divID) {
     //$("#"+divID).animate({scrollTop: $("#"+divID).offset().top});
 }
 
+export function addColumnTable(tableID,pos,col_name,content){
+    $("#"+tableID)
+    .find("tr")
+    .each(function () {
+      $(this).find("th").eq(pos).after(`<th>${col_name}</th>`);
+      $(this).find("td").eq(pos).after(`<td>${content}</td>`);
+    });
+}
+export function addRowTable(tableID,content){
+    //$('.table-responsive tr th').children().length;
+    let col_num = $("#"+ tableID + " > tbody > tr:first > td").length;
+    let rowhtml="";
+
+    for(var ii = 0;ii<col_num;ii++)
+    {
+        rowhtml += "<td>"+ content + " </td>";
+    }
+    rowhtml = "<tr>" + rowhtml + "</tr>";
+    $('#'+tableID).prepend(rowhtml);     
+}
+
 export function readingTable(tableID)
 {
+    console.log("clicked !");
     var table  = document.getElementById(tableID);
-    for(const row of table.rows)
-    {
-        for (const cell of row.cells)
+    table.innerHTML = '<tbody><tr><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr></tbody>'+table.innerHTML ;
+    for(var i=1;i< table.rows.length;i++)
+    {       
+         for(var j=0;j<table.rows[i].cells.length;j++)
         {
-            cell.innerHTML='hung'
-            //console.log(cell.innerText);
-        }
+            var oo = table.rows[i].cells[j];
+            oo.innerHTML=`<button class="click_vd btn btn-primary">Click vào đây</button> [${i}] [${j}]`;
+        }        
+    }    
+}
+export function doubleClickCell()
+{
+    $(document).on('dblclick','td',function()
+    {
+        let value;
+        $(this).each(function()
+        {
+            value = $(this).html();
+        })
+        $(this).html("<input value='" +value +"' ></input>");
+    });
+}
+
+
+export function clickVaoday() {
+  $(document).on("click", ".click_vd", function () {
+    let $row = $(this).closest("tr");
+    let $td = $row.find("td:nth-child(1)");
+    let $input = $td.find("input:nth-child(1)");
+    $.each($input, function () {
+        alert($input.val());
+    });
+   /*  $.each($td, function () {
+      $td.html("owahgowaehogweg");
+    }); */
+  });
+}
+let kkk = 1;
+export function hidechat()
+{
+    if (kkk == 1) {
+        $("#chat_panel").fadeIn(250);
+        kkk = 0;
     }
-    
+    else {
+        $("#chat_panel").fadeOut(250);
+        kkk = 1;
+    }
 }

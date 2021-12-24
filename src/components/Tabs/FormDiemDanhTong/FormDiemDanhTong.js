@@ -38,7 +38,7 @@ export default function FormDiemDanhTong() {
                 else {
                     swal("Thông báo","Có " + JSON.parse(data.data).length + " người nha","success");
                     setTable(getHTMLTABLE2_diemdanhtong(JSON.parse(data.data),'empl_tb_total'));
-                    addDataTabe('empl_tb_total','asc');                    
+                    addDataTabe('empl_tb_total',0,'asc');                    
                 }
             })
             .catch(error => {
@@ -52,7 +52,7 @@ export default function FormDiemDanhTong() {
     },[]);
 
     return (
-        <div id="total_att_panel" className="container fromdiv"><br />
+        <div id="total_att_panel" className="container formdiv"><br />
             <form id="total_att_form" method="post">
                 <div className="form-group">
                     <label htmlFor="team_name"><b>Chọn team</b></label>

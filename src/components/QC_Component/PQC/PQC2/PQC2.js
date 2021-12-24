@@ -4,15 +4,15 @@ import moment from 'moment';
 import { get_pqc2_output_data } from '../../../../Api/Api';
 import { getHTMLTABLE22 } from '../../../../Api/tableRender';
 import DataGrid from 'react-data-grid'
-import { readingTable } from '../../../../jq';
+import { addColumnTable, addRowTable, clickVaoday, doubleClickCell, readingTable } from '../../../../jq';
 
 
 export default function PQC2() {
     const [pqc2_settingdate, setpqc2_settingdate] = useState(moment().format("YYYY-MM-DD"));    
     const [pqc2_process_lot_no, setpqc2_process_lot_no] = useState('');
     const [pqc2_lineqc_empl_no, setpqc2_lineqc_empl_no] = useState('');
-    const [pqc2_pqc1_ID, setpqc2_pqc1_ID] = useState('');  
-
+    const [pqc2_pqc1_ID, setpqc2_pqc1_ID] = useState(''); 
+    const [pqc2_checksheet_result, setpqc2_checksheet_result] = useState(''); 
     const [table,setTable] = useState('');
 
     const handleClick=(e)=>{
@@ -21,8 +21,8 @@ export default function PQC2() {
         console.log(pqc2_process_lot_no);
         console.log(pqc2_lineqc_empl_no);
         console.log(pqc2_pqc1_ID);
+        console.log(pqc2_checksheet_result);
     }
-
     const handleReset = (e) => {
         e.preventDefault();
         setpqc2_settingdate(moment().format("YYYY-MM-DD"));        
@@ -52,13 +52,17 @@ export default function PQC2() {
     const handleReadTable = (e)=>{
         e.preventDefault();
         readingTable('pqc_data_table');
+        //addRowTable('pqc_data_table',"datacell");
+        //addColumnTable('pqc_data_table',0,'Cot_moi','gia tri');
     }
     useEffect(()=>{
         handleGetpqc2Data();
+        clickVaoday();
+        doubleClickCell();
     },[])
     return (
         <div id="pqc2_panel">
-            <div className='pqcform'>
+            <div className='pqcform2'>
                 <h2><p>Form nhập thông tin Checksheet PQC</p></h2>
                 <form>
                     <div className='row'>
@@ -88,6 +92,12 @@ export default function PQC2() {
                                     <input type="text" id="pqc2_pqc1_ID" size="50" value={pqc2_pqc1_ID} onChange={ (e) => { setpqc2_pqc1_ID(e.target.value)}}></input>
                                 </label>
                             </div>
+                            <div className='form-group'>
+                                <label>
+                                    <b>Kết quả checksheet: Định dạng "1310,1520,1745,1,0,1" </b>
+                                    <input type="text" id="pqc2_checksheet_result" size="50" value={pqc2_checksheet_result} onChange={ (e) => { setpqc2_checksheet_result(e.target.value)}}></input>
+                                </label>
+                            </div>
                         </div>                    
                     </div>
                     <div className="row">
@@ -105,8 +115,7 @@ export default function PQC2() {
                     Đây là dữ liệu PQC Setting
                     <span  dangerouslySetInnerHTML={{__html: table}}></span>
                 </div>
-            </div>
-            
+            </div>            
         </div>
     )
 }
