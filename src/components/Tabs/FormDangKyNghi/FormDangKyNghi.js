@@ -20,8 +20,9 @@ export default function FormDangKyNghi() {
     const [remark, setRemark] = useState('');
     console.log(canghi);
     const handleSubmit = (e) => {
-        console.log("Submit clicked");
-        dangkynghi(canghi, fromdate, todate, offtype, remark)
+        if(remark!="")
+        {
+            dangkynghi(canghi, fromdate, todate, offtype, remark)
             .then(data => {
                 let result = data.data;
                 console.log(result);
@@ -37,9 +38,14 @@ export default function FormDangKyNghi() {
             .catch(error => {
                 console.log("Loi: " + error + " ");
             });
-    }
-    
-    scrollToDIV('tabdiv');
+
+        }
+        else
+        {
+            swal("Cảnh báo","Không được để trống nội dung chi tiết","error");
+        }
+       
+    }        
     return (
         <div id="formdangkynghi"  className="formdiv">
             <h3>Đăng ký nghỉ</h3>
@@ -73,7 +79,7 @@ export default function FormDangKyNghi() {
                     <label htmlFor="text"><b>Lý do cụ thể:</b></label>
                     <input type="text" className="form-control" placeholder="Lý do sự việc nghỉ cụ thể" id="nghi_remark" name="remark_content" onChange={(e) => { setRemark(e.target.value) }}></input>
                 </div>
-                <button type="button" className="btn btn-primary" id="smt_button" onClick={handleSubmit}>Đăng ký</button>
+                <button type="button" className="btn btn-primary" id="smt_button" onClick={(e)=>{handleSubmit(e)}}>Đăng ký</button>
             </form>    
                    
         </div>

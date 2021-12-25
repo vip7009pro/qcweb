@@ -579,6 +579,11 @@ export function socketJQ() {
     var myDiv = document.getElementById("chat_content");
     myDiv.scrollTop = myDiv.scrollHeight;
 }
+export function notifiJQ() {   
+    var myDiv = document.getElementById("notifi_content");
+    myDiv.scrollTop = myDiv.scrollHeight;
+}
+
 
 export function toggleChatPannel() {
     let kk = 0;
@@ -597,7 +602,7 @@ export function notificationFadeIn() {
     $("#notification_bar").fadeIn(250);
 }
 export function notificationFadeOut() {
-    $("#notification_bar").fadeOut(2550);
+    $("#notification_bar").fadeOut(250);
 }
 export function scrollToDIV(divID) {
     $('#' + divID).scrollTop(0);

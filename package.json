@@ -26,6 +26,7 @@
     "react-scripts": "^3.4.4",
     "react-table": "^7.7.0",
     "socket.io-client": "^4.4.0",
+    "styled-components": "^5.3.3",
     "sweetalert": "^2.1.2",
     "tough-cookie": "^4.0.0",
     "universal-cookie": "^4.0.4",
@@ -37,6 +38,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "",
   "eslintConfig": {
     "extends": [
       "react-app",

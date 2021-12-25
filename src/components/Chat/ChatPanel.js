@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import swal from "sweetalert";
 import { getchat, insertchat } from "../../Api/Api";
 import { SocketContext, UserContext } from "../../Api/Context";
 import { hidechat, socketJQ, toggleChatPannel } from "../../jq";
@@ -14,29 +15,10 @@ export default function ChatPanel() {
   const userDataRef = useRef();
   const messRef = useRef();
   userDataRef.current = userdata;
+
   const handleSendMessage = () => {
-    console.log("Send clicked !" + inputmess);
-    SocketRefContext.current.emit("send", {
-      chattime: new Date().toLocaleString(),
-      username: userdata.MIDLAST_NAME + " " + userdata.FIRST_NAME,
-      message: inputmess,
-      empl_no: userdata.EMPL_NO,
-    });
-    insertchat(userdata.EMPL_NO, inputmess)
-      .then((response) => {
-        let result = response.data;
-        if (result.tk_status == "NG") {
-          console.log(result.message);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    setInputMess("");
-  };
-  const handleKeyDown = (e) => {
-    if (e.key == "Enter") {
-      console.log("Send clicked !" + inputmess);
+    if(inputmess!="")
+    {
       SocketRefContext.current.emit("send", {
         chattime: new Date().toLocaleString(),
         username: userdata.MIDLAST_NAME + " " + userdata.FIRST_NAME,
@@ -54,6 +36,18 @@ export default function ChatPanel() {
           console.log(error);
         });
       setInputMess("");
+
+    }
+    else
+    {
+      swal("Thông báo","Không để trống tin nhắn","error");
+
+    }
+    
+  };
+  const handleKeyDown = (e) => {
+    if (e.key == "Enter") {
+      handleSendMessage();
     }
     else if(e.keyCode == 27)
     {
