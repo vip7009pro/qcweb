@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import $ from 'jquery';
 import swal from 'sweetalert';
-import { setdiemdanh, setpheduyet, settangca, setteamBT } from './Api/Api';
+import { insertSampleQtyPQC1, setdiemdanh, setpheduyet, settangca, setteamBT } from './Api/Api';
 import { SocketContext } from './Api/Context';
 import 'datatables.net'
 function isValid(date, h1, m1, h2, m2) {
@@ -634,16 +634,71 @@ export function readingTable(tableID)
 {
     console.log("clicked !");
     var table  = document.getElementById(tableID);
-    table.innerHTML = '<tbody><tr><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr></tbody>'+table.innerHTML ;
-    for(var i=1;i< table.rows.length;i++)
+    /* for(var i=1;i< table.rows.length;i++)
     {       
          for(var j=0;j<table.rows[i].cells.length;j++)
         {
             var oo = table.rows[i].cells[j];
             oo.innerHTML=`<button class="click_vd btn btn-primary">Click vào đây</button> [${i}] [${j}]`;
         }        
-    }    
+    }    */
+    for(var i=1;i< table.rows.length;i++)
+    {  
+        var oo = table.rows[i].cells[12];
+        oo.innerHTML=`<input type="text" value="${oo.innerHTML}" ></input>`;              
+    }  
 }
+export function modifyColumn(tableID,colnum){   
+    var table  = document.getElementById(tableID);    
+    for(var i=1;i< table.rows.length;i++)
+    {  
+        var oo = table.rows[i].cells[colnum];
+        if (oo.innerHTML == "0") {
+          oo.innerHTML=`<input type="text" value="" ></input>`;  
+          //console.log(oo.firstChild.value)
+        }                      
+    }
+}
+
+export function updateColumn(tableID,colnum){    
+    var table  = document.getElementById(tableID);    
+    for(var i=1;i< table.rows.length;i++)
+    {  
+        setTimeout(()=>{
+
+        },500);
+        let sample_qty = table.rows[i].cells[colnum];  
+        let pqc1_id = table.rows[i].cells[2].innerHTML;        
+        if (sample_qty.innerHTML == `<input type="text" value="">`) 
+        {
+            let sample_input_qty = sample_qty.firstChild.value
+            sample_qty.innerHTML= sample_input_qty; 
+            let insertdata = {
+                INSPECT_SAMPLE_QTY: sample_input_qty,
+                PQC1_ID: pqc1_id
+            }
+           
+            insertSampleQtyPQC1(insertdata)
+            .then(response=>{
+                let Jresult = response.data;
+                if(Jresult.tk_status=='OK')
+                {
+                   
+                }
+                else
+                {
+                    swal("Lỗi",Jresult.message,"error");
+                }
+
+            })
+            .catch(error=>{
+                swal("Cảnh báo","Có lỗi trong quá trình update","error");
+            })
+        }   
+
+    }
+}
+
 export function doubleClickCell()
 {
     $(document).on('dblclick','td',function()

@@ -6,7 +6,6 @@ import { getHTMLTABLE22 } from '../../../../Api/tableRender';
 import DataGrid from 'react-data-grid'
 import { addColumnTable, addRowTable, clickVaoday, doubleClickCell, readingTable } from '../../../../jq';
 
-
 export default function PQC2() {
     const [pqc2_settingdate, setpqc2_settingdate] = useState(moment().format("YYYY-MM-DD"));    
     const [pqc2_process_lot_no, setpqc2_process_lot_no] = useState('');

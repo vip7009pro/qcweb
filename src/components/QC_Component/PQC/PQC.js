@@ -6,7 +6,7 @@ export default function PQC() {
     
     return (
        <>                     
-       <PQC2/>        
+       <PQC1/>        
        </>
     )
 }

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import '../PQC1/PQC1.css'
 import moment from 'moment';
-import { get_pqc1_output_data } from '../../../../Api/Api';
+import { get_pqc1_output_data, insertPQC1, temp_info } from '../../../../Api/Api';
 import { getHTMLTABLE22 } from '../../../../Api/tableRender';
+import swal from 'sweetalert';
+import { modifyColumn, readingTable, updateColumn } from '../../../../jq';
 
 
 export default function PQC1() {
     const [pqc1_settingdate, setpqc1_settingdate] = useState(moment().format("YYYY-MM-DD"));
-    const [pqc1_factoryname, setpqc1_factoryname] = useState('');
+    const [pqc1_factoryname, setpqc1_factoryname] = useState('Nhà máy 1');
     const [pqc1_process_lot_no, setpqc1_process_lot_no] = useState('');
     const [pqc1_lineqc_empl_no, setpqc1_lineqc_empl_no] = useState('');
     const [pqc1_machine_no, setpqc1_machine_no] = useState('');
@@ -17,10 +19,46 @@ export default function PQC1() {
     const [pqc1_sx_empl_no, setpqc1_sx_empl_no] = useState('');
     const [pqc1_leadersx_empl_no, setpqc1_leadersx_empl_no] = useState('');
 
+    const [gname, setGName] = useState('');
+    const [pqc1_lineqc_empl_name, setPqc1LineQCEmplName] = useState('');
+    const [pqc1_sx_empl_name, setPqc1SxEmplName] = useState('');
+    const [pqc1_leader_sx_empl_name, setPqc1LeaderSxEmplName] = useState('');
+
+
     const [table,setTable] = useState('');
 
     const handleClick=(e)=>{
         e.preventDefault();
+         let insertdata = {
+            PROCESS_LOT_NO: pqc1_process_lot_no,
+            LINEQC_PIC: pqc1_lineqc_empl_no,
+            PROD_PIC: pqc1_sx_empl_no,
+            PROD_LEADER: pqc1_leadersx_empl_no,
+            LINE_NO: pqc1_machine_no,
+            STEPS: pqc1_step_no,
+            CAVITY: pqc1_cavity_no,
+            SETTING_OK_TIME: pqc1_settingdate + " " + pqc1_setting_ok.substring(0,2)+":"+ pqc1_setting_ok.substring(2,4),
+            FACTORY: pqc1_factoryname=="Nhà máy 1" ? 'NM1' : 'NM2',            
+            REMARK: ''
+        };
+        insertPQC1(insertdata)
+        .then(response=>{
+            let Jresult = response.data;
+            if(Jresult.tk_status=='OK')
+            {
+                swal("Chúc mừng","Nhập data thành công","success");
+                handleGetPQC1Data();
+            }
+            else
+            {
+                swal("Lỗi",Jresult.message,"error");
+            }
+
+        })
+        .catch(error=>{
+            console.log(error);
+        }) 
+
         console.log(pqc1_settingdate);
         console.log(pqc1_factoryname);
         console.log(pqc1_process_lot_no);
@@ -28,7 +66,7 @@ export default function PQC1() {
         console.log(pqc1_machine_no);
         console.log(pqc1_step_no);
         console.log(pqc1_cavity_no);
-        console.log(pqc1_setting_ok);
+        console.log(pqc1_setting_ok.substring(0,2)+":"+ pqc1_setting_ok.substring(2,4));
         console.log(pqc1_sx_empl_no);
         console.log(pqc1_leadersx_empl_no); 
     }
@@ -51,7 +89,9 @@ export default function PQC1() {
             let Jresult = response.data;
             if(Jresult.tk_status=='OK')
             {
-                setTable(getHTMLTABLE22(JSON.parse(Jresult.data),'pqc_data_table'));
+                setTable(getHTMLTABLE22(JSON.parse(Jresult.data),'pqc_data_table'));    
+                modifyColumn('pqc_data_table',12);          
+                
             }
             else
             {
@@ -64,14 +104,76 @@ export default function PQC1() {
             console.log(error);
         })
     }
+    const handle_temp_info =  (param, option) =>
+    {
+        
+        switch(option)
+        {
+            case 'pqc1_lineqc_empl_name':
+                temp_info(param,'empl_name')
+                .then(response=>{
+                    console.log(response.data.data);
+                    setPqc1LineQCEmplName(JSON.parse(response.data.data)[0].EMPL_NAME);
+                })
+                .catch(error=>{
+                    console.log(error);
+                    setPqc1LineQCEmplName('');
+                });
+            break;
 
+            case 'pqc1_sx_empl_name':
+                temp_info(param,'empl_name')
+                .then(response=>{
+                    console.log(response.data.data);
+                    setPqc1SxEmplName(JSON.parse(response.data.data)[0].EMPL_NAME);
+                })
+                .catch(error=>{
+                    console.log(error);
+                    setPqc1SxEmplName('');
+                });
+
+            break;
+
+            case 'pqc1_leader_sx_empl_name':
+                temp_info(param,'empl_name')
+                .then(response=>{
+                    console.log(response.data.data);
+                    setPqc1LeaderSxEmplName(JSON.parse(response.data.data)[0].EMPL_NAME);
+                })
+                .catch(error=>{
+                    console.log(error);
+                    setPqc1LeaderSxEmplName('');
+                });
+            break;
+
+            case 'gname':
+                temp_info(param,'gname')
+                .then(response=>{
+                    console.log(JSON.parse(response.data.data)[0].G_NAME);
+                    setGName(JSON.parse(response.data.data)[0].G_NAME);
+                })
+                .catch(error=>{
+                    console.log(error);
+                });
+            break;
+            default:
+
+        }
+
+    }
+
+    const handleUpdate = (e)=>{
+        e.preventDefault();
+        updateColumn('pqc_data_table',12);
+    }
     useEffect(()=>{
         handleGetPQC1Data();
     },[])
     return (
         <div id="pqc1_panel">
             <div className='pqcform'>
-                <h2><p>Form nhập thông tin Setting PQC</p></h2>
+                <h2>Form nhập thông tin Setting PQC</h2>
+                
                 <form>
                     <div className='row'>
                         <div className='col'>
@@ -92,14 +194,14 @@ export default function PQC1() {
                             </div>
                             <div className='form-group'>
                                 <label>
-                                    <b>LOT Sản xuất: </b>
-                                    <input type="text" id="pqc1_process_lot_no" size="50" value={pqc1_process_lot_no} onChange={ (e) => { setpqc1_process_lot_no(e.target.value)}}></input>
+                                    <b>LOT Sản xuất: <br></br><span style={{color:'blue'}}>{gname} </span> </b>
+                                    <input type="text" id="pqc1_process_lot_no" size="50" value={pqc1_process_lot_no} onChange={ (e) => { setpqc1_process_lot_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'gname')}}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
-                                    <b>Mã LineQC: </b>
-                                    <input type="text" id="pqc1_lineqc_empl_no" size="50" value={pqc1_lineqc_empl_no} onChange={ (e) => { setpqc1_lineqc_empl_no(e.target.value)}}></input>
+                                    <b>Mã LineQC: <span style={{color:'blue'}}> {pqc1_lineqc_empl_name} </span> </b>
+                                    <input type="text" id="pqc1_lineqc_empl_no" size="50" value={pqc1_lineqc_empl_no} onChange={ (e) => { setpqc1_lineqc_empl_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'pqc1_lineqc_empl_name')}}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
@@ -124,20 +226,20 @@ export default function PQC1() {
                             </div>
                             <div className='form-group'>
                                 <label>
-                                    <b>Thời gian setting OK: </b>
+                                    <b>Thời gian setting OK: 15h30p viết là 1530</b>
                                     <input type="text" id="pqc1_setting_ok"  size="30" value={pqc1_setting_ok} onChange={ (e) => { setpqc1_setting_ok(e.target.value)}}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
-                                    <b>Mã CNSX: </b>
-                                    <input type="text" id="pqc1_sx_empl_no"  size="30" value={pqc1_sx_empl_no} onChange={ (e) => { setpqc1_sx_empl_no(e.target.value)}}></input>
+                                    <b>Mã CNSX: <span style={{color:'blue'}}>{pqc1_sx_empl_name}</span></b>
+                                    <input type="text" id="pqc1_sx_empl_no"  size="30" value={pqc1_sx_empl_no} onChange={ (e) => { setpqc1_sx_empl_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'pqc1_sx_empl_name')}}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
-                                    <b>Mã LeaderSX: </b>
-                                    <input type="text" id="pqc1_leadersx_empl_no" size="30" value={pqc1_leadersx_empl_no} onChange={ (e) => { setpqc1_leadersx_empl_no(e.target.value)}}></input>
+                                    <b>Mã LeaderSX: <span style={{color:'blue'}}>{pqc1_leader_sx_empl_name}</span></b>
+                                    <input type="text" id="pqc1_leadersx_empl_no" size="30" value={pqc1_leadersx_empl_no} onChange={ (e) => { setpqc1_leadersx_empl_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'pqc1_leader_sx_empl_name')}}></input>
                                 </label>
                             </div>
                         </div>
@@ -146,6 +248,7 @@ export default function PQC1() {
                         <div className='form-group'>
                             <button className='btn btn-primary' onClick={(e)=>{handleClick(e)}}>Nhập Data</button>
                             <button className='btn btn-danger' onClick={(e)=>{handleReset(e)}}>Reset Data</button>
+                            <button className='btn btn-info' onClick={(e)=>{handleUpdate(e)}}>Update Data</button>
                         </div>
                     </div>
                 </form>

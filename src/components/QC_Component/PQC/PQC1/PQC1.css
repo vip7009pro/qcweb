@@ -48,15 +48,18 @@ label {
     margin-left: 20px;
     margin-top: 20px;
     padding: 10px;    
-    width: 60%;
-    height: 580px; 
+    width: 70%;
+    height: 680px; 
 }
 
 .my-custom-scrollbar {
     position: relative;    
     overflow: auto;
-    height: 500px
+    height: 600px
     }
 .table-wrapper-scroll-y {
 display: block;
+}
+td:hover {
+    background-color: rgba(8, 245, 8, 0.5);
 }

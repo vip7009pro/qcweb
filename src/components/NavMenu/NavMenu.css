@@ -1,4 +1,4 @@
-#menu_div {
+/* #menu_div {
     position: fixed;
     left: 10px;
     bottom: 70px;
@@ -27,5 +27,36 @@
 }	
 .nav-item:hover {
     background-image: linear-gradient(0deg, #008fe2,#021857);
+    background-size: cover;
+} */
+#myTopnav {
+  overflow: hidden;
+  background-image: linear-gradient(90deg, #fc0edc,#0c49f1);  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ 
+    
+  border-radius: 5px; 
+  z-index: 99999999; 
+  max-width: 1500px; 
+}
+#myTopnav ul {
+    display: inline-flex; 
+}
+#myTopnav li {
+    text-align: center;
+    float:left;
+    margin: auto;
+}
+#nav_show_btn {   
+    position: fixed;
+    bottom: 0;   
+}
+
+.nav-item .active{
+    background-image: linear-gradient(0deg, #0fff0f,#0c49f1);
+    background-size: cover;
+}	
+.nav-item:hover {
+    background-image: linear-gradient(0deg, #47f014,#3b68e4);
     background-size: cover;
 }

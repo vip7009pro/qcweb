@@ -28,11 +28,8 @@ export default function NavMenu() {
     }
     return (
         <>
-            <div id="menu_div">
-                <button id="nav_show_btn" onClick={changeDisplay}>
-                    <img src="menu_button.png" width="35px" height="35px"></img>
-                </button>
-                <ul className="topnav nav nav-tabs" id="myTopnav" style={{ display: dpl }} >
+            <div id="menu_div">               
+                <ul className="container topnav nav nav-tabs" id="myTopnav" style={{ display: dpl }} >
                     <li onClick={() => { updateArray("1"); }} className="nav-item active">
                         <a style={{ color: "white" }} className="nav-link"><b>Đăng
                             ký nghỉ</b></a>
@@ -72,6 +69,9 @@ export default function NavMenu() {
                             id="manual"><b>Hướng dẫn sử dụng</b></a>
                     </li>
                 </ul>
+                {/* <button id="nav_show_btn" onClick={changeDisplay}>
+                    <img src="menu_button.png" width="35px" height="35px"></img>
+                </button> */}
             </div>
             <div id="tabdiv">                
                     <Tabs TabName={tabNo[tabNo.length - 1]} />               

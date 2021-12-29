@@ -189,3 +189,27 @@ export async function getchat() {
     });
     return data;
 }
+export async function temp_info(param, option) {
+    let data = await axios.post(API_URL, {
+        command: 'temp_info',
+        param: param,
+        option: option
+    });
+    return data;
+}
+
+export async function insertPQC1(insertdata) {
+    let data = await axios.post(API_URL, {
+        command: 'insert_pqc1',
+        data: insertdata        
+    });
+    return data;
+}
+
+export async function insertSampleQtyPQC1(insertdata) {
+    let data = await axios.post(API_URL, {
+        command: 'insert_sample_qty_pqc1',
+        data: insertdata        
+    });
+    return data;
+}

@@ -7,6 +7,7 @@ export default function Notification() {
     const [noti, setNoTi] = useState([]);
     const notiRef = useRef();
     notiRef.current = noti;
+    notificationFadeOut();    
     const renderNoti = (notifi)=>{
         let NotiHTML = "";
         for( const notiEle of notifi)
