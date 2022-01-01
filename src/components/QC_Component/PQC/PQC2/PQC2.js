@@ -3,7 +3,6 @@ import '../PQC2/PQC2.css'
 import moment from 'moment';
 import { get_pqc2_output_data } from '../../../../Api/Api';
 import { getHTMLTABLE22 } from '../../../../Api/tableRender';
-import DataGrid from 'react-data-grid'
 import { addColumnTable, addRowTable, clickVaoday, doubleClickCell, readingTable } from '../../../../jq';
 
 export default function PQC2() {
