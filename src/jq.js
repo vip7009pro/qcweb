@@ -661,42 +661,44 @@ export function modifyColumn(tableID,colnum){
 }
 
 export function updateColumn(tableID,colnum){    
-    var table  = document.getElementById(tableID);    
+    var table  = document.getElementById(tableID);   
+    let bulkupdatedata = [];
     for(var i=1;i< table.rows.length;i++)
-    {  
-        setTimeout(()=>{
-
-        },500);
+    {         
         let sample_qty = table.rows[i].cells[colnum];  
-        let pqc1_id = table.rows[i].cells[2].innerHTML;        
+        let pqc1_id = table.rows[i].cells[2].innerHTML;      
+        console.log(pqc1_id+ ":" + sample_qty.innerHTML);
         if (sample_qty.innerHTML == `<input type="text" value="">`) 
         {
             let sample_input_qty = sample_qty.firstChild.value
-            sample_qty.innerHTML= sample_input_qty; 
             let insertdata = {
                 INSPECT_SAMPLE_QTY: sample_input_qty,
                 PQC1_ID: pqc1_id
             }
-           
-            insertSampleQtyPQC1(insertdata)
-            .then(response=>{
-                let Jresult = response.data;
-                if(Jresult.tk_status=='OK')
-                {
-                   
-                }
-                else
-                {
-                    swal("Lỗi",Jresult.message,"error");
-                }
-
-            })
-            .catch(error=>{
-                swal("Cảnh báo","Có lỗi trong quá trình update","error");
-            })
-        }   
-
+            bulkupdatedata = [...bulkupdatedata,insertdata]; 
+        }
+              
     }
+    console.log(bulkupdatedata);
+
+    
+     insertSampleQtyPQC1(bulkupdatedata)
+        .then(response=>{
+            let Jresult = response.data;
+            if(Jresult.tk_status=='OK')
+            {
+                swal("Thông báo","Update thành công","success");
+            }
+            else
+            {
+                swal("Lỗi",Jresult.message,"error");
+            }
+
+        })
+        .catch(error=>{
+            swal("Cảnh báo","Có lỗi trong quá trình update","error");
+        })
+    
 }
 
 export function doubleClickCell()
