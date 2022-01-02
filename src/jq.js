@@ -681,8 +681,9 @@ export function updateColumn(tableID,colnum){
     }
     console.log(bulkupdatedata);
 
-    
-     insertSampleQtyPQC1(bulkupdatedata)
+    if(bulkupdatedata.length>0)
+    {
+        insertSampleQtyPQC1(bulkupdatedata)
         .then(response=>{
             let Jresult = response.data;
             if(Jresult.tk_status=='OK')
@@ -698,6 +699,12 @@ export function updateColumn(tableID,colnum){
         .catch(error=>{
             swal("Cảnh báo","Có lỗi trong quá trình update","error");
         })
+    }
+    else
+    {
+        swal("Thông báo","Không có gì để update","info");
+    }
+     
     
 }
 
