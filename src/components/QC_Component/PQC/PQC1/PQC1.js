@@ -154,6 +154,7 @@ export default function PQC1() {
                 })
                 .catch(error=>{
                     console.log(error);
+                    setGName('');
                 });
             break;
             default:
@@ -174,20 +175,20 @@ export default function PQC1() {
             <div className='pqcform'>
                 <h2>Form nhập thông tin Setting PQC</h2>
                 
-                <form>
+                <form className='pqc1form'>
                     <div className='row'>
                         <div className='col'>
                             <div className='form-group'>
                                 <label>
                                     <b>Ngày kiểm tra:</b>
                                 </label>
-                                <input type="date" id="pqc1_settingdate" value={pqc1_settingdate} onChange={ (e) => { setpqc1_settingdate(e.target.value)}}></input>
+                                <input type="date" id="pqc1_settingdate" value={pqc1_settingdate} onChange={ (e) => { setpqc1_settingdate(e.target.value)}} size={20}></input>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Nhà máy: </b>
                                 </label>
-                                <select className='form-control' id='pqc1_factory' name='pqc1_factoryname'  onChange={ (e) => { setpqc1_factoryname(e.target.value)}}>
+                                <select className='form-control' id='pqc1_factory' name='pqc1_factoryname'  onChange={ (e) => { setpqc1_factoryname(e.target.value)}} size={1}>
                                     <option>Nhà máy 1</option>
                                     <option>Nhà máy 2</option>
                                 </select>
@@ -195,19 +196,19 @@ export default function PQC1() {
                             <div className='form-group'>
                                 <label>
                                     <b>LOT Sản xuất: <br></br><span style={{color:'blue'}}>{gname} </span> </b>
-                                    <input type="text" id="pqc1_process_lot_no" size="50" value={pqc1_process_lot_no} onChange={ (e) => { setpqc1_process_lot_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'gname')}}></input>
+                                    <input type="text" id="pqc1_process_lot_no" size="50" value={pqc1_process_lot_no} onChange={ (e) => { setpqc1_process_lot_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'gname')}} size={20}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Mã LineQC: <span style={{color:'blue'}}> {pqc1_lineqc_empl_name} </span> </b>
-                                    <input type="text" id="pqc1_lineqc_empl_no" size="50" value={pqc1_lineqc_empl_no} onChange={ (e) => { setpqc1_lineqc_empl_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'pqc1_lineqc_empl_name')}}></input>
+                                    <input type="text" id="pqc1_lineqc_empl_no" size="50" value={pqc1_lineqc_empl_no} onChange={ (e) => { setpqc1_lineqc_empl_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'pqc1_lineqc_empl_name')}} size={20}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Số máy: </b>
-                                    <input type="text" id="pqc1_machine_no" size="50" value={pqc1_machine_no} onChange={ (e) => { setpqc1_machine_no(e.target.value)}}></input>
+                                    <input type="text" id="pqc1_machine_no" size="50" value={pqc1_machine_no} onChange={ (e) => { setpqc1_machine_no(e.target.value)}} size={20}></input>
                                 </label>
                             </div>
                         </div>
@@ -215,31 +216,31 @@ export default function PQC1() {
                             <div className='form-group'>
                                 <label>
                                     <b>Số bước: </b>
-                                    <input type="text" id="pqc1_step_no"  size="30" value={pqc1_step_no} onChange={ (e) => { setpqc1_step_no(e.target.value)}}></input>
+                                    <input type="text" id="pqc1_step_no"  size="30" value={pqc1_step_no} onChange={ (e) => { setpqc1_step_no(e.target.value)}} size={20}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Số Cavity: </b>
-                                    <input type="text" id="pqc1_cavity_no"  size="30" value={pqc1_cavity_no} onChange={ (e) => { setpqc1_cavity_no(e.target.value)}}></input>
+                                    <input type="text" id="pqc1_cavity_no"  size="30" value={pqc1_cavity_no} onChange={ (e) => { setpqc1_cavity_no(e.target.value)}} size={20}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Thời gian setting OK: 15h30p viết là 1530</b>
-                                    <input type="text" id="pqc1_setting_ok"  size="30" value={pqc1_setting_ok} onChange={ (e) => { setpqc1_setting_ok(e.target.value)}}></input>
+                                    <input type="text" id="pqc1_setting_ok"  size="30" value={pqc1_setting_ok} onChange={ (e) => { setpqc1_setting_ok(e.target.value)}} size={20}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Mã CNSX: <span style={{color:'blue'}}>{pqc1_sx_empl_name}</span></b>
-                                    <input type="text" id="pqc1_sx_empl_no"  size="30" value={pqc1_sx_empl_no} onChange={ (e) => { setpqc1_sx_empl_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'pqc1_sx_empl_name')}}></input>
+                                    <input type="text" id="pqc1_sx_empl_no"  size="30" value={pqc1_sx_empl_no} onChange={ (e) => { setpqc1_sx_empl_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'pqc1_sx_empl_name')}} size={20}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Mã LeaderSX: <span style={{color:'blue'}}>{pqc1_leader_sx_empl_name}</span></b>
-                                    <input type="text" id="pqc1_leadersx_empl_no" size="30" value={pqc1_leadersx_empl_no} onChange={ (e) => { setpqc1_leadersx_empl_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'pqc1_leader_sx_empl_name')}}></input>
+                                    <input type="text" id="pqc1_leadersx_empl_no" size="30" value={pqc1_leadersx_empl_no} onChange={ (e) => { setpqc1_leadersx_empl_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'pqc1_leader_sx_empl_name')}} size={20}></input>
                                 </label>
                             </div>
                         </div>
