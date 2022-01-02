@@ -1,30 +1,46 @@
-.pqcform {
+/* .pqcform {
+    position: fixed;
     background-image: linear-gradient(0deg, #1fce76,#7ec032);
     padding: 20px;    
     margin-left:20px;
     margin-top: 20px;
+    margin-right: 20px;
     width: fit-content;    
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-size: cover;			 
     border-radius:5px;
     float: left;
+    
+} */
+
+.pqcform {
+    position: fixed;
+    background-image: linear-gradient(0deg, #1fce76,#7ec032);
+    padding: 20px;  
+    bottom: 10px;
+    left: 50px;
+    width: fit-content;    
+    max-width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-size: cover;			 
+    border-radius:5px;
+    float: left;    
+    z-index: 999999;
+    
 }
+
 .col {    
     padding: 10px;
     width: 200px;
     margin: auto;
 }
-input, button {
-    padding: 5px 15px;
-    border-radius: 5px !important;
-    margin: 5px 0px;    
-    margin-right: 10px;
+input, button {    
+    border-radius: 5px !important; 
     font-size: 18px !important;
     font-weight: 300;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    size: 20;
+    height: 100%;    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    size: 50;   
 }
 
 .row {
@@ -48,7 +64,7 @@ label {
     margin-left: 20px;
     margin-top: 20px;
     padding: 10px;    
-    width: 70%;
+    width: 100%;
     height: 680px; 
 }
 
@@ -62,4 +78,8 @@ display: block;
 }
 td:hover {
     background-color: rgba(8, 245, 8, 0.5);
+}
+
+#pqc_data_table {
+    overflow-x: auto;
 }
