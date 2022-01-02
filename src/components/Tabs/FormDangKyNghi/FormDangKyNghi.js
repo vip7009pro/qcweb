@@ -8,9 +8,9 @@ export function returnDateFormat(today) {
   let year = today.getFullYear();
   let month = today.getMonth();
   let date = today.getDate();
-  if (month + 1 < 10) month = "0" + month;
+  if (month + 1 < 10) month = "0" + (month+1);
   if (date < 10) date = "0" + date;
-  return year + "-" + (month + 1) + "-" + date;
+  return year + "-" + month + "-" + date;
 }
 export default function FormDangKyNghi() {
   const [canghi, setCaNghi] = useState("Ca ngày");
