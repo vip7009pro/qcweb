@@ -10,7 +10,6 @@ import PQC2 from './PQC2/PQC2'
 import PQC3 from './PQC3/PQC3'
 import '..//PQC/PQC.css'
 import PQCDATA from './PQCDATA/PQCDATA';
-import Draggable from 'react-draggable';
 export default function PQC() {
     return (
         <>
