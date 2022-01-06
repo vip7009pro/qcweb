@@ -1,0 +1,34 @@
+#pqc_menu_list {
+  overflow: hidden;
+  background-image: linear-gradient(90deg, #0c49f1,#59fc0e);  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px; 
+  z-index: 99999999; 
+  max-width: 1500px; 
+  
+}
+#pqc_nav ul {
+    display: inline-flex;     
+}
+#pqc_nav li{
+    text-align: center;
+    float:left;
+    margin: 20px;
+    color: aquamarine;
+}
+
+.link {
+    color: rgb(222, 247, 0);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.pqc_menu_item .active{
+    background-image: linear-gradient(0deg, #0fff0f,#0c49f1);
+    background-size: cover;
+}	
+.pqc_menu_item:hover {
+    background-image: linear-gradient(0deg, #47f014,#3b68e4);
+    background-size: cover;
+}
+
