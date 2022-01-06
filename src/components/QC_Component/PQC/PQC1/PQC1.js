@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import '../PQC1/PQC1.css'
 import moment from 'moment';
-import { get_pqc1_output_data, insertPQC1, temp_info } from '../../../../Api/Api';
+import { checkKTDTC, get_pqc1_output_data, insertPQC1, temp_info } from '../../../../Api/Api';
 import { getHTMLTABLE22 } from '../../../../Api/tableRender';
 import swal from 'sweetalert';
 import { modifyColumn, readingTable, updateColumn } from '../../../../jq';
-
+import Draggable from 'react-draggable';
 
 export default function PQC1() {
     const [pqc1_settingdate, setpqc1_settingdate] = useState(moment().format("YYYY-MM-DD"));
@@ -18,13 +18,11 @@ export default function PQC1() {
     const [pqc1_setting_ok, setpqc1_setting_ok] = useState('');
     const [pqc1_sx_empl_no, setpqc1_sx_empl_no] = useState('');
     const [pqc1_leadersx_empl_no, setpqc1_leadersx_empl_no] = useState('');
-
     const [gname, setGName] = useState('');
     const [pqc1_lineqc_empl_name, setPqc1LineQCEmplName] = useState('');
     const [pqc1_sx_empl_name, setPqc1SxEmplName] = useState('');
     const [pqc1_leader_sx_empl_name, setPqc1LeaderSxEmplName] = useState('');
-
-
+    const [ktdtc,setKTDTC] = useState('DKT');
     const [table,setTable] = useState('');
 
     const handleClick=(e)=>{
@@ -38,8 +36,8 @@ export default function PQC1() {
             STEPS: pqc1_step_no,
             CAVITY: pqc1_cavity_no,
             SETTING_OK_TIME: pqc1_settingdate + " " + pqc1_setting_ok.substring(0,2)+":"+ pqc1_setting_ok.substring(2,4),
-            FACTORY: pqc1_factoryname=="Nhà máy 1" ? 'NM1' : 'NM2',            
-            REMARK: ''
+            FACTORY: pqc1_factoryname=="Nhà máy 1" ? 'NM1' : 'NM2',                    
+            REMARK: ktdtc
         };
         insertPQC1(insertdata)
         .then(response=>{
@@ -58,7 +56,6 @@ export default function PQC1() {
         .catch(error=>{
             console.log(error);
         }) 
-
         console.log(pqc1_settingdate);
         console.log(pqc1_factoryname);
         console.log(pqc1_process_lot_no);
@@ -69,6 +66,7 @@ export default function PQC1() {
         console.log(pqc1_setting_ok.substring(0,2)+":"+ pqc1_setting_ok.substring(2,4));
         console.log(pqc1_sx_empl_no);
         console.log(pqc1_leadersx_empl_no); 
+
     }
     const handleReset = (e) => {
         e.preventDefault();
@@ -82,6 +80,33 @@ export default function PQC1() {
         setpqc1_setting_ok('');
         setpqc1_sx_empl_no('');
         setpqc1_leadersx_empl_no('');
+        setKTDTC('DKT');
+    }
+    const handlecheckKTDTC = (lotsx) => {
+        console.log("vao check dtc");
+        const queryData = {
+            PROCESS_LOT_NO: lotsx
+        }
+        checkKTDTC(queryData)
+        .then(response=>{
+            let Jresult = response.data;
+            if(Jresult.tk_status=='OK')
+            {
+                //console.log(Jresult.data[0].TRANGTHAI);
+                if(Jresult.data[0].TRANGTHAI)                
+                setKTDTC('DKT');  
+            }
+            else
+            {
+                console.log("k fai leader");
+                setKTDTC('CKT');
+            }
+            
+
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
     const handleGetPQC1Data = ()=>{
         get_pqc1_output_data()
@@ -90,8 +115,7 @@ export default function PQC1() {
             if(Jresult.tk_status=='OK')
             {
                 setTable(getHTMLTABLE22(JSON.parse(Jresult.data),'pqc_data_table'));    
-                modifyColumn('pqc_data_table',12);          
-                
+                modifyColumn('pqc_data_table',12); 
             }
             else
             {
@@ -104,7 +128,7 @@ export default function PQC1() {
             console.log(error);
         })
     }
-    const handle_temp_info =  (param, option) =>
+  const handle_temp_info =  (param, option) =>
     {
         
         switch(option)
@@ -172,6 +196,7 @@ export default function PQC1() {
     },[])
     return (
         <div id="pqc1_panel">
+            <Draggable>
             <div className='pqcform'>
                 <h2>Form nhập thông tin Setting PQC</h2>
                 
@@ -196,7 +221,7 @@ export default function PQC1() {
                             <div className='form-group'>
                                 <label>
                                     <b>LOT Sản xuất: <br></br><span style={{color:'blue'}}>{gname} </span> </b>
-                                    <input type="text" id="pqc1_process_lot_no" size="50" value={pqc1_process_lot_no} onChange={ (e) => { setpqc1_process_lot_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'gname')}} size={20}></input>
+                                    <input type="text" id="pqc1_process_lot_no" size="50" value={pqc1_process_lot_no} onChange={ (e) => { setpqc1_process_lot_no(e.target.value)}} onBlur={(e)=>{handle_temp_info(e.target.value,'gname'); handlecheckKTDTC(e.target.value);}} size={20}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
@@ -254,7 +279,7 @@ export default function PQC1() {
                     </div>
                 </form>
             </div>
-            
+            </Draggable>
             <div className = "pqc_dataTable">
                 <h3><p>Bảng dữ liệu setting PQC</p></h3>
                 <div id="pqc1_data" className="table-wrapper-scroll-y my-custom-scrollbar" >
@@ -262,6 +287,7 @@ export default function PQC1() {
                     <span  dangerouslySetInnerHTML={{__html: table}}></span>
                 </div>
             </div>
+           
             
         </div>
     )
