@@ -175,6 +175,14 @@ export async function get_pqc2_output_data() {
     return data;
 }
 
+export async function get_pqc3_output_data() {
+    let data = await axios.post(API_URL, {
+        command: 'pqc3_output_data'        
+    });
+    return data;
+}
+
+
 export async function insertchat(EMPL_NO, MESSAGE) {
     let data = await axios.post(API_URL, {
         command: 'insertchat',
@@ -206,10 +214,52 @@ export async function insertPQC1(insertdata) {
     return data;
 }
 
+export async function insertPQC2(insertdata) {
+    let data = await axios.post(API_URL, {
+        command: 'insert_pqc2',
+        data: insertdata
+    });
+    return data;
+}
+
+export async function insertPQC3(insertdata) {
+    let data = await axios.post(API_URL, {
+        command: 'insert_pqc3',
+        data: insertdata        
+    });
+    return data;
+}
+
 export async function insertSampleQtyPQC1(insertdata) {
     let data = await axios.post(API_URL, {
         command: 'insert_sample_qty_pqc1',
         data: insertdata        
+    });
+    return data;
+}
+
+export async function getPQC1ID(lineqc_empl_no,process_lot_no) {    
+    let data = await axios.post(API_URL, {
+        command: 'getpqc1id',
+        EMPL_NO: lineqc_empl_no,
+        PROCESS_LOT_NO: process_lot_no
+    });
+    return data;
+}
+
+export async function getPQCDATA(queryData) {    
+    let data = await axios.post(API_URL, {
+        command: 'getpqcdata',
+        DATA: queryData        
+    });
+    return data;
+}
+
+export async function checkKTDTC(queryData)
+{
+    let data = await axios.post(API_URL, {
+        command: 'checkktdtc',
+        DATA: queryData        
     });
     return data;
 }
