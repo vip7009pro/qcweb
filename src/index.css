@@ -99,3 +99,8 @@ td {
 .dataTables_wrapper {
     width: 100%;
 }
+
+td {
+    max-width:100%;
+    white-space:nowrap;
+}

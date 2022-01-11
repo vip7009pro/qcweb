@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import '../PQCDATA/PQCDATA.css'
+
 import moment from 'moment';
 import { getPQCDATA, get_pqc1_output_data, insertPQC1, temp_info } from '../../../../Api/Api';
 import { getHTMLTABLE22 } from '../../../../Api/tableRender';
 import swal from 'sweetalert';
-import { modifyColumn, updateColumn } from '../../../../jq';
 import Draggable from 'react-draggable';
-
+import { loadProgressBar } from 'axios-progress-bar'
+import 'axios-progress-bar/dist/nprogress.css'
+import '../PQCDATA/PQCDATA.css'
 
 export default function PQCDATA() {
     const [alltime,setAllTime] = useState(false);
@@ -23,7 +24,9 @@ export default function PQCDATA() {
 
     const [table,setTable] = useState('');
 
+
     const handleSubmit = ()=>{
+        loadProgressBar();
         let queryData = {
             ALLTIME: alltime,
             FROMDATE: pqcdata_fromdate,

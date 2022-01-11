@@ -4,9 +4,10 @@ import moment from 'moment';
 import { checkKTDTC, get_pqc1_output_data, insertPQC1, temp_info } from '../../../../Api/Api';
 import { getHTMLTABLE22 } from '../../../../Api/tableRender';
 import swal from 'sweetalert';
-import { modifyColumn, readingTable, updateColumn } from '../../../../jq';
+import { keydowninput, modifyColumn, readingTable, updateColumn } from '../../../../jq';
 import Draggable from 'react-draggable';
-
+import { loadProgressBar } from 'axios-progress-bar'
+import 'axios-progress-bar/dist/nprogress.css'
 export default function PQC1() {
     const [pqc1_settingdate, setpqc1_settingdate] = useState(moment().format("YYYY-MM-DD"));
     const [pqc1_factoryname, setpqc1_factoryname] = useState('Nhà máy 1');
@@ -116,12 +117,12 @@ export default function PQC1() {
             {
                 setTable(getHTMLTABLE22(JSON.parse(Jresult.data),'pqc_data_table'));    
                 modifyColumn('pqc_data_table',12); 
+                keydowninput();
             }
             else
             {
                 console.log("k fai leader");
-            }
-            
+            }            
 
         })
         .catch(error=>{

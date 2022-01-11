@@ -129,7 +129,7 @@ export default function PQC3() {
             case 'pqc3_lineqc_empl_name':
                 temp_info(param,'empl_name')
                 .then(response=>{
-                    console.log(response.data.data);
+                    //console.log(response.data.data);
                     setpqc3LineQCEmplName(JSON.parse(response.data.data)[0].EMPL_NAME);
                 })
                 .catch(error=>{

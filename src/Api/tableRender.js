@@ -20,8 +20,16 @@ export function getHTMLTABLE22(data, table_id)
                 tr.push("<td></td>");
             }   
             else if(moment(data[i][element],moment.ISO_8601,true).isValid()) {
-               // console.log(data[i][element].toString());
-                tr.push("<td>" + data[i][element].toString().slice(0,10)  + ' ' + data[i][element].toString().slice(11,19) + "</td>")
+               //console.log(data[i][element].toString());
+               if(data[i][element].toString().slice(0,10) != '1900-01-01')
+               {
+                    tr.push("<td>" + data[i][element].toString().slice(0,10)  + ' ' + data[i][element].toString().slice(11,19) + "</td>")
+               }
+               else
+               {
+                    tr.push("<td></td>")
+               }
+                
             }
             else{
                 tr.push("<td>" + data[i][element]  +"</td>")

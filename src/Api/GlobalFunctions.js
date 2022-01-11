@@ -13,7 +13,5 @@ export const converttoDateTimefromTime = (ipdate, iptime) => {
     catch(ex)
     {
         swal("Lỗi","Lỗi định dạng ngày tháng, nhập cho đúng định dạng vào","error");
-    }
-     
-    
+    }         
 }

@@ -5,10 +5,9 @@ import Employee from './Employee';
 import QCApp from './QCApp';
 import './index.css';
 
-
 ReactDOM.render(  
     <>    
-    <QCApp/>    
+    <Employee/>    
     </>,  
   document.getElementById('root')
 );

@@ -1,3 +1,5 @@
+
+/*
 #pqc_menu_list {
   overflow: hidden;
   background-image: linear-gradient(90deg, #0c49f1,#59fc0e);  
@@ -18,12 +20,10 @@
 }
 
 .link {
-    color: rgb(222, 247, 0);
-    font-size: 1em;
-    font-weight: bold;
+    
+    font-size: 1em;    
 }
-
-.pqc_menu_item .active{
+ .pqc_menu_item .active{
     background-image: linear-gradient(0deg, #0fff0f,#0c49f1);
     background-size: cover;
 }	
@@ -31,4 +31,4 @@
     background-image: linear-gradient(0deg, #47f014,#3b68e4);
     background-size: cover;
 }
-
+ */

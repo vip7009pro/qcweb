@@ -704,8 +704,6 @@ export function updateColumn(tableID,colnum){
     {
         swal("Thông báo","Không có gì để update","info");
     }
-     
-    
 }
 
 export function doubleClickCell()
@@ -746,4 +744,16 @@ export function hidechat()
         $("#chat_panel").fadeOut(250);
         kkk = 1;
     }
+}
+
+
+
+export function keydowninput()
+{
+    $('.pqc1form').on('keydown', 'input', function (event) {        
+        if (event.key == 'Enter') { 
+            event.preventDefault();
+            alert('da bam enter');
+        }
+    });
 }

@@ -1,0 +1,19 @@
+#navbarmenu {
+    border-radius: 15px;
+    padding: 30px;
+    height: 200px;   
+}
+
+#nprogress .bar {
+    background: rgb(245, 51, 3);  
+    position: fixed;
+    z-index: 1031;
+    bottom: 0;
+    left: 0; 
+    width: 100%;
+    height: 10px;
+  }
+td {
+    max-width:100%;
+    white-space:nowrap;
+}
