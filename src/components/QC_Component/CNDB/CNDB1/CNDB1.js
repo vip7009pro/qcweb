@@ -94,21 +94,17 @@ export default function CNDB1() {
                 console.log(error);
             })
            
-            
-
     }
     const handleReset = (e) => {
         e.preventDefault();
-        setcndb1_cndb_date(moment().format("YYYY-MM-DD"));
-        
+        setcndb1_cndb_date(moment().format("YYYY-MM-DD"));        
         setcndb1_cndb_no('');
         setcndb1_reg_empl_no('');
         setcndb1_m_name('');
         setcndb1_defect_name('');
         setcndb1_defect_content('');
         setcndb1_remark('');        
-        setpqc1_leadersx_empl_no('');
-        
+        setpqc1_leadersx_empl_no('');        
     }    
     const handleGetCNDBData = () => {
         let insertdata={
@@ -163,8 +159,7 @@ export default function CNDB1() {
         handleGetCNDBData();
     }, [])
     return (
-        <div id="pqc1_panel">
-            <Draggable>
+        <div id="pqc1_panel">            
                 <div className='pqcform'>
                     <h2>Form đăng ký CNĐB</h2>
                     <form className='pqc1form'>
@@ -238,8 +233,7 @@ export default function CNDB1() {
                             </div>
                         </div>
                     </form>
-                </div>
-            </Draggable>
+                </div>           
             <div className="pqc_dataTable">
                 <h3><p>Bảng dữ liệu CNĐB</p></h3>
                 <div id="pqc1_data" className="table-wrapper-scroll-y my-custom-scrollbar" >

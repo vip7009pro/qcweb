@@ -31,23 +31,15 @@ export default function QC() {
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="me-auto">                                    
-                                    {/* <NavDropdown title="IQC" id="basic-nav-dropdown" >
-                                        <Nav.Link as={Link} to="/pqc/pqc1" >PQC SETTING</Nav.Link>
-                                        <Nav.Link as={Link} to="/pqc/pqc2" >PQC CHECKSHEET</Nav.Link>
-                                        <Nav.Link as={Link} to="/pqc/pqc3" >PQC DEFECT</Nav.Link>
-                                        <NavDropdown.Divider />
-                                        <Nav.Link as={Link} to="/pqc/pqc4" >PQC DATA</Nav.Link>                                       
-                                    </NavDropdown>
- */}
                                     {/* <Link className="link1" to="/cndb"><Nav.Link href="#/cndb">CHẤP NHẬN ĐẶC BIỆT</Nav.Link></Link> */}
-                                    <NavDropdown title="CHẤP NHẬN ĐẶC BIỆT" id="basic-nav-dropdown" >
-                                        <Link className="link" to="/cndb1" style={{ textDecoration: 'none' }}><NavDropdown.Item href="#1">ĐĂNG KÝ CNĐB</NavDropdown.Item></Link>
-                                        <Link className="link" to="/cndb2" style={{ textDecoration: 'none' }}><NavDropdown.Item href="#1">UPDATE LOT NO CNĐB</NavDropdown.Item></Link>  
+                                    <NavDropdown title="CHẤP NHẬN ĐẶC BIỆT" id="basic-nav-dropdown">
+                                        <Nav.Link as={Link} to="/cndb1" ><NavDropdown.Item href="#1">ĐĂNG KÝ CNĐB</NavDropdown.Item></Nav.Link>
+                                        <Nav.Link as={Link} to="/cndb2" ><NavDropdown.Item href="#1">UPDATE LOT NO CNĐB</NavDropdown.Item></Nav.Link>
                                         <NavDropdown.Divider />
-                                        <Link className="link" to="/cndb5" style={{ textDecoration: 'none' }}><NavDropdown.Item href="#1">PHÊ DUYỆT CNĐB</NavDropdown.Item></Link>                                      
+                                        <Nav.Link as={Link} to="/cndb5" ><NavDropdown.Item href="#1">PHÊ DUYỆT CNĐB</NavDropdown.Item></Nav.Link>
                                         <NavDropdown.Divider />
-                                        <Link className="link" to="/cndb3" style={{ textDecoration: 'none' }}><NavDropdown.Item href="#1">TRA CỨU CNĐB</NavDropdown.Item></Link>
-                                        <Link className="link" to="/cndb4" style={{ textDecoration: 'none' }}><NavDropdown.Item href="#1">TRA CỨU LOT LIỆU CNĐB</NavDropdown.Item></Link>
+                                        <Nav.Link as={Link} to="/cndb3" ><NavDropdown.Item href="#1">TRA CỨU CNĐB</NavDropdown.Item></Nav.Link>
+                                        <Nav.Link as={Link} to="/cndb4" ><NavDropdown.Item href="#1">TRA CỨU LOT LIỆU CNĐB</NavDropdown.Item></Nav.Link>                               
                                     </NavDropdown>
                                     <NavDropdown title="IQC" id="basic-nav-dropdown" >
                                         <Link className="link" to="/pqc/pqc1" style={{ textDecoration: 'none' }}><NavDropdown.Item href="#1">PQC SETTING</NavDropdown.Item></Link>
@@ -105,7 +97,6 @@ export default function QC() {
                 </div>
                 <Routes>
                     <Route path="/pqc" element={<PQCDATA />} />
-
                     <Route path="/cndb1" element={<CNDB1 />} />
                     <Route path="/cndb2" element={<CNDB2 />} />
                     <Route path="/cndb5" element={<PQCDATA />} />

@@ -9,6 +9,9 @@ import { UserContext, SocketContext } from './Api/Context';
 import './components/dataTables.bootstrap4.min.css'
 import socketIOClient from 'socket.io-client'
 import QC from './components/QC_Component/QC';
+import CNDB1 from './components/QC_Component/CNDB/CNDB1/CNDB1';
+import Banner from './components/Banner/Banner';
+
 function QCApp() {
   const [loginState, setloginState] = useState(0);
   const [userdata, setUserData] = useState("okma");
@@ -41,7 +44,11 @@ function QCApp() {
         <div>
           <UserContext.Provider value={[userdata, setUserData]}>
             <SocketContext.Provider value={socketReft}>
-             <QC/>
+             {/* <QC/> */}
+             <div className='container'>
+             <Banner />
+             <CNDB1/>
+             </div>
             </SocketContext.Provider>
           </UserContext.Provider>
         </div>

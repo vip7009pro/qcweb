@@ -7,7 +7,7 @@ import './index.css';
 
 ReactDOM.render(  
     <>    
-    <Employee/>    
+    <QCApp/>    
     </>,  
   document.getElementById('root')
 );
