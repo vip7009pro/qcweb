@@ -9,7 +9,7 @@ export default function InfoPanel() {
     const [userdata, setUserData] = useContext(UserContext);
     const [attInfo, setAttInfo] = useState('');
     const [summaryTB, setSummaryTB] = useState('');
-    const [panelState, setPanelState] = useState('block');
+    const [panelState, setPanelState] = useState('none');
     const DOB = () => {
         if (userdata.DOB != null) {
             return userdata.DOB;

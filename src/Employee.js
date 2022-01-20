@@ -42,7 +42,7 @@ function Employee() {
             <SocketContext.Provider value={socketReft}>
               <Header />
               <Main />
-              <Footer />
+              {/* <Footer /> */}
             </SocketContext.Provider>
           </UserContext.Provider>
         </div>

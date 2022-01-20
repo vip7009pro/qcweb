@@ -100,7 +100,16 @@ td {
     width: 100%;
 }
 
-/* td {
+td {
     max-width:100%;
     white-space:nowrap;
-} */
+}
+
+
+.navbar-header {
+    background-color: #76ff26;
+  }
+  
+  .navbar-default .navbar-nav > li > a {
+    color: white;
+  }

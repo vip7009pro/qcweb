@@ -34,7 +34,7 @@ export default function FormSetTeam() {
         handleSubmit();
     }, [])
     return (
-        <div id="hr_modify" className="formdiv"><br />
+        <div id="hr_modify" className="container formdiv"><br />
             <h3>Điều chuyển nhân sự qua lại giữa các team</h3>
             <p>Leader mới có thể thực hiện điều chuyển</p>
             <div className="container">

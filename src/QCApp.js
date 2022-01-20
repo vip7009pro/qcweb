@@ -44,11 +44,11 @@ function QCApp() {
         <div>
           <UserContext.Provider value={[userdata, setUserData]}>
             <SocketContext.Provider value={socketReft}>
-             {/* <QC/> */}
-             <div className='container'>
+             <QC/>
+             {/* <div className='container'>
              <Banner />
              <CNDB1/>
-             </div>
+             </div> */}
             </SocketContext.Provider>
           </UserContext.Provider>
         </div>

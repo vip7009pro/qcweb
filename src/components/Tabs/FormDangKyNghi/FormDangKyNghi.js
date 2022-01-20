@@ -8,7 +8,7 @@ export function returnDateFormat(today) {
   let year = today.getFullYear();
   let month = today.getMonth();
   let date = today.getDate();
-  if (month + 1 < 10) month = "0" + (month+1);
+  if (month + 1 < 10) month = "0" + (month + 1);
   if (date < 10) date = "0" + date;
   return year + "-" + month + "-" + date;
 }
@@ -41,7 +41,7 @@ export default function FormDangKyNghi() {
     }
   };
   return (
-    <div id="formdangkynghi" className="formdiv">
+    <div id="formdangkynghi" className="container formdiv">
       <h3>Đăng ký nghỉ</h3>
       <form id="form_dk_nghi" method="post">
         <div className="form-group">
@@ -52,6 +52,7 @@ export default function FormDangKyNghi() {
             className="form-control"
             id="ca_nghi"
             name="ca_nghi"
+            style={{width: '250px'}}
             onChange={(e) => {
               setCaNghi(e.target.value);
             }}
@@ -71,6 +72,7 @@ export default function FormDangKyNghi() {
             type="date"
             id="nghi_from_date"
             name="ngaybatdau"
+            style={{width: '250px'}}
             value={fromdate}
             onChange={(e) => {
               setFromDate(e.target.value);
@@ -87,6 +89,7 @@ export default function FormDangKyNghi() {
             type="date"
             id="nghi_to_date"
             name="ngayketthuc"
+            style={{width: '250px'}}
             value={todate}
             onChange={(e) => {
               setToDate(e.target.value);
@@ -101,6 +104,7 @@ export default function FormDangKyNghi() {
             className="form-control"
             id="reason"
             name="reason_name"
+            style={{width: '250px'}}
             onChange={(e) => {
               setOffType(e.target.value);
             }}
@@ -123,6 +127,7 @@ export default function FormDangKyNghi() {
             placeholder="Lý do sự việc nghỉ cụ thể"
             id="nghi_remark"
             name="remark_content"
+            style={{width: '250px'}}
             onChange={(e) => {
               setRemark(e.target.value);
             }}

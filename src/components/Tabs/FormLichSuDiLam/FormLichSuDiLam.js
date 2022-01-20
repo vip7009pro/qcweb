@@ -30,9 +30,9 @@ export default function FormLichSuDiLam() {
         handleSubmit();
         JQF();
     }, []);
-
+    
     return (
-        <div id="tradiemdanh"  className="formdiv"><br />
+        <div id="tradiemdanh"  className="container formdiv"><br />
             <h3>Tra lịch sử đi làm của bản thân</h3>
             <form method="post">
                 <div className="form-group">

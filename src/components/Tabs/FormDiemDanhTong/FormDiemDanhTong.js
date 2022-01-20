@@ -56,7 +56,7 @@ export default function FormDiemDanhTong() {
             <form id="total_att_form" method="post">
                 <div className="form-group">
                     <label htmlFor="team_name"><b>Chọn team</b></label>
-                    <select className="form-control" id="team_name_total" name="team_name_total"  onChange={(e) => { setTeamname(e.target.value) }}>
+                    <select style={{width: '250px'}} className="form-control" id="team_name_total" name="team_name_total"  onChange={(e) => { setTeamname(e.target.value) }}>
                         <option>Tất cả</option>
                         <option>TEAM 1 + Hành chính</option>
                         <option>TEAM 2+ Hành chính</option>
@@ -67,7 +67,7 @@ export default function FormDiemDanhTong() {
                 </div>
                 <div className="form-group">
                     <label htmlFor="main_deparment_name"><b>Chọn bộ phận chính </b></label>
-                    <select className="form-control" id="main_deparment_name" name="main_deparment_name" onChange={(e) => { setMainDept(e.target.value) }}>
+                    <select style={{width: '250px'}} className="form-control" id="main_deparment_name" name="main_deparment_name" onChange={(e) => { setMainDept(e.target.value) }}>
                         <option>Toàn bộ</option>
                         <option>QC</option>
                         <option>INSPECTION</option>
@@ -75,7 +75,7 @@ export default function FormDiemDanhTong() {
                 </div>
                 <div className="form-group">
                     <label htmlFor="deparment_name"><b>Chọn bộ phận phụ </b></label>
-                    <select className="form-control" id="deparment_name" name="deparment_name" onChange={(e) => { setSubDept(e.target.value) }}>
+                    <select style={{width: '250px'}} className="form-control" id="deparment_name" name="deparment_name" onChange={(e) => { setSubDept(e.target.value) }}>
                         <option>Toàn bộ</option>
                         <option>QC</option>
                         <option>PD</option>
@@ -94,10 +94,10 @@ export default function FormDiemDanhTong() {
                 </div>
                 <div className="form-group">
                     <label htmlFor="date"><b>Từ ngày </b></label> <br />
-                    <input type="date" id="from_date_total" name="from_date_total" value={fromdate} onChange={(e) => { setFromDate(e.target.value) }}/>
+                    <input style={{width: '250px'}} type="date" id="from_date_total" name="from_date_total" value={fromdate} onChange={(e) => { setFromDate(e.target.value) }}/>
                     <br />
                     <label htmlFor="date"><b>Tới ngày </b></label> <br />
-                    <input type="date" id="to_date_total" name="to_date_total" value={todate} onChange={(e) => { setToDate(e.target.value) }}/>
+                    <input style={{width: '250px'}} type="date" id="to_date_total" name="to_date_total" value={todate} onChange={(e) => { setToDate(e.target.value) }}/>
                 </div>
                 <div className="form-check">
                     <input type="checkbox" className="form-check-input" id="nghisinhcheckbox" defaultChecked={!nghisinhvalue}  onChange={toggleNghiSinh}/>

@@ -55,12 +55,12 @@ export default function FormDiemDanhNhom() {
              
     }, [teamname]);
     return (
-        <div id="diemdanh" className="formdiv">
+        <div id="diemdanh" className="container formdiv">
             <h3>Điểm danh cho nhóm của mình</h3>
             <form id="form_diem_danh" method="post">
                 <div className="form-group">
                     <label htmlFor="team_name"><b>Chọn team để điểm danh</b></label>
-                    <select className="form-control" id="team_name" name="team_name" onChange={(e) => { setTeamName(e.target.value) }}>
+                    <select style={{width: '250px'}} className="form-control" id="team_name" name="team_name" onChange={(e) => { setTeamName(e.target.value) }}>
                         <option>Tất cả</option>
                         <option>TEAM 1 + Hành chính</option>
                         <option>TEAM 2+ Hành chính</option>

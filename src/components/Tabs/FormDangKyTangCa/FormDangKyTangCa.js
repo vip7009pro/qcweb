@@ -29,13 +29,13 @@ export default function FormDangKyTangCa() {
             })
     }
     return (
-        <div id="overtime"  className="formdiv"><br />
+        <div id="overtime"  className="container formdiv"><br />
             <h3>Tăng ca</h3>
             <p>Đăng ký tăng ca trong ngày tại đây</p>
             <form id="form_dk_tangca" method="post">
                 <div className="form-group">
                     <label htmlFor="tangcayesno"><b>Bạn có tăng ca hay không ?</b></label>
-                    <select className="form-control" id="tangcayesno" name="tangcayesno" onChange={(e) => { handleSetTangCa(e) }}>
+                    <select style={{width: '250px'}} className="form-control" id="tangcayesno" name="tangcayesno" onChange={(e) => { handleSetTangCa(e) }}>
                         <option>Có tăng ca</option>
                         <option>Không tăng ca</option>
                     </select>
@@ -43,13 +43,13 @@ export default function FormDangKyTangCa() {
                 <div className="form-group">
                     <label htmlFor="text"><b>Thời gian bắt đầu:</b> <i>(Ví dụ 17h00p thì nhập : 1700)
                     </i></label>
-                    <input type="text" className="form-control" placeholder="Giờ bắt đầu tăng ca"
+                    <input style={{width: '250px'}} type="text" className="form-control" placeholder="Giờ bắt đầu tăng ca"
                         id="over_start" name="over_start" value={over_start} onChange={(e) => { setOverStart(e.target.value) }} ></input>
                 </div>
                 <div className="form-group">
                     <label htmlFor="text"><b>Thời gian kết thúc:</b> <i>(Ví dụ 20h00p thì nhập : 2000)
                     </i></label>
-                    <input type="text" className="form-control" placeholder="Giờ kết thúc tăng ca"
+                    <input style={{width: '250px'}} type="text" className="form-control" placeholder="Giờ kết thúc tăng ca"
                         id="over_finish" name="over_finish" value={over_finish} onChange={(e) => { setOverFinish(e.target.value) }}></input>
                 </div>
             </form>
