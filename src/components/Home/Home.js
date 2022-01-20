@@ -16,7 +16,6 @@ export default function Home() {
     var duration = moment.duration(now.diff(start));
     var days = duration.asDays();
     //console.log("Ngay khac nhau = " + Math.floor(days));
-
     function getBusinessDatesCount(startDate, endDate) {
         let count = 0;
         const curDate = new Date(startDate.getTime());
@@ -28,7 +27,6 @@ export default function Home() {
         return count;
     }
     days = getBusinessDatesCount(new Date(startOfYear), new Date());
-
     const getData = () => {
         let insertData = {
         };
@@ -62,7 +60,6 @@ export default function Home() {
         return () => {
         }
     }, [])
-
     const DOB = () => {
         if (userdata.DOB != null) {
             return userdata.DOB;
@@ -71,8 +68,6 @@ export default function Home() {
             return '2021-12-16';
         }
     }
-
-
     return (
         <div id='homediv' className='container'>
             <h1>Thông tin đi làm của bạn trong năm:</h1>
@@ -93,17 +88,14 @@ export default function Home() {
                         <li> Chức vụ: {userdata.JOB_NAME}</li>
                     </ul>
                 </div>
-
-                
-                    <h3 className='h3h3' style={{ color: '#cc33ff' }}>Từ đầu năm đến giờ có : {Math.floor(days)} ngày (Tính cả ngày nghỉ lễ nhưng k tính chủ nhật)</h3> <br></br>
-                    {workday} /  {Math.floor(days)}
-                    <ProgressBar animated variant="success" now={Math.floor(workday / days * 100)} label={`${Math.floor(workday / days * 100)} %`}></ProgressBar>
-                    <h3 className='h3h3' style={{ color: 'yellow' }}>Số ngày bạn đi làm : {workday} ngày</h3> <br></br>
-                    {overtimeday} /  {Math.floor(workday)}
-                    <ProgressBar animated variant="warning" now={Math.floor(overtimeday / workday * 100)} label={`${Math.floor(overtimeday / workday * 100)} %`}></ProgressBar>
-                    <h3 className='h3h3' style={{ color: 'blue' }}>Số ngày bạn tăng ca : {overtimeday} ngày</h3> <br></br>
-                    <h3 className='h3h3' style={{ color: 'red' }}>Số ngày bạn đăng ký nghỉ (ko tính chủ nhật và nửa phép): {nghiday} ngày</h3> <br></br>
-               
+                <h3 className='h3h3' style={{ color: '#cc33ff' }}>Từ đầu năm đến giờ có : {Math.floor(days)} ngày (Tính cả ngày nghỉ lễ nhưng k tính chủ nhật)</h3> <br></br>
+                {workday} /  {Math.floor(days)}
+                <ProgressBar animated variant="success" now={Math.floor(workday / days * 100)} label={`${Math.floor(workday / days * 100)} %`}></ProgressBar>
+                <h3 className='h3h3' style={{ color: 'yellow' }}>Số ngày bạn đi làm : {workday} ngày</h3> <br></br>
+                {overtimeday} /  {Math.floor(workday)}
+                <ProgressBar animated variant="warning" now={Math.floor(overtimeday / workday * 100)} label={`${Math.floor(overtimeday / workday * 100)} %`}></ProgressBar>
+                <h3 className='h3h3' style={{ color: 'blue' }}>Số ngày bạn tăng ca : {overtimeday} ngày</h3> <br></br>
+                <h3 className='h3h3' style={{ color: 'red' }}>Số ngày bạn đăng ký nghỉ (ko tính chủ nhật và nửa phép): {nghiday} ngày</h3> <br></br>
             </div>
         </div>
     )
