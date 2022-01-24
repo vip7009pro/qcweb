@@ -4,10 +4,11 @@ import ReactDOM from 'react-dom';
 import Employee from './Employee';
 /* import QCApp from './QCApp'; */
 import './index.css';
+import RNDApp from './RNDApp';
 
 ReactDOM.render(  
     <>    
-    <Employee/>    
+    <RNDApp/>    
     </>,  
   document.getElementById('root')
 );

@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import { toggleChatPannel } from '../../jq'
+import { hideChat,  toggleChatPannel } from '../../jq'
 import '../ChatButton/ChatButton.css'
 
 export default function ChatButton() {
+
+  hideChat();    
+  
   toggleChatPannel();    
     return (
         <button id="hide_show_button2">

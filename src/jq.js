@@ -27,6 +27,10 @@ export function JQF() {
     setpheduyetAPPROVE();
     setpheduyetDENY();
     setpheduyetCANCEL();
+    $("#chat_panel").fadeOut(250);
+}
+export function hideChat() {
+    $("#chat_panel").fadeOut(250);
 }
 export function resetTC() {
     $(document).on('click', '.RESET_TC_button', function () {
@@ -314,9 +318,8 @@ export function addDataTabe(tableid, colnum, order) {
     else {
         let table = $('#' + tableid).DataTable({
             paging: false,
-            "order": [[ colnum, order ]]
+            "order": [[colnum, order]]
         },
-        
         );
     }
 }
@@ -579,14 +582,12 @@ export function socketJQ() {
     var myDiv = document.getElementById("chat_content");
     myDiv.scrollTop = myDiv.scrollHeight;
 }
-export function notifiJQ() {   
+export function notifiJQ() {
     var myDiv = document.getElementById("notifi_content");
     myDiv.scrollTop = myDiv.scrollHeight;
 }
-
-
 export function toggleChatPannel() {
-    let kk = 0;
+    let kk = 1;
     $(document).on('click', '#hide_show_button2', function () {
         if (kk == 1) {
             $("#chat_panel").fadeIn(250);
@@ -608,32 +609,27 @@ export function scrollToDIV(divID) {
     $('#' + divID).scrollTop(0);
     //$("#"+divID).animate({scrollTop: $("#"+divID).offset().top});
 }
-
-export function addColumnTable(tableID,pos,col_name,content){
-    $("#"+tableID)
-    .find("tr")
-    .each(function () {
-      $(this).find("th").eq(pos).after(`<th>${col_name}</th>`);
-      $(this).find("td").eq(pos).after(`<td>${content}</td>`);
-    });
+export function addColumnTable(tableID, pos, col_name, content) {
+    $("#" + tableID)
+        .find("tr")
+        .each(function () {
+            $(this).find("th").eq(pos).after(`<th>${col_name}</th>`);
+            $(this).find("td").eq(pos).after(`<td>${content}</td>`);
+        });
 }
-export function addRowTable(tableID,content){
+export function addRowTable(tableID, content) {
     //$('.table-responsive tr th').children().length;
-    let col_num = $("#"+ tableID + " > tbody > tr:first > td").length;
-    let rowhtml="";
-
-    for(var ii = 0;ii<col_num;ii++)
-    {
-        rowhtml += "<td>"+ content + " </td>";
+    let col_num = $("#" + tableID + " > tbody > tr:first > td").length;
+    let rowhtml = "";
+    for (var ii = 0; ii < col_num; ii++) {
+        rowhtml += "<td>" + content + " </td>";
     }
     rowhtml = "<tr>" + rowhtml + "</tr>";
-    $('#'+tableID).prepend(rowhtml);     
+    $('#' + tableID).prepend(rowhtml);
 }
-
-export function readingTable(tableID)
-{
+export function readingTable(tableID) {
     console.log("clicked !");
-    var table  = document.getElementById(tableID);
+    var table = document.getElementById(tableID);
     /* for(var i=1;i< table.rows.length;i++)
     {       
          for(var j=0;j<table.rows[i].cells.length;j++)
@@ -642,100 +638,81 @@ export function readingTable(tableID)
             oo.innerHTML=`<button class="click_vd btn btn-primary">Click vào đây</button> [${i}] [${j}]`;
         }        
     }    */
-    for(var i=1;i< table.rows.length;i++)
-    {  
+    for (var i = 1; i < table.rows.length; i++) {
         var oo = table.rows[i].cells[12];
-        oo.innerHTML=`<input type="text" value="${oo.innerHTML}" ></input>`;              
-    }  
-}
-export function modifyColumn(tableID,colnum){   
-    var table  = document.getElementById(tableID);    
-    for(var i=1;i< table.rows.length;i++)
-    {  
-        var oo = table.rows[i].cells[colnum];
-        if (oo.innerHTML == "0") {
-          oo.innerHTML=`<input type="text" value="" ></input>`;  
-          //console.log(oo.firstChild.value)
-        }                      
+        oo.innerHTML = `<input type="text" value="${oo.innerHTML}" ></input>`;
     }
 }
-
-export function updateColumn(tableID,colnum){    
-    var table  = document.getElementById(tableID);   
+export function modifyColumn(tableID, colnum) {
+    var table = document.getElementById(tableID);
+    for (var i = 1; i < table.rows.length; i++) {
+        var oo = table.rows[i].cells[colnum];
+        if (oo.innerHTML == "0") {
+            oo.innerHTML = `<input type="text" value="" ></input>`;
+            //console.log(oo.firstChild.value)
+        }
+    }
+}
+export function updateColumn(tableID, colnum) {
+    var table = document.getElementById(tableID);
     let bulkupdatedata = [];
-    for(var i=1;i< table.rows.length;i++)
-    {         
-        let sample_qty = table.rows[i].cells[colnum];  
-        let pqc1_id = table.rows[i].cells[2].innerHTML;      
-        console.log(pqc1_id+ ":" + sample_qty.innerHTML);
-        if (sample_qty.innerHTML == `<input type="text" value="">`) 
-        {
+    for (var i = 1; i < table.rows.length; i++) {
+        let sample_qty = table.rows[i].cells[colnum];
+        let pqc1_id = table.rows[i].cells[2].innerHTML;
+        console.log(pqc1_id + ":" + sample_qty.innerHTML);
+        if (sample_qty.innerHTML == `<input type="text" value="">`) {
             let sample_input_qty = sample_qty.firstChild.value
             let insertdata = {
                 INSPECT_SAMPLE_QTY: sample_input_qty,
                 PQC1_ID: pqc1_id
             }
-            bulkupdatedata = [...bulkupdatedata,insertdata]; 
+            bulkupdatedata = [...bulkupdatedata, insertdata];
         }
-              
     }
     console.log(bulkupdatedata);
-
-    if(bulkupdatedata.length>0)
-    {
+    if (bulkupdatedata.length > 0) {
         insertSampleQtyPQC1(bulkupdatedata)
-        .then(response=>{
-            let Jresult = response.data;
-            if(Jresult.tk_status=='OK')
-            {
-                swal("Thông báo","Update thành công","success");
-            }
-            else
-            {
-                swal("Lỗi",Jresult.message,"error");
-            }
-
-        })
-        .catch(error=>{
-            swal("Cảnh báo","Có lỗi trong quá trình update","error");
-        })
+            .then(response => {
+                let Jresult = response.data;
+                if (Jresult.tk_status == 'OK') {
+                    swal("Thông báo", "Update thành công", "success");
+                }
+                else {
+                    swal("Lỗi", Jresult.message, "error");
+                }
+            })
+            .catch(error => {
+                swal("Cảnh báo", "Có lỗi trong quá trình update", "error");
+            })
     }
-    else
-    {
-        swal("Thông báo","Không có gì để update","info");
+    else {
+        swal("Thông báo", "Không có gì để update", "info");
     }
 }
-
-export function doubleClickCell()
-{
-    $(document).on('dblclick','td',function()
-    {
+export function doubleClickCell() {
+    $(document).on('dblclick', 'td', function () {
         let value;
-        $(this).each(function()
-        {
+        $(this).each(function () {
             value = $(this).html();
         })
-        $(this).html("<input value='" +value +"' ></input>");
+        $(this).html("<input value='" + value + "' ></input>");
     });
 }
-
-
 export function clickVaoday() {
-  $(document).on("click", ".click_vd", function () {
-    let $row = $(this).closest("tr");
-    let $td = $row.find("td:nth-child(1)");
-    let $input = $td.find("input:nth-child(1)");
-    $.each($input, function () {
-        alert($input.val());
+    $(document).on("click", ".click_vd", function () {
+        let $row = $(this).closest("tr");
+        let $td = $row.find("td:nth-child(1)");
+        let $input = $td.find("input:nth-child(1)");
+        $.each($input, function () {
+            alert($input.val());
+        });
+        /*  $.each($td, function () {
+           $td.html("owahgowaehogweg");
+         }); */
     });
-   /*  $.each($td, function () {
-      $td.html("owahgowaehogweg");
-    }); */
-  });
 }
 let kkk = 1;
-export function hidechat()
-{
+export function hidechat() {
     if (kkk == 1) {
         $("#chat_panel").fadeIn(250);
         kkk = 0;
@@ -745,13 +722,9 @@ export function hidechat()
         kkk = 1;
     }
 }
-
-
-
-export function keydowninput()
-{
-    $('.pqc1form').on('keydown', 'input', function (event) {        
-        if (event.key == 'Enter') { 
+export function keydowninput() {
+    $('.pqc1form').on('keydown', 'input', function (event) {
+        if (event.key == 'Enter') {
             event.preventDefault();
             alert('da bam enter');
         }
