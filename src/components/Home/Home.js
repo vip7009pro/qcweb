@@ -4,11 +4,15 @@ import { ProgressBar } from 'react-bootstrap';
 import { generalQuery } from '../../Api/Api';
 import { UserContext } from '../../Api/Context';
 import '../Home/Home.css'
+import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+
 export default function Home() {
     const [userdata, setUserData] = useContext(UserContext);
     const [workday, setWorkDay] = useState(0);
     const [overtimeday, setOverTimeDay] = useState(0);
     const [nghiday, setNghiDay] = useState(0);
+    const [countxacnhan, setCountXacNhan] = useState(0);
+
     const startOfYear = moment().year() + "-01-01";
     //console.log(moment().startOf('year').format('YYYY-MM-DD'));
     const now = moment(new Date());
@@ -54,6 +58,15 @@ export default function Home() {
             .catch(error => {
                 console.log(error);
             })
+
+        generalQuery('countxacnhanchamcong', insertData)
+        .then(response => {
+            //console.log(response.data.data[0].WORK_DAY);
+            setCountXacNhan(response.data.data[0].COUTNXN);
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
     useEffect(() => {
         getData();
@@ -71,7 +84,7 @@ export default function Home() {
     return (
         <div id='homediv' className='container'>
             <h1>Thông tin đi làm của bạn trong năm:</h1>
-            <div id='pannel'>
+            <div id='pannelhome'>
                 <div id="cot1">
                     <h5>Thông tin nhân viên:</h5>
                     <ul>
@@ -88,14 +101,18 @@ export default function Home() {
                         <li> Chức vụ: {userdata.JOB_NAME}</li>
                     </ul>
                 </div>
-                <h3 className='h3h3' style={{ color: '#cc33ff' }}>Từ đầu năm đến giờ có : {Math.floor(days)} ngày (Tính cả ngày nghỉ lễ nhưng k tính chủ nhật)</h3> <br></br>
-                {workday} /  {Math.floor(days)}
-                <ProgressBar animated variant="success" now={Math.floor(workday / days * 100)} label={`${Math.floor(workday / days * 100)} %`}></ProgressBar>
-                <h3 className='h3h3' style={{ color: 'yellow' }}>Số ngày bạn đi làm : {workday} ngày</h3> <br></br>
-                {overtimeday} /  {Math.floor(workday)}
-                <ProgressBar animated variant="warning" now={Math.floor(overtimeday / workday * 100)} label={`${Math.floor(overtimeday / workday * 100)} %`}></ProgressBar>
-                <h3 className='h3h3' style={{ color: 'blue' }}>Số ngày bạn tăng ca : {overtimeday} ngày</h3> <br></br>
-                <h3 className='h3h3' style={{ color: 'red' }}>Số ngày bạn đăng ký nghỉ (ko tính chủ nhật và nửa phép): {nghiday} ngày</h3> <br></br>
+                <div id="cot2">                 
+                    <h3 className='h3h3' style={{ color: '#cc33ff' }}>Từ đầu năm đến giờ có : {Math.floor(days)} ngày (Tính cả ngày nghỉ lễ nhưng k tính chủ nhật)</h3> <br></br>
+                    {workday} /  {Math.floor(days)}
+                    <ProgressBar animated variant="success" now={Math.floor(workday / days * 100)} label={`${Math.floor(workday / days * 100)} %`}></ProgressBar>
+                    <h3 className='h3h3' style={{ color: 'yellow' }}>Số ngày bạn đi làm : {workday} ngày</h3> <br></br>
+                    {overtimeday} /  {Math.floor(workday)}
+                    <ProgressBar animated variant="warning" now={Math.floor(overtimeday / workday * 100)} label={`${Math.floor(overtimeday / workday * 100)} %`}></ProgressBar>
+                    <h3 className='h3h3' style={{ color: 'blue' }}>Số ngày bạn tăng ca : {overtimeday} ngày</h3> <br></br>
+                    <ProgressBar animated variant="info" now={Math.floor(countxacnhan / workday * 100)} label={`${Math.floor(overtimeday / workday * 100)} %`}></ProgressBar>
+                    <h3 className='h3h3' style={{ color: 'rgb(121 38 222)' }}>Số ngày xác nhận chấm công : {countxacnhan} ngày</h3> <br></br>
+                    <h3 className='h3h3' style={{ color: 'red' }}>Số ngày bạn đăng ký nghỉ (ko tính chủ nhật và nửa phép): {nghiday} ngày</h3> <br></br>
+                </div>
             </div>
         </div>
     )

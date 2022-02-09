@@ -103,7 +103,7 @@ export function getHTMLTABLE2_mydiemdanh(data, table_id)
     var header_array = Object.keys(data[0]).map((element)=>{
     return "<th>" + element + "</th>";
     }); */
-    var header_array = ['EMPL_NO','CMS_ID','APPLY_DATE','DIEM_DANH','MIDLAST_NAME','FIRST_NAME','PHONE_NUMBER','SEX_NAME','WORK_STATUS_NAME','FACTORY_NAME','JOB_NAME','WORK_SHIF_NAME','WORK_POSITION_NAME','SUBDEPTNAME','MAINDEPTNAME','REQUEST_DATE','APPROVAL_STATUS','OFF_ID','CA_NGHI','ON_OFF','OVERTIME_INFO','OVERTIME','REASON_NAME'];
+    var header_array = ['EMPL_NO','CMS_ID','APPLY_DATE','DIEM_DANH','MIDLAST_NAME','FIRST_NAME','PHONE_NUMBER','SEX_NAME','WORK_STATUS_NAME','FACTORY_NAME','JOB_NAME','WORK_SHIF_NAME','WORK_POSITION_NAME','SUBDEPTNAME','MAINDEPTNAME','REQUEST_DATE','APPROVAL_STATUS','OFF_ID','CA_NGHI','ON_OFF','OVERTIME_INFO','OVERTIME','REASON_NAME','XACNHAN'];
     var header_th = header_array.map((element)=>{
         return "<th>"+ element + "</th>";
     });
@@ -166,7 +166,18 @@ export function getHTMLTABLE2_mydiemdanh(data, table_id)
         else
         {
             tr.push("<td>" + data[i]['REASON_NAME']+ "</td>"); 
-        }        
+        } 
+
+        if(data[i]['XACNHAN']==null)
+        {
+            tr.push("<td></td>");
+        }
+        else
+        {
+            tr.push("<td>" + data[i]['XACNHAN']+ "</td>");  
+        } 
+
+         
         tr.push('</tr>');            
     }
     var table_data = "<table id='" + table_id + "' class='table table-responsive table-dark table-striped table table-bordered table-sm ' cellspaceing='0' width='100%'><thead><tr>" + header_string + "</tr></thead> <tbody>"+tr.join('') + " <tbody><table>";
@@ -360,7 +371,7 @@ export function getHTMLTABLE2_diemdanhtong(data, table_id)
     var header_array = Object.keys(data[0]).map((element)=>{
     return "<th>" + element + "</th>";
     }); */
-    var header_array = ['STT','EMPL_NO','CMS_ID','DIEM_DANH','MIDLAST_NAME','FIRST_NAME','PHONE_NUMBER','SEX_NAME','WORK_STATUS_NAME','FACTORY_NAME','JOB_NAME','WORK_SHIF_NAME','WORK_POSITION_NAME','SUBDEPTNAME','MAINDEPTNAME','REQUEST_DATE','APPLY_DATE','APPROVAL_STATUS','OFF_ID','CA_NGHI','ON_OFF','OVERTIME_INFO','OVERTIME','REASON_NAME','LY_DO','DDDATE','QUE_QUAN', 'ADD_VILLAGE','ADD_COMMUNE','ADD_DISTRICT', 'ADD_PROVINCE'];
+    var header_array = ['STT','EMPL_NO','CMS_ID','DIEM_DANH','MIDLAST_NAME','FIRST_NAME','PHONE_NUMBER','SEX_NAME','WORK_STATUS_NAME','FACTORY_NAME','JOB_NAME','WORK_SHIF_NAME','WORK_POSITION_NAME','SUBDEPTNAME','MAINDEPTNAME','REQUEST_DATE','APPLY_DATE','APPROVAL_STATUS','OFF_ID','CA_NGHI','ON_OFF','OVERTIME_INFO','OVERTIME','REASON_NAME','LY_DO','DDDATE','QUE_QUAN', 'ADD_VILLAGE','ADD_COMMUNE','ADD_DISTRICT', 'ADD_PROVINCE','XACNHAN'];
     var header_th = header_array.map((element)=>{
         return "<th>"+ element + "</th>";
     });
@@ -474,7 +485,16 @@ export function getHTMLTABLE2_diemdanhtong(data, table_id)
         tr.push("<td>" + data[i]['ADD_VILLAGE']+ "</td>");
         tr.push("<td>" + data[i]['ADD_COMMUNE']+ "</td>");
         tr.push("<td>" + data[i]['ADD_DISTRICT']+ "</td>");
-        tr.push("<td>" + data[i]['ADD_PROVINCE']+ "</td>");        
+        tr.push("<td>" + data[i]['ADD_PROVINCE']+ "</td>");
+        if(data[i]['XACNHAN']==null)
+        {
+            tr.push("<td></td>");
+        }
+        else
+        {
+            tr.push("<td>" + data[i]['XACNHAN']+ "</td>");  
+        } 
+ 
         tr.push('</tr>');            
     }
     var table_data = "<table id='" + table_id + "' class='table table-responsive table-dark table-striped table table-bordered table-sm ' cellspaceing='0' width='100%'><thead><tr>" + header_string + "</tr></thead> <tbody>"+tr.join('') + " <tbody><table>";

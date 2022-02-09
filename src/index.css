@@ -85,6 +85,24 @@
         background-size: cover;			 
         border-radius:5px;    
     }
+
+    #homediv {
+        background-image: linear-gradient(0deg, #23f1e7,#0cbcf1);
+        height: 600px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
+        
+    }
+    
+    #pannelhome {
+        background-image: linear-gradient(0deg, #fafafa34,#edf1f12a);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 200px 0 rgba(0, 0, 0, 0.19);
+        padding: 20px;
+        border-radius: 5px;  
+        height: 500px; 
+    }
+   
 }
 .table-responsive {    
     overflow-x: auto;

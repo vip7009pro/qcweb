@@ -4,11 +4,12 @@ import ReactDOM from 'react-dom';
 import Employee from './Employee';
 /* import QCApp from './QCApp'; */
 import './index.css';
-import RNDApp from './RNDApp';
+/* import RNDApp from './RNDApp'; */
+require('react-web-vector-icons/fonts');
 
 ReactDOM.render(  
     <>    
-    <RNDApp/>    
+    <Employee/>    
     </>,  
   document.getElementById('root')
 );
