@@ -4,6 +4,7 @@ import swal from "sweetalert";
 const cookies = new Cookies();
 axios.defaults.withCredentials = true;
 
+//const API_URL = "http://14.160.33.94:3020/api";
 const API_URL = "http://14.160.33.94:100/api";
 
 export function login(user, pass) {

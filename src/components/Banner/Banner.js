@@ -34,7 +34,7 @@ export default function Banner(props) {
     return (
         <div className="container p-3 my-3" id="basic_info" >
             <marquee direction="left" className="text-white ">
-                <h3>Hệ thống quản lý nhân sự QC - Kiểm Tra </h3>
+                <h3>Hệ thống quản lý nhân sự CMS </h3>
             </marquee>
             <button id="turnonNotifi" className="btn btn-success" onClick={()=>{ handeTurnOnOffNoti()}}> Bật/Tắt thông báo</button>
             <button id="logout_bt" className="btn btn-primary" onClick={log_out}> Logout</button>

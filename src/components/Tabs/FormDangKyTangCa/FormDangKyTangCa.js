@@ -79,61 +79,58 @@ export default function FormDangKyTangCa() {
   };
 
   return (
-    <div id="overtime" className="container formdiv">
+    <div id='overtime' className='container formdiv'>
       <br />
       <h3>Đăng ký tăng ca và xác nhận chấm công</h3>
       <p>Đăng ký tăng ca trong ngày tại đây</p>
-      <div className="row">
-        <div className="col">
-          <form id="form_dk_tangca" method="post">
-            <div className="form-group">
-              <label htmlFor="tangcayesno">
+      <div className='row'>
+        <div className='col'>
+          <form id='form_dk_tangca' method='post'>
+            <div className='form-group'>
+              <label htmlFor='tangcayesno'>
                 <b>Bạn có tăng ca hay không ?</b>
               </label>
               <select
                 style={{ width: "250px" }}
-                className="form-control"
-                id="tangcayesno"
-                name="tangcayesno"
+                className='form-control'
+                id='tangcayesno'
+                name='tangcayesno'
                 onChange={(e) => {
                   handleSetTangCa(e);
                 }}
               >
                 <option>Có tăng ca</option>
-                <option>Không tăng ca</option>
-                <option>Quên giờ vào</option>
-                <option>Quên giờ ra</option>
-                <option>Quên cả giờ vào và giờ ra</option>
+                <option>Không tăng ca</option>                
               </select>
             </div>
-            <div className="form-group">
-              <label htmlFor="text">
+            <div className='form-group'>
+              <label htmlFor='text'>
                 <b>Thời gian bắt đầu:</b> <i>(Ví dụ 17h00p thì nhập : 1700)</i>
               </label>
               <input
                 style={{ width: "250px" }}
-                type="text"
-                className="form-control"
-                placeholder="Giờ bắt đầu tăng ca"
-                id="over_start"
-                name="over_start"
+                type='text'
+                className='form-control'
+                placeholder='Giờ bắt đầu tăng ca'
+                id='over_start'
+                name='over_start'
                 value={over_start}
                 onChange={(e) => {
                   setOverStart(e.target.value);
                 }}
               ></input>
             </div>
-            <div className="form-group">
-              <label htmlFor="text">
+            <div className='form-group'>
+              <label htmlFor='text'>
                 <b>Thời gian kết thúc:</b> <i>(Ví dụ 20h00p thì nhập : 2000)</i>
               </label>
               <input
                 style={{ width: "250px" }}
-                type="text"
-                className="form-control"
-                placeholder="Giờ kết thúc tăng ca"
-                id="over_finish"
-                name="over_finish"
+                type='text'
+                className='form-control'
+                placeholder='Giờ kết thúc tăng ca'
+                id='over_finish'
+                name='over_finish'
                 value={over_finish}
                 onChange={(e) => {
                   setOverFinish(e.target.value);
@@ -142,25 +139,25 @@ export default function FormDangKyTangCa() {
             </div>
           </form>
           <button
-            className="btn btn-primary"
-            id="overtime_submit"
+            className='btn btn-primary'
+            id='overtime_submit'
             onClick={handleSubmit}
           >
             Đăng ký hôm nay
           </button>
         </div>
 
-        <div className="col">
-          <form id="form_xacnhanchamcong" method="post">
-            <div className="form-group">
-              <label htmlFor="tangcayesno">
+        <div className='col'>
+          <form id='form_xacnhanchamcong' method='post'>
+            <div className='form-group'>
+              <label htmlFor='tangcayesno'>
                 <b>Chọn xác nhận chấm công</b>
               </label>
               <select
                 style={{ width: "250px" }}
-                className="form-control"
-                id="xacnhantype"
-                name="xacnhantype"
+                className='form-control'
+                id='xacnhantype'
+                name='xacnhantype'
                 onChange={(e) => {
                   handleSetXacNhan(e);
                 }}
@@ -171,16 +168,16 @@ export default function FormDangKyTangCa() {
               </select>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="date">
+            <div className='form-group'>
+              <label htmlFor='date'>
                 <b>Ngày quên chấm công:</b>{" "}
               </label>
               <input
                 style={{ width: "250px" }}
-                type="date"
-                className="form-control"
-                id="confirm_date"
-                name="confirm_date"
+                type='date'
+                className='form-control'
+                id='confirm_date'
+                name='confirm_date'
                 value={xacnhanDate}
                 onChange={(e) => {
                   setXacNhanDate(e.target.value);
@@ -188,18 +185,18 @@ export default function FormDangKyTangCa() {
               ></input>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="text">
+            <div className='form-group'>
+              <label htmlFor='text'>
                 <b>Thời gian làm xác nhận:</b>{" "}
                 <i>(Ví dụ 08h00p~ 17h00p thì nhập : 0800-1700)</i>
               </label>
               <input
                 style={{ width: "250px" }}
-                type="text"
-                className="form-control"
-                placeholder="Giờ vào-ra"
-                id="confirm_worktime"
-                name="confirm_worktime"
+                type='text'
+                className='form-control'
+                placeholder='Giờ vào-ra'
+                id='confirm_worktime'
+                name='confirm_worktime'
                 value={confirm_worktime}
                 onChange={(e) => {
                   setconfirm_worktime(e.target.value);
@@ -208,8 +205,8 @@ export default function FormDangKyTangCa() {
             </div>
           </form>
           <button
-            className="btn btn-success"
-            id="submit_confirm"
+            className='btn btn-success'
+            id='submit_confirm'
             onClick={(e) => {
               handleSubmit_xacnhan(e);
             }}

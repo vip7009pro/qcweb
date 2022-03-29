@@ -63,8 +63,7 @@ export default function InfoPanel() {
             .catch(error => {
                 console.log("Loi: " + error + " ");
             });
-    }
-     
+    }     
     console.log("render info panel");
     useEffect(() => {
         att_refresh();

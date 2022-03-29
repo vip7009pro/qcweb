@@ -41,18 +41,18 @@ export default function FormDangKyNghi() {
     }
   };
   return (
-    <div id="formdangkynghi" className="container formdiv">
+    <div id='formdangkynghi' className='container formdiv'>
       <h3>Đăng ký nghỉ</h3>
-      <form id="form_dk_nghi" method="post">
-        <div className="form-group">
-          <label htmlFor="exampleFormControlSelect1">
+      <form id='form_dk_nghi' method='post'>
+        <div className='form-group'>
+          <label htmlFor='exampleFormControlSelect1'>
             <b>Chọn ca</b>
           </label>
           <select
-            className="form-control"
-            id="ca_nghi"
-            name="ca_nghi"
-            style={{width: '250px'}}
+            className='form-control'
+            id='ca_nghi'
+            name='ca_nghi'
+            style={{ width: "250px" }}
             onChange={(e) => {
               setCaNghi(e.target.value);
             }}
@@ -61,50 +61,50 @@ export default function FormDangKyNghi() {
             <option>Ca đêm</option>
           </select>
         </div>
-        <div className="form-group">
-          <label htmlFor="date">
+        <div className='form-group'>
+          <label htmlFor='date'>
             <b>
-              Nghỉ từ ngày <p id="time_1">(08:00)</p>
+              Nghỉ từ ngày <p id='time_1'>(08:00)</p>
             </b>
           </label>{" "}
           <br></br>
           <input
-            type="date"
-            id="nghi_from_date"
-            name="ngaybatdau"
-            style={{width: '250px'}}
+            type='date'
+            id='nghi_from_date'
+            name='ngaybatdau'
+            style={{ width: "250px" }}
             value={fromdate}
             onChange={(e) => {
               setFromDate(e.target.value);
             }}
           ></input>
           <br></br>
-          <label htmlFor="date">
+          <label htmlFor='date'>
             <b>
-              Nghỉ tới ngày<p id="time_2">(17:00)</p>{" "}
+              Nghỉ tới ngày<p id='time_2'>(17:00)</p>{" "}
             </b>
           </label>{" "}
           <br></br>
           <input
-            type="date"
-            id="nghi_to_date"
-            name="ngayketthuc"
-            style={{width: '250px'}}
+            type='date'
+            id='nghi_to_date'
+            name='ngayketthuc'
+            style={{ width: "250px" }}
             value={todate}
             onChange={(e) => {
               setToDate(e.target.value);
             }}
           ></input>
         </div>
-        <div className="form-group">
-          <label htmlFor="exampleFormControlSelect1">
+        <div className='form-group'>
+          <label htmlFor='exampleFormControlSelect1'>
             <b>Chọn kiểu nghỉ</b>
           </label>
           <select
-            className="form-control"
-            id="reason"
-            name="reason_name"
-            style={{width: '250px'}}
+            className='form-control'
+            id='reason'
+            name='reason_name'
+            style={{ width: "250px" }}
             onChange={(e) => {
               setOffType(e.target.value);
             }}
@@ -117,26 +117,26 @@ export default function FormDangKyNghi() {
             <option>Không lý do</option>
           </select>
         </div>
-        <div className="form-group">
-          <label htmlFor="text">
+        <div className='form-group'>
+          <label htmlFor='text'>
             <b>Lý do cụ thể:</b>
           </label>
           <input
-            type="text"
-            className="form-control"
-            placeholder="Lý do sự việc nghỉ cụ thể"
-            id="nghi_remark"
-            name="remark_content"
-            style={{width: '250px'}}
+            type='text'
+            className='form-control'
+            placeholder='Lý do sự việc nghỉ cụ thể'
+            id='nghi_remark'
+            name='remark_content'
+            style={{ width: "250px" }}
             onChange={(e) => {
               setRemark(e.target.value);
             }}
           ></input>
         </div>
         <button
-          type="button"
-          className="btn btn-primary"
-          id="smt_button"
+          type='button'
+          className='btn btn-primary'
+          id='smt_button'
           onClick={(e) => {
             handleSubmit(e);
           }}

@@ -8,13 +8,18 @@ import LoginPage from './components/LoginPage/LoginPage';
 import { UserContext, SocketContext } from './Api/Context';
 import './components/dataTables.bootstrap4.min.css'
 import socketIOClient from 'socket.io-client'
-function Employee() {
+import QC from './components/QC_Component/QC';
+import CNDB1 from './components/QC_Component/CNDB/CNDB1/CNDB1';
+import Banner from './components/Banner/Banner';
+import KD from './components/KD_Components/KD';
+
+function KDApp() {
   const [loginState, setloginState] = useState(0);
   const [userdata, setUserData] = useState("okma");
   const socketReft = useRef();
   useEffect(() => {
     checkLogin().then(data => {
-      //console.log(data);
+      console.log(data);
       if (data.data.tk_status == 'ng') {
         setloginState(0);
         setUserData(data.data.data);
@@ -22,7 +27,7 @@ function Employee() {
       else {
         setloginState(1);
         console.log(data.data.data);
-        socketReft.current = socketIOClient.connect('14.160.33.94:3025');
+        socketReft.current = socketIOClient.connect('14.160.33.94:3005');
         setUserData(data.data.data);
       }
     })
@@ -36,13 +41,11 @@ function Employee() {
   console.log("Login State = " + loginState);
   if (loginState == 1) {
     return (
-      <>      
+      <>
         <div>
           <UserContext.Provider value={[userdata, setUserData]}>
             <SocketContext.Provider value={socketReft}>
-              <Header />
-              <Main />
-              {/* <Footer /> */}
+             <KD/>
             </SocketContext.Provider>
           </UserContext.Provider>
         </div>
@@ -53,4 +56,4 @@ function Employee() {
     <LoginPage />
   )
 }
-export default Employee;
+export default KDApp;
