@@ -8,6 +8,7 @@ import { keydowninput, modifyColumn, readingTable, updateColumn } from '../../..
 import Draggable from 'react-draggable';
 import { loadProgressBar } from 'axios-progress-bar'
 import 'axios-progress-bar/dist/nprogress.css'
+import FormButton from '../../FormButton/FormButton';
 export default function PQC1() {
     const [pqc1_settingdate, setpqc1_settingdate] = useState(moment().format("YYYY-MM-DD"));
     const [pqc1_factoryname, setpqc1_factoryname] = useState('Nhà máy 1');
@@ -197,7 +198,8 @@ export default function PQC1() {
     },[])
     return (
         <div id="pqc1_panel">
-            <Draggable>
+            <FormButton/>
+            <Draggable>            
             <div className='pqcform'>
                 <h2>Form nhập thông tin Setting PQC</h2>
                 

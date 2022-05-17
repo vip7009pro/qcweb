@@ -36,7 +36,7 @@ function Employee() {
   console.log("Login State = " + loginState);
   if (loginState == 1) {
     return (
-      <>      
+      <>   
         <div>
           <UserContext.Provider value={[userdata, setUserData]}>
             <SocketContext.Provider value={socketReft}>

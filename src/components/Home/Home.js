@@ -96,7 +96,7 @@ export default function Home() {
         }
     }
     return (
-        <div id='homediv' className='container'>
+        <div id='homediv'/*  className='container' */>
             <h1>Thông tin đi làm của bạn trong năm:</h1>
             <div id='pannelhome'>
                 <div id="cot1">

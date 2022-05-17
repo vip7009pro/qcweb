@@ -45,10 +45,6 @@ function QCApp() {
           <UserContext.Provider value={[userdata, setUserData]}>
             <SocketContext.Provider value={socketReft}>
              <QC/>
-             {/* <div className='container'>
-             <Banner />
-             <CNDB1/>
-             </div> */}
             </SocketContext.Provider>
           </UserContext.Provider>
         </div>

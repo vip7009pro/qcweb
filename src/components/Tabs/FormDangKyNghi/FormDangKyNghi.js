@@ -41,7 +41,7 @@ export default function FormDangKyNghi() {
     }
   };
   return (
-    <div id='formdangkynghi' className='container formdiv'>
+    <div id='formdangkynghi' className='formdiv'>
       <h3>Đăng ký nghỉ</h3>
       <form id='form_dk_nghi' method='post'>
         <div className='form-group'>

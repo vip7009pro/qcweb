@@ -6,6 +6,7 @@ import { getHTMLTABLE22 } from '../../../../Api/tableRender';
 import swal from 'sweetalert';
 import { modifyColumn, readingTable, updateColumn } from '../../../../jq';
 import Draggable from 'react-draggable';
+import FormButton from '../../FormButton/FormButton';
 
 
 export default function PQC3() {
@@ -163,6 +164,7 @@ export default function PQC3() {
     },[])
     return (
         <div id="pqc3_panel">
+            <FormButton/>
             <Draggable>
             <div className='pqcform'>
                 <h2>Form nhập thông tin lỗi công đoạn PQC</h2>                

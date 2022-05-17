@@ -34,10 +34,10 @@ export default function FormSetTeam() {
         handleSubmit();
     }, [])
     return (
-        <div id="hr_modify" className="container formdiv"><br />
+        <div id="hr_modify" className="formdiv"><br />
             <h3>Điều chuyển nhân sự qua lại giữa các team</h3>
             <p>Leader mới có thể thực hiện điều chuyển</p>
-            <div className="container">
+            <div>
                 <button type="button" id="refresh_setTeam" className="btn btn-primary" onClick={handleSubmit}>Refresh</button>
                 <button type="button" id="changeview_hr_modify" className="toggleTableBT btn btn-info" onClick={toggleTableView}> Mở rộng/ Thu hẹp
                 </button>

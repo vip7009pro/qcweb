@@ -1,16 +1,25 @@
 #basic_info {
-    background-image: linear-gradient(0deg, #35f880,#0cd4d4);
+    background-image: linear-gradient(0deg, #b4f75d,#6b6a0d);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-size: cover;			 
-    border-radius:5px;    
+    border-radius:5px;   
+    margin-bottom: 10px;
+    padding: 5px;
 }
 #watch {    
     font-size: 20px;
     font-weight: bold;
     color: rgb(25, 0, 255);    
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-    margin: auto;    
+    margin-left: 10px;
+    margin-bottom: 10px;  
 }
 #logout_bt {
     float: right;
+    margin-right: 10px;
+}
+#turnonNotifi {
+    margin-left: 10px;
+    margin-bottom: 10px;
+
 }

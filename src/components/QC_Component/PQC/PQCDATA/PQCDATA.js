@@ -8,6 +8,7 @@ import Draggable from 'react-draggable';
 import { loadProgressBar } from 'axios-progress-bar'
 import 'axios-progress-bar/dist/nprogress.css'
 import '../PQCDATA/PQCDATA.css'
+import FormButton from '../../FormButton/FormButton';
 
 export default function PQCDATA() {
     const [alltime,setAllTime] = useState(false);
@@ -20,8 +21,7 @@ export default function PQCDATA() {
     const [pqcdata_gname, setpqcdata_gname] = useState('');
     const [pqcdata_prod_request_no, setpqcdata_prod_request_no] = useState('');  
     const [pqcdata_id, setpqcdata_id] = useState('');
-    const [pqcdata_selection, setpqcdata_selection] = useState(`PQC SETTING`);   
-
+    const [pqcdata_selection, setpqcdata_selection] = useState(`PQC SETTING`); 
     const [table,setTable] = useState('');
 
 
@@ -86,8 +86,9 @@ export default function PQCDATA() {
     },[])
     return (
         <div id="pqc1_panel">
-            <Draggable>
-            <div className='pqcform'>
+            <FormButton/>
+            <Draggable >
+            <div  className='pqcform'>
                 <h2>Form tra Data PQC</h2>                
                 <form className='pqc1form'>
                     <div className='row'>
@@ -178,14 +179,12 @@ export default function PQCDATA() {
             </div>
             </Draggable>
             <div className = "pqc_dataTable">
-                <h3><p>Bảng dữ liệu setting PQC</p></h3>
+                <h3><p>Tra DATA PQC</p></h3>
                 <div id="pqc1_data" className="table-wrapper-scroll-y my-custom-scrollbar" >
-                    Đây là dữ liệu PQC Setting
+                    Đây là dữ liệu PQC
                     <span  dangerouslySetInnerHTML={{__html: table}}></span>
                 </div>
-            </div>
-           
-            
+            </div> 
         </div>
     )
 }

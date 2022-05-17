@@ -7,6 +7,7 @@ import { addColumnTable, addRowTable, clickVaoday, doubleClickCell, readingTable
 import swal from 'sweetalert';
 import { converttoDateTimefromTime } from '../../../../Api/GlobalFunctions';
 import Draggable from 'react-draggable';
+import FormButton from '../../FormButton/FormButton';
 
 export default function PQC2() {
     const [pqc2_settingdate, setpqc2_settingdate] = useState(moment().format("YYYY-MM-DD"));    
@@ -173,8 +174,9 @@ export default function PQC2() {
     },[])
     return (
         <div id="pqc2_panel">
+            <FormButton/>
             <Draggable>
-            <div className='pqcform2'>
+            <div className='pqcform'>
                 <h5>Form nhập thông tin Checksheet PQC</h5>
                 <form>
                     <div className='row'>
@@ -189,31 +191,31 @@ export default function PQC2() {
                             <div className='form-group'>
                                 <label>
                                     <b>LOT Sản xuất: <span style={{color:'blue'}}>{gname} </span></b>
-                                    <input type="text" id="pqc2_process_lot_no" size={30} value={pqc2_process_lot_no} onChange={ (e) => { setpqc2_process_lot_no(e.target.value)}} onBlur={(e)=>{ handleGetPQC1ID(pqc2_lineqc_empl_no,pqc2_process_lot_no); handle_temp_info(e.target.value,'gname');}} ></input>
+                                    <input type="text" id="pqc2_process_lot_no" value={pqc2_process_lot_no} onChange={ (e) => { setpqc2_process_lot_no(e.target.value)}} onBlur={(e)=>{ handleGetPQC1ID(pqc2_lineqc_empl_no,pqc2_process_lot_no); handle_temp_info(e.target.value,'gname');}} ></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Mã LineQC: <span style={{color:'blue'}}>{pqc2_lineqc_empl_name} </span></b>
-                                    <input type="text" id="pqc2_lineqc_empl_no" size={30} value={pqc2_lineqc_empl_no} onChange={ (e) => { setpqc2_lineqc_empl_no(e.target.value)}} onBlur={(e)=>{ handleGetPQC1ID(pqc2_lineqc_empl_no,pqc2_process_lot_no); handle_temp_info(e.target.value,'pqc2_lineqc_empl_name');}}></input>
+                                    <input type="text" id="pqc2_lineqc_empl_no"  value={pqc2_lineqc_empl_no} onChange={ (e) => { setpqc2_lineqc_empl_no(e.target.value)}} onBlur={(e)=>{ handleGetPQC1ID(pqc2_lineqc_empl_no,pqc2_process_lot_no); handle_temp_info(e.target.value,'pqc2_lineqc_empl_name');}}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>ID Setting: </b>
-                                    <input type="text" id="pqc2_pqc1_ID" size={30} value={pqc2_pqc1_ID} onChange={ (e) => { setpqc2_pqc1_ID(e.target.value)}}></input>
+                                    <input type="text" id="pqc2_pqc1_ID"  value={pqc2_pqc1_ID} onChange={ (e) => { setpqc2_pqc1_ID(e.target.value)}}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Kết quả checksheet: Định dạng "1310,1520,1745,1,0,1" </b>
-                                    <input type="text" id="pqc2_checksheet_result" size={30} value={pqc2_checksheet_result} onChange={ (e) => { setpqc2_checksheet_result(e.target.value)}} onBlur={ (e) => { handleCheckSheetResult(pqc2_checksheet_result)}}></input>
+                                    <input type="text" id="pqc2_checksheet_result"  value={pqc2_checksheet_result} onChange={ (e) => { setpqc2_checksheet_result(e.target.value)}} onBlur={ (e) => { handleCheckSheetResult(pqc2_checksheet_result)}}></input>
                                 </label>
                             </div>
                             <div className='form-group'>
                                 <label>
                                     <b>Nội dung ghi chú </b>
-                                    <input type="text" id="pqc2_remark" size={30} value={pqc2_remark} onChange={ (e) => { setpqc2_remark(e.target.value)}}></input>
+                                    <input type="text" id="pqc2_remark"  value={pqc2_remark} onChange={ (e) => { setpqc2_remark(e.target.value)}}></input>
                                 </label>
                             </div>
                         </div>                    

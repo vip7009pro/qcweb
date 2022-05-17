@@ -55,7 +55,7 @@ export default function FormDiemDanhNhom() {
              
     }, [teamname]);
     return (
-        <div id="diemdanh" className="container formdiv">
+        <div id="diemdanh" className="formdiv">
             <h3>Điểm danh cho nhóm của mình</h3>
             <form id="form_diem_danh" method="post">
                 <div className="form-group">

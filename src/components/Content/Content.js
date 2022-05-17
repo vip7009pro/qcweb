@@ -25,7 +25,7 @@ export default function Content() {
             <Router>
                 <div id="navbarmenu" className='container' >
                     <div id="navv" >
-                        <Navbar collapseOnSelect expand="false" expand="lg" style={{ fontSize: '14px', height: '80px', borderRadius: '5px' }}>
+                        <Navbar collapseOnSelect expand="false" style={{ fontSize: '14px', height: '80px', borderRadius: '5px' }}>
                             <Container>
                                 <Navbar.Toggle label='Menu' />
                                 <Navbar.Collapse id="basic-navbar-nav" bg='light' variant='light'>
@@ -47,7 +47,7 @@ export default function Content() {
                     </div>
                 </div>
                 <Routes>
-                <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/dangkynghi" element={<FormDangKyNghi />} />
                     <Route path="/dangkytangca" element={<FormDangKyTangCa />} />
                     <Route path="/lichsunghi" element={<FormLichSuNghi />} />

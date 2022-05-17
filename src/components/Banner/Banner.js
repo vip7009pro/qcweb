@@ -32,7 +32,7 @@ export default function Banner(props) {
         }
     }
     return (
-        <div className="container p-3 my-3" id="basic_info" >
+        <div /* className="container p-3 my-3" */ id="basic_info" >
             <marquee direction="left" className="text-white ">
                 <h3>Hệ thống quản lý nhân sự CMS </h3>
             </marquee>

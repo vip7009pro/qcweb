@@ -79,7 +79,7 @@ export default function FormDangKyTangCa() {
   };
 
   return (
-    <div id='overtime' className='container formdiv'>
+    <div id='overtime' className='formdiv'>
       <br />
       <h3>Đăng ký tăng ca và xác nhận chấm công</h3>
       <p>Đăng ký tăng ca trong ngày tại đây</p>

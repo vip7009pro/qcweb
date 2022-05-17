@@ -599,6 +599,23 @@ export function toggleChatPannel() {
         }
     })
 }
+
+export function toggleFormPannel() {
+    let kkk1 = 1;
+    $(document).on('click', '.hide_show_form_button', function () {
+        if (kkk1 == 1) {
+            $(".pqcform").fadeIn(250);
+            kkk1 = 0;         
+           // alert("A");   
+        }
+        else {
+            $(".pqcform").fadeOut(250);
+            kkk1 = 1;       
+           // alert("B");     
+        }
+    })
+}
+
 export function notificationFadeIn() {
     $("#notification_bar").fadeIn(250);
 }

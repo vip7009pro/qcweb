@@ -1,0 +1,11 @@
+.hide_show_form_button {
+    bottom: 10px;
+    right: 20px;
+    position: fixed;   
+    cursor:pointer;
+    border:none;
+    width:50px;
+    height:50px;    
+    background-color:transparent;
+    z-index: 300;    
+}

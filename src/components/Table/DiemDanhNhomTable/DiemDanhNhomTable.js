@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import ReactTable, { useTable } from "react-table";
 
 function DiemDanhNhomTable() {
@@ -74,7 +73,6 @@ function DiemDanhNhomTable() {
       accessor: "friend.age", // Khi 1 thuộc tính của dữ liệu có kiểu là 1 đối tượng, chúng ta cũng có thể cung cấp đường dẫn đến thuộc tính cần lấy giá trị.
     },
   ];
-
   return <ReactTable data={data} columns={columns} defaultPageSize={5} />;
 }
 

@@ -1,18 +1,3 @@
-/* .pqcform {
-    position: fixed;
-    background-image: linear-gradient(0deg, #1fce76,#7ec032);
-    padding: 20px;    
-    margin-left:20px;
-    margin-top: 20px;
-    margin-right: 20px;
-    width: fit-content;    
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-size: cover;			 
-    border-radius:5px;
-    float: left;
-    
-} */
-
 .pqcform {
     position: fixed;
     background-image: linear-gradient(0deg, #1fce76,#7ec032);
@@ -81,4 +66,3 @@ td:hover {
 #pqc_data_table {
     overflow-x: auto;
 }
-
