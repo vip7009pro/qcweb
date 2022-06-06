@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 /* import App from './App'; */
-/* import Employee from './Employee'; */
-import QCApp from './QCApp';
+import Employee from './Employee';
+/* import QCApp from './QCApp'; */
 import './index.css';
-import KDApp from './KDApp';
+/* import KDApp from './KDApp'; */
 /* import RNDApp from './RNDApp'; */
 require('react-web-vector-icons/fonts');
 
 ReactDOM.render(  
     <>    
-    <QCApp/> 
+    <Employee/> 
     </>,  
   document.getElementById('root')
 );

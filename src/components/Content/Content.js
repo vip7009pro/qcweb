@@ -23,7 +23,7 @@ export default function Content() {
         <div id="content">
             {/* <NavMenu/> */}
             <Router>
-                <div id="navbarmenu" className='container' >
+                <div id="navbarmenu"/*  className='container' */ >
                     <div id="navv" >
                         <Navbar collapseOnSelect expand="false" style={{ fontSize: '14px', height: '80px', borderRadius: '5px' }}>
                             <Container>

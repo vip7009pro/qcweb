@@ -22,7 +22,7 @@ function Employee() {
       else {
         setloginState(1);
         console.log(data.data.data);
-        socketReft.current = socketIOClient.connect('14.160.33.94:3025');
+        socketReft.current = socketIOClient.connect('14.160.33.94:5012');
         setUserData(data.data.data);
       }
     })
@@ -41,8 +41,7 @@ function Employee() {
           <UserContext.Provider value={[userdata, setUserData]}>
             <SocketContext.Provider value={socketReft}>
               <Header />
-              <Main />
-              {/* <Footer /> */}
+              <Main />             
             </SocketContext.Provider>
           </UserContext.Provider>
         </div>

@@ -51,12 +51,12 @@ export default function QC() {
                   <Nav.Link eventKey='2' as={Link} to='/hr/dangkytangca'>
                     Đăng ký tăng ca
                   </Nav.Link>
-                </div>    
+                </div>
                 <div>
                   <Nav.Link eventKey='2' as={Link} to='/hr/lichsunghi'>
                     Lịch sử nghỉ
                   </Nav.Link>
-                </div>            
+                </div>
                 <div>
                   <Nav.Link eventKey='2' as={Link} to='/hr/lichsudilam'>
                     Lịch sử đi làm
@@ -86,9 +86,8 @@ export default function QC() {
                   <Nav.Link eventKey='2' as={Link} to='/hr/huongdansudung'>
                     Hương dẫn sử dụng
                   </Nav.Link>
-                </div>               
+                </div>
               </NavDropdown>
-
               <NavDropdown title='PQC' id='basic-nav-dropdown'>
                 <div>
                   <Nav.Link eventKey='1' as={Link} to='/pqc/pqc1'>
@@ -112,7 +111,6 @@ export default function QC() {
                   </Nav.Link>
                 </div>
               </NavDropdown>
-
               <NavDropdown title='OQC' id='basic-nav-dropdown'>
                 <div>
                   <Nav.Link eventKey='1' as={Link} to='/oqc/oqc1'>
@@ -139,7 +137,6 @@ export default function QC() {
             </Container>
           </Navbar>
         </div>
-
         <Routes>
           <Route path='/pqc' element={<PQCDATA />} />
           <Route path='/cndb1' element={<CNDB1 />} />
@@ -151,14 +148,9 @@ export default function QC() {
           <Route path='/pqc/pqc2' element={<PQC2 />} />
           <Route path='/pqc/pqc3' element={<PQC3 />} />
           <Route path='/pqc/pqc4' element={<PQCDATA />} />
-
           <Route path='/oqc/oqc1' element={<OQC1 />} />
-
-
-
           <Route path='/scanner' element={<Scanner />} />
           <Route path='/hr' element={<Content />} />
-
           <Route path='/hr/home' element={<Home />} />
           <Route path='/hr/dangkynghi' element={<FormDangKyNghi />} />
           <Route path='/hr/dangkytangca' element={<FormDangKyTangCa />} />
@@ -169,7 +161,6 @@ export default function QC() {
           <Route path='/hr/diemdanhtong' element={<FormDiemDanhTong />} />
           <Route path='/hr/dieuchuyenteam' element={<FormSetTeam />} />
           <Route path='/hr/huongdansudung' element={<FormHuongDanSuDung />} />
-
           <Route
             path='*'
             element={<h1>Méo có gì ! Hãy chọn chức năng trên menu</h1>}

@@ -74,7 +74,7 @@ export default function InfoPanel() {
     return (
         <div id="info_panel">
             <button id="hide_show_button" className="btn btn-primary" onClick={handlePanelState}>-</button>
-            <div className="container p-3 my-3 bg-dark text-white " id="empl_info" style={{ display: panelState }}>
+            <div className="p-3 my-3 bg-dark text-white " id="empl_info" style={{ display: panelState }}>
                 <div id="dong1">
                     <div id="cot1">
                         <h5>Thông tin nhân viên:</h5>
